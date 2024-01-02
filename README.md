@@ -41,9 +41,9 @@ Develop a web application based on the provided Figma design: (https://www.figma
 * Upload the code and steps 1-3 to our GitHub repository:  (https://github.com/The-MAS-Network/TheSolution).
   
 **Note:**
-_Contact development@themasnetwork.com   for clarifications.
-Submissions to [formlinkexample.com] by the deadline.
-Winning codes will be made open source on The MAS Network's GitHub for future developers to build on top of._
+_Winning codes will be made open source on The MAS Network's GitHub for future developers to build on top of.
+Contact development@themasnetwork.com   for clarifications.
+Submissions to [formlinkexample.com] by the deadline._
 
 
 **Timeline:**
