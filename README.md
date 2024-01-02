@@ -1,70 +1,48 @@
-# TheSolution
-"The Solution" is a powerful web application that seamlessly combines lightning-fast quiz experiences with AI-enhanced video learning, all powered by Bitcoin Lightning. Using cutting-edge AI technology, concise video shorts are generated directly from YouTube links, forming the foundation for dynamic quizzes that engage users directly with the content. Participate in lightning-quick quiz competitions held every 10 days to earn Bitcoin rewards in Satoshis (sats), exclusively through Lightning transactions. Challenge yourself in competitions, strive for high scores, climb the leaderboard, and showcase your knowledge.
-
-**Key Features:**
-
-AI-Enhanced Video Learning: Utilize advanced AI technology to create concise video shorts directly from YouTube links, seamlessly integrated with quizzes that engage users directly with the content.
-Earn Lightning (Sats) through Competitions: Participate in lightning-quick quiz competitions every 10 days, challenging yourself and earning Bitcoin rewards in Satoshis (sats) through Lightning transactions.
-User Fees and Sponsor Income: Pay nominal fees using Lightning transactions to join quiz competitions. These fees serve as income for the quiz sponsor, who receives verification fees.
-
-In summary, "The Solution" provides a user-friendly platform where AI-enhanced video learning seamlessly integrates with lightning-quick quizzes, offering an efficient and enjoyable way to learn and earn Bitcoin rewards through Lightning transactions. Explore the dynamic quizzes, challenge yourself in competitions held every 10 days, enhance your knowledge, and enjoy a straightforward yet impactful learning experience!
-
+> **The Solution Web Mobile Application Open Source Project Competition Rules and Guidelines**
 
 **Objective:**
-Encourage collaboration and innovation by inviting developers to contribute to the development of "The Solution Web Application." A max of three teams with the highest task completion rates will be awarded from a prize pool of 3 millions Sats every two weeks during the competition period until 15 million Sats has been awarded.
+Develop a web application based on the provided Figma design: (https://www.figma.com/file/RUFBEsbS5RS78bS541rbbu/Community-Design-Access-File?type=design&node-id=0-1&mode=design&t=vO7DiGe3JRlwfp7h-0). Functionalities include the Profile Section, language change, and a fully operational Sign Up/Sign In section.
 
-**Eligibility:**
-Open to individual developers and Development teams.
-All participants must be registered contributors on the project's GitHub repository.
+**Requirements:**
+**1. Profile Section:**
+   - Implement user details, account info, and options for language change.
+   - Allow users to log out from the Profile Section.
 
-**Competition Period:**
-The competition will run for a total of 10 weeks, 
-This competition will last till the 15 million SATs are given out to participants, with awards given every two weeks.
+**2. Language Change:**
+   - Enable users to change the app language.
+   - Minimum supported languages: English, Spanish, and French.
+   - Developers can add more languages as they see fit.
+   - Changing the language should update all text in the web application when tested.
 
-**Task Completion and Rewards:**
-Three teams max will be rewarded based on how much progress they make in developing the application. We'll look at the number and complexity of tasks completed to recognize teams with the most significant development.
-A portion of the reward will be shared evenly amongst the 1-3 teams seleted to win 
-New team members or individuals can build on the already existing project being worked on.
+**3. Sign Up/Sign In Section:**
+   - Create a fully functional Sign Up/Sign In section.
 
-**Task Assignment:**
-Tasks will be listed on the project's GitHub repository under the "Issues" section.
-Participants can choose tasks based on their skills and preferences.
-Each task will have a designated reward value.
+**4. Figma Prototype Integration:**
+   - Adhere to Figma designs for all functionalities.
 
-**Submission Process:**
-Participants must submit their contributions via GitHub pull requests.
-Each pull request should address a specific task and include a detailed description of the changes made.
+**5. Security:**
+   - Implement secure practices for authentication and data protection.
 
-**Judging Criteria:**
-Task completion will be evaluated based on the quality of code, adherence to coding standards, and successful implementation of specified requirements.
-Judges will assess the impact of contributions on the overall project.
+### **Prizes 🛠 💰:**
+1st Place: 	1 million sats
+2nd Place: 	290,000 sats
+3rd Place: 	210,000 sats
 
-**Rewards Distribution:**
-Winners will be announced every two weeks after participants have submitted their code and web application.
-Web applications and submitted code will be reviewed and tested for a  3 day period max to verify that the code matched the web application submitted before rewards are announced and distributed.  
+#### **Submission Guidelines:**
+Submit a functional web app with all specified features.
+Provide a link to the test/demo/prototype application for evaluation.
+Provide documentation on implementation, used libraries, and briefly explain implemented security measures.
+Ensure responsiveness across devices.
+Include both mobile and desktop views in the application.
+Upload the code and steps 1-3 to our GitHub repository:  (https://github.com/The-MAS-Network/TheSolution).
 
+**Timeline:**
+Development Period: Starting Jan 8, 2024
+Submission Deadline: Jan 22, 2024
+Evaluation Period: Until Jan 25, 2024
+Winner Announcement: Jan 26, 2024
 
-**Cheating and Violation Policy:**
-Any form of cheating, including plagiarism, falsifying contributions, or exploiting loopholes, will result in immediate disqualification.
-Suspected violations will be thoroughly investigated, and decisions by the judging panel are final.
-However after code from one participant has been submitted and made open source other participants and use that code and build on top of it or modify it to submitted in the next 2 week period 
-
-**Legal Terms:**
-By participating in the competition, participants agree to adhere to the rules and guidelines outlined.
-Participants acknowledge that any contributions made are voluntary and grant permission for their work to be used and modified within the project.
-The organizers reserve the right to modify the competition rules or cancel the competition at any time.
-
-**Dispute Resolution:**
-In the case of disputes or concerns regarding the competition, participants may contact the organizers through the project's official communication channels.
-The organizers will review and address disputes promptly and fairly.
-
-**Code of Conduct:**
-Participants must adhere to the project's code of conduct and community guidelines.
-Any behavior deemed disrespectful, discriminatory, or harmful will result in disqualification.
-
-**Confidentiality:**
-Participants agree not to disclose any confidential information obtained during the competition.
-
-By participating in "The Solution Web Application" Open Source Project Competition, you acknowledge and agree to these rules and guidelines. The competition aims to foster a collaborative and innovative environment within the open-source community.
-
-_**Note:** The organizers reserve the right to make amendments to the rules and guidelines if necessary, with proper notification to participants._
+**Note:**
+_Contact development@themasnetwork.com   for clarifications.
+Submissions to [formlinkexample.com] by the deadline.
+Winning codes will be made open source on The MAS Network's GitHub for future developers to build on top of._
