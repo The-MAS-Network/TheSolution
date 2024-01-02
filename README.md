@@ -1,9 +1,10 @@
-> **The Solution Web Mobile Application Open Source Project Competition Rules and Guidelines**
+**The Solution Web Mobile Application Open Source Project Competition Rules and Guidelines**
 
 **Objective:**
 Develop a web application based on the provided Figma design: (https://www.figma.com/file/RUFBEsbS5RS78bS541rbbu/Community-Design-Access-File?type=design&node-id=0-1&mode=design&t=vO7DiGe3JRlwfp7h-0). Functionalities include the Profile Section, language change, and a fully operational Sign Up/Sign In section.
 
 **Requirements:**
+
 **1. Profile Section:**
    - Implement user details, account info, and options for language change.
    - Allow users to log out from the Profile Section.
@@ -23,24 +24,26 @@ Develop a web application based on the provided Figma design: (https://www.figma
 **5. Security:**
    - Implement secure practices for authentication and data protection.
 
-### **Prizes 🛠 💰:**
-1st Place: 	1 million sats
-2nd Place: 	290,000 sats
-3rd Place: 	210,000 sats
+### **Prizes 💰:**
+1. **1st Place:** 	1 Million SATs
+
+2. **2nd Place:** 	290,000 SATs
+
+3. **3rd Place:** 	210,000 SATs
 
 #### **Submission Guidelines:**
-Submit a functional web app with all specified features.
-Provide a link to the test/demo/prototype application for evaluation.
-Provide documentation on implementation, used libraries, and briefly explain implemented security measures.
-Ensure responsiveness across devices.
-Include both mobile and desktop views in the application.
-Upload the code and steps 1-3 to our GitHub repository:  (https://github.com/The-MAS-Network/TheSolution).
+* Submit a functional web app with all specified features.
+* Provide a link to the [tobeupdated] application for evaluation.
+* Provide documentation on implementation, used libraries, and briefly explain implemented security measures.
+* Ensure responsiveness across devices.
+* Include both mobile and desktop views in the application.
+* Upload the code and steps 1-3 to our GitHub repository:  (https://github.com/The-MAS-Network/TheSolution).
 
 **Timeline:**
-Development Period: Starting Jan 8, 2024
-Submission Deadline: Jan 22, 2024
-Evaluation Period: Until Jan 25, 2024
-Winner Announcement: Jan 26, 2024
+* Development Period: Starting Jan 8, 2024
+* Submission Deadline: Jan 22, 2024
+* Evaluation Period: Until Jan 25, 2024
+* Winner Announcement: Jan 26, 2024
 
 **Note:**
 _Contact development@themasnetwork.com   for clarifications.
