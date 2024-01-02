@@ -25,11 +25,11 @@ Develop a web application based on the provided Figma design: (https://www.figma
    - Implement secure practices for authentication and data protection.
 
 ### **Prizes 💰:**
-1. **1st Place:** 	1 Million SATs
+- **1st Place:** 	1 Million SATs
 
-2. **2nd Place:** 	290,000 SATs
+- **2nd Place:** 	290,000 SATs
 
-3. **3rd Place:** 	210,000 SATs
+- **3rd Place:** 	210,000 SATs
 
 #### **Submission Guidelines:**
 * Submit a functional web app with all specified features.
@@ -40,10 +40,10 @@ Develop a web application based on the provided Figma design: (https://www.figma
 * Upload the code and steps 1-3 to our GitHub repository:  (https://github.com/The-MAS-Network/TheSolution).
 
 **Timeline:**
-* Development Period: Starting Jan 8, 2024
-* Submission Deadline: Jan 22, 2024
-* Evaluation Period: Until Jan 25, 2024
-* Winner Announcement: Jan 26, 2024
+* Development Period: Starting **Jan 8, 2024**
+* Submission Deadline: **Jan 22, 2024**
+* Evaluation Period: **Until Jan 25, 2024**
+* Winner Announcement: **Jan 26, 2024**
 
 **Note:**
 _Contact development@themasnetwork.com   for clarifications.
