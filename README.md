@@ -31,7 +31,14 @@ Develop a web application based on the provided Figma design: (https://www.figma
 
 - **3rd Place:** 	210,000 SATs
 
+**Timeline:**
+* Development Period: Starting **Jan 8, 2024**
+* Submission Deadline: **Jan 22, 2024**
+* Evaluation Period: **Until Jan 25, 2024**
+* Winner Announcement: **Jan 26, 2024**
+
 #### **Submission Guidelines:**
+  Submissions to [formlinkexample.com] by the deadline.
 * Participating in this compeptition is accepting that winning code will be made open source.
 * Submit a functional web app with all specified features.
 * Provide a link to the [tobeupdated] application for evaluation.
@@ -39,17 +46,8 @@ Develop a web application based on the provided Figma design: (https://www.figma
 * Ensure responsiveness across devices.
 * Include both mobile and desktop views in the application.
 * Upload the code and steps 1-3 to our GitHub repository:  (https://github.com/The-MAS-Network/TheSolution).
-  
+
 **Note:**
-_Winning codes will be made open source on The MAS Network's GitHub for future developers to build on top of.
-Contact development@themasnetwork.com   for clarifications.
-Submissions to [formlinkexample.com] by the deadline._
-
-
-**Timeline:**
-* Development Period: Starting **Jan 8, 2024**
-* Submission Deadline: **Jan 22, 2024**
-* Evaluation Period: **Until Jan 25, 2024**
-* Winner Announcement: **Jan 26, 2024**
-
+Participating in this competition entails acknowledging that winning codes will be shared as open source on The MAS Network's GitHub. This allows future developers to build upon them._
+_Contact development@themasnetwork.com   for clarifications.
 
