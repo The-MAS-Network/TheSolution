@@ -1,4 +1,4 @@
-**PART ONE**
+**PART ONE:**
 
 **The Solution Web Mobile Application Open Source Project Competition Rules and Guidelines**
 
