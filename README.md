@@ -25,7 +25,7 @@ Develop a web application for both mobile and web view based on the provided Fig
    - Implement secure practices for authentication and data protection.
 
 ### **Prizes 💰:**
-- **1st Place:** 	1 Million SATs
+- **1st Place:** 	1,000,000 Million SATs
 
 - **Runner Up:** 	500,000 SATs
 
