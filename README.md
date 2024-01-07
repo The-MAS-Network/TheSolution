@@ -1,6 +1,4 @@
-**PART ONE:**
-
-**The Solution Web Mobile Application Open Source Project Competition Rules and Guidelines**
+**PART ONE: The Solution Web Mobile Application Open Source Project Competition Rules and Guidelines**
 
 **Objective:**
 Develop a web application based on the provided Figma design: (https://www.figma.com/file/RUFBEsbS5RS78bS541rbbu/Community-Design-Access-File?type=design&node-id=0-1&mode=design&t=vO7DiGe3JRlwfp7h-0). Functionalities include the Profile Section, language change, and a fully operational Sign Up/Sign In section.
