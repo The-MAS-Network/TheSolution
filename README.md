@@ -27,9 +27,8 @@ Develop a web application for both mobile and web view based on the provided Fig
 ### **Prizes 💰:**
 - **1st Place:** 	1 Million SATs
 
-- **2nd Place:** 	290,000 SATs
+- **Runner Up:** 	500,000 SATs
 
-- **3rd Place:** 	210,000 SATs
 
 **Timeline:**
 * Development Period: Starting **Jan 8, 2024**
