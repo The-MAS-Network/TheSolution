@@ -37,7 +37,7 @@ Develop a web application for both mobile and web view based on the provided Fig
 * Winner Announcement: **Jan 26, 2024**
 
 #### **Submission Guidelines:**
-  Submissions to [formlinkexample.com] by the deadline.
+  Submissions to https://us17.list-manage.com/contact-form?u=9ccd4641b8ee796732538477e&form_id=6bdce4ef6cc28f1bcb12f124e313c9e3 by the deadline.
 * Participating in this compeptition is accepting that winning code will be made open source.
 * Submit a functional web app with all specified features.
 * Provide a link to the [tobeupdated] application for evaluation.
