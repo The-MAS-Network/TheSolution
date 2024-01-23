@@ -1,0 +1,38 @@
+{% extends 'base/login.html' %}
+{% load languages %}
+{% block content %}
+  <body>
+   <div class="top">
+          <div class="layout">
+             <div class="boxTitle">
+            <a href="{{request.META.HTTP_REFERER}}">
+              <span class="top-icon"><a href="{{request.META.HTTP_REFERER}}"><i class="fas fa-arrow-left"></i></a></span>
+            </a>
+            <a href="{{request.META.HTTP_REFERER}}"><h3>{{"Back"|translate:request.user.id}}</h3></a>
+            <span class="top-icon"><a href="{% url 'update-user' %}"><i class="fas fa-edit"></i></a></span>
+          </div><br><hr><br><br>
+        </div>
+  </div>
+    <div class="below">
+          <div class="detail">
+              <p>{{"Nick name"|translate:request.user.id}}</p>
+              <h2><b>{{user.nick_name}}</b></h2>
+            </div>
+            <div class="detail">
+              <p>{{"Lightning address"|translate:request.user.id}}</p>
+              <h2><b><i style="color:orange;" class="fas fa-bolt"></i> {{user.lightning_address}}</b></h2>
+            </div>
+            <div class="detail">
+              <p>{{"Language"|translate:request.user.id}}</p>
+              <button style="text-align: left;" class="main"><b><i class="fas fa-globe"></i> {{user.language}} </b></button>
+            </div>
+      </div>
+
+
+            <br><br>
+              <div class="act">
+                <a href="{% url 'logout' %}" >{{"Log out"|translate:request.user.id}} <span class="top-icon"> <i class="fas fa-sign-out-alt"></i></span></a>
+            </div>
+   </body>
+{% endblock content %}
+

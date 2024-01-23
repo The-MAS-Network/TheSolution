@@ -1,0 +1,45 @@
+{% extends 'base/login.html' %}
+{% load languages %}
+{% block content %}
+   
+          <div class="layout__body"><br>
+             <div class="layout__boxTitle">
+            <a href="{{request.META.HTTP_REFERER}}">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                <title>arrow-left</title>
+                <path
+                  d="M13.723 2.286l-13.723 13.714 13.719 13.714 1.616-1.611-10.96-10.96h27.625v-2.286h-27.625l10.965-10.965-1.616-1.607z">
+                </path>
+              </svg>
+            </a>
+            <h3>{{"Back"|translate:request.user.id}}</h3>
+          </div><br>
+              <form class="form" method="POST" action="" enctype="multipart/form-data">
+                {% csrf_token %}
+           <div class="profile__avatar">
+            <div class="avatar avatar--large active">
+              <img src="{{request.user.dp.url}}" />
+            </div>
+          </div><br>
+          <div class="btn2">
+              {% for field in form %}
+              {% if field.label == 'Dp' %}
+               <label for="{{field.label}}">{{"Change Avatar"|translate:request.user.id}}</label>
+              <input type="file" name="dp" accept="image/*" id="{{field.label}}" style="display:none">
+              {% endif %}
+              {% endfor %}
+          </div><br><br>
+          {% for field in form %}
+                {% if field.label != 'Dp' %}
+              <div class="form__group2">
+            <label for="{{field.label}}">{{field.label|translate:request.user.id}}</label>
+            {{field}}
+          </div>
+                {% endif %}
+                {% endfor %}
+            <input class="btn--main" type="submit" value="{{'Update Profile'|translate:request.user.id}}" />
+            </form>
+            <br><br>
+          
+          </div>
+{% endblock content %}
