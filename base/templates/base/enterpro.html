@@ -1,0 +1,27 @@
+{% extends 'base/The solution-Get Started.html' %}
+{% load languages %}
+{% block content %}
+<body>
+    <div id="icon-container">
+       <div class="icon-card">
+        <div class="icon">
+           <a href=""> <i class="fas fa-coins"></i> </a>
+            <div class="label">Sats</div>
+        </div>
+      </div>
+      <div class="icon-card">
+        <div class="icon">
+           <a href=""> <i class="fas fa-trophy"></i> </a>
+            <div class="label">{{"Leaderboard"|translate:request.user.id}}</div>
+        </div>
+      </div>
+        <div class="icon-card">
+        <div class="icon">
+            <a href="{% url 'user-profile' user.id %}"> <i class="fas fa-user"></i> </a>
+            <div class="label">{{"Profile"|translate:request.user.id}}</div>
+        </div>
+      </div>
+    </div>
+
+</body>
+{% endblock content %}

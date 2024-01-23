@@ -1,0 +1,37 @@
+{% extends 'base/login.html' %}
+{% load languages %}
+{% block content %}
+
+          <div class="layout__body"><br>
+             <div class="layout__boxTitle">
+            <a href="{{request.META.HTTP_REFERER}}">
+              <span class="top-icon"><a href="{{request.META.HTTP_REFERER}}"><i class="fas fa-arrow-left"></i></a></span>
+            </a>
+            <h3>{{"Back"|translate:request.user.id}}</h3>
+          </div><br>
+            <h1 class="auth__tagline">{{"What is your language"|translate:request.user.id}}</h1>
+            <p class="auth__tagline__comment">{{"Select a language to get started"|translate:request.user.id}}</p>
+
+            <form class="form" action="register">
+            <select name="language" id="id_language" class="btn--dark2">
+  <option value="en">{{"English"|translate:request.user.id}}</option>
+
+  <option value="esp">{{"Spanish"|translate:request.user.id}}</option>
+
+  <option value="fr">{{"French"|translate:request.user.id}}</option>
+
+  <option value="it">{{"Italian"|translate:request.user.id}}</option>
+
+  <option value="de">{{"German"|translate:request.user.id}}</option>
+
+</select>
+
+                <div class="auth__action">
+           <input class="btn--main" type="submit" value="{{'Continue'|translate:request.user.id}}" />
+            </div>
+            </form>
+
+            <br><br>
+          
+          </div>
+{% endblock content %}
