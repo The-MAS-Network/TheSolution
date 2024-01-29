@@ -70,6 +70,7 @@ Runner Up: 1,000,000 SATs
 **Timeline:**
 
 Development Period: Starting Feb 1st, 2024
+(you can submit your code at anytime for feedback for questions before the official deadline as many time as needed)
 
 Submission Deadline: March 1st, 2024 (new submissions after the deadline will not be considered)
 
