@@ -1,7 +1,9 @@
 **PART 1 +2 : The Solution Web Mobile Application Open Source Project Competition Rules and Guidelines**
 
 **Objective:** Develop a web application for both mobile and web view based on the provided Figma designs: 
-Mobile view link: https://www.figma.com/file/RUFBEsbS5RS78bS541rbbu/Community-Design-Access-File?type=design&node-id=0-1&mode=design
+
+**Mobile View Link:**
+https://www.figma.com/file/RUFBEsbS5RS78bS541rbbu/Community-Design-Access-File?type=design&node-id=0-1&mode=design
 
 **Desktop View Link:**
 https://www.figma.com/file/RUFBEsbS5RS78bS541rbbu/Community-Design-Access-File?type=design&node-id=43-11637&mode=design&t=0oC9PkPNFbMHP9kg-4 
