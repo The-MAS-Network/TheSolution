@@ -2,7 +2,7 @@ PART 1 + 2: The Solution Web Mobile Application Open Source Project Competition 
 
 PART 1: The Solution Web Mobile Application Open Source Project Competition Rules and Guidelines
 
-Note: For Part 1, the first 2 submissions that follow the guidelines correctly will be awarded and announced.
+***Note: For Part 1, the first 2 submissions that follow the guidelines correctly will be awarded and announced.***
 
 Objective:
 Develop a web application for both mobile and web view based on the provided Figma designs:
