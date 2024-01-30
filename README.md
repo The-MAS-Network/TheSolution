@@ -42,9 +42,13 @@ Runner Up: 1,000,000 SATs
 Timeline:
 
 Development Period: Starting Feb 1st, 2024 (submit code for feedback or questions before the official deadline)
+
 Submission Deadline: March 1st, 2024 (new submissions after the deadline will not be considered)
+
 Evaluation Period: Until March 8th, 2024
+
 Winner Announcement: Winners announced on @masbtc21 Twitter anytime before March 11th, 2024. Once those winners are announced, only Part 2 will be available for submissions.
+
 Submission Guidelines:
 
 Submissions to this link by the deadline.
@@ -83,8 +87,11 @@ Note: Contact us on Discord or email sales@themasnetwork.com if you would like u
 Timeline:
 
 Development Period: Starting Feb 1st, 2024 (submit code for feedback or questions before the official deadline as many times as needed)
+
 Submission Deadline: March 1st, 2024 (new submissions after the deadline will not be considered)
+
 Evaluation Period: Until March 8th, 2024
+
 Winner Announcement: March 11th, 2024
 Prizes 💰:
 
