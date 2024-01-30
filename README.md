@@ -57,8 +57,7 @@ Submission Deadline: March 1st, 2024 (new submissions after the deadline will no
 
 Evaluation Period: Until March 8th, 2024
 
-Winner Announcement: Winners will be announced on @masbtc21 twitter anytime before March 11th, 2024
- and are based on the first 2 submissions that fall all the guidelines for part 1 correctly. Once those winners have been announced only part 2 will be available to earn from 
+Winner Announcement: Winners announced on @masbtc21 Twitter anytime before March 11th, 2024. Once those winners are announced, only Part 2 will be available for submissions.
 
 Submission Guidelines:
 
@@ -72,6 +71,8 @@ Note:
 1.	Contact us on Discord or email sales@themasnetwork.com if you would like us to design any figma file for the competition.
 
 2.	Participating in this competition entails acknowledging that winning codes will be shared as open source on The MAS Network's GitHub. This allows future developers to build upon them. Contact development@themasnetwork.com for clarifications or join our discord channel https://discord.gg/HKQ9susqWA.
+
+
 
 PART 2: The Solution Web Mobile Application Open Source Project Competition Rules and Guidelines - Forgot Password Implementation
 
