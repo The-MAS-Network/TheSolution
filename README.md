@@ -74,7 +74,7 @@ Note:
 
 
 
-PART 2: The Solution Web Mobile Application Open Source Project Competition Rules and Guidelines - Forgot Password Implementation
+**PART 2: The Solution Web Mobile Application Open Source Project Competition Rules and Guidelines - Forgot Password Implementation**
 
 Objective: Implement the Forgot Password functionality in the web application based on the provided Figma designs, where users can change passwords by verifying ownership of their Lightning address used to create the account.
 
