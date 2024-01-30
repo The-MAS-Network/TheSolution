@@ -1,6 +1,7 @@
 PART 1 +2 : The Solution Web Mobile Application Open Source Project Competition Rules and Guidelines
+___________________________________________________________________________________________________________________________
 
-PART 1: The Solution Web Mobile Application Open Source Project Competition Rules and Guidelines
+**PART 1: The Solution Web Mobile Application Open Source Project Competition Rules and Guidelines**
 
 **Note** For Part 1, the first 2 submissions that follow the guidelines correctly will be awarded and announced.
 
@@ -72,8 +73,7 @@ Note:
 
 2.	Participating in this competition entails acknowledging that winning codes will be shared as open source on The MAS Network's GitHub. This allows future developers to build upon them. Contact development@themasnetwork.com for clarifications or join our discord channel https://discord.gg/HKQ9susqWA.
 
-
-
+_________________________________________________________________________________________________________________________
 **PART 2: The Solution Web Mobile Application Open Source Project Competition Rules and Guidelines - Forgot Password Implementation**
 
 Objective: Implement the Forgot Password functionality in the web application based on the provided Figma designs, where users can change passwords by verifying ownership of their Lightning address used to create the account.
