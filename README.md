@@ -35,6 +35,7 @@ Adhere to Figma designs for all functionalities.
 Security:
 
 Implement secure practices for authentication and data protection.
+
 Prizes 💰:
 
 1st Place: 1,500,000 Million SATs
