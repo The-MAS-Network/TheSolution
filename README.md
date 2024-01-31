@@ -107,7 +107,7 @@ c. Use a non-Custodial lightning node setup for admins to verify user lightning 
 https://docs.google.com/document/d/1FjfZe4vndgUrpg-98QJtPz_2NEhW98psweSzCsIaMhY/edit?usp=sharing
 
 
-(Participants are encouraged to seek feedback on their ideas from the competition's Discord channel or email sales@themasnetwork.com before implementation.)
+(Participants are encouraged to seek for alternitave solutions to verify ownership of LN addresses rather than using this method suggested but should get feedback on their ideas from the competition's Discord channel or email sales@themasnetwork.com before implementation.)
 
 Contact us on Discord or email sales@themasnetwork.com if you would like us to design the figma for your Lightning node integration.
 
