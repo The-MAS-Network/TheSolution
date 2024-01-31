@@ -1,4 +1,4 @@
-> **PART 1 +2 : The Solution Web Mobile Application Open Source Project Competition Rules and Guidelines**
+> **PART 1 + 2: The Solution Web Mobile Application Open Source Project Competition Rules and Guidelines**
 ___________________________________________________________________________________________________________________________
 
 **PART 1: The Solution Web Mobile Application Open Source Project Competition Rules and Guidelines**
@@ -36,7 +36,7 @@ d. Changing the language should update all text in the web application when test
 **Sign Up/Sign In Section:**
 
 a. Create a fully functional Sign Up/Sign In section.
-(no specific Lightning integration in part 1 just allow users to create accounts with Lightning addresses without verification)
+(no specific Lightning integration in part 1- just allow users to create accounts with Lightning addresses without verification)
 
 **Figma Prototype Integration:**
 
@@ -61,7 +61,7 @@ a. Implement secure practices for authentication and data protection.
 Starting Feb 1st, 2024 (you can submit your code at any time for feedback or questions before the official deadline as many times as needed)
 
 **Submission Deadline:** 
-Monday March 4th , 2024 (new submissions after the deadline will not be considered)
+Monday March 4th, 2024 (new submissions after the deadline will not be considered)
 
 **Evaluation Period:** 
 Until March 15th, 2024
@@ -80,7 +80,7 @@ Winners announced on @masbtc21 Twitter anytime before March 18th, 2024. Once tho
 1.	Contact us on Discord or email sales@themasnetwork.com if you would like us to design any figma file for the competition.
 
 2.	Participating in this competition entails acknowledging that winning codes will be shared as open source on The MAS Network's GitHub. This allows future developers to build upon them.
-_Contact development@themasnetwork.com for clarifications or join our discord channel https://discord.gg/HKQ9susqWA_.
+_Contact development@themasnetwork.com for clarifications or join our discord channel https://discord.com/invite/UeNA5yXAug.
 
 _________________________________________________________________________________________________________________________
 **PART 2: The Solution Web Mobile Application Open Source Project Competition Rules and Guidelines - Forgot Password Implementation**
@@ -107,7 +107,7 @@ Contact us on Discord or email sales@themasnetwork.com if you would like us to d
 
 **Timeline:**
 
-* Development Period: Starting Feb 1st, 2024 (you can submit your code at any time for feedback or questions before the official deadline as many times as needed)
+* Development Period: Starting Feb 1st, 2024 (you can submit your code at any time for feedback or ask questions before the official deadline as many times as needed)
 
 * Submission Deadline: March 4th, 2024 (new submissions after the deadline will not be considered)
 
@@ -129,4 +129,4 @@ Contact us on Discord or email sales@themasnetwork.com if you would like us to d
 3. Include both mobile and desktop views in the application and ensure responsiveness across both views.
 4. Upload the code and steps 1-3 to our GitHub repository: (https://github.com/The-MAS-Network/TheSolution/tree/SolutionCode).
 
-**Note:** Participating in this competition implies acknowledgment that winning codes will be shared as open source on The MAS Network's GitHub. This allows future developers to build upon them. Contact development@themasnetwork.com for clarifications or join our discord channel https://discord.gg/HKQ9susqWA.
+**Note:** Participating in this competition implies acknowledgment that winning codes will be shared as open source on The MAS Network's GitHub. This allows future developers to build upon them. Contact development@themasnetwork.com for clarifications or join our discord channel https://discord.com/invite/UeNA5yXAug.
