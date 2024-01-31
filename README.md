@@ -71,11 +71,10 @@ Winners announced on @masbtc21 Twitter anytime before March 18th, 2024. Once tho
 
 **Submission Guidelines:**
 
-Submissions to https://us17.list-manage.com/contact-form?u=9ccd4641b8ee796732538477e&form_id=6bdce4ef6cc28f1bcb12f124e313c9e3 by the deadline. Submit a functional web app with all specified features.
-
-When submitting the project, **_please ensure to provide a direct URL link to the live version hosted on a website_** (e.g., exampledemo.liveproject.com). Provide documentation on implementation, used libraries, and briefly explain implemented security measures.
-
-Include both mobile and desktop views in the application and ensure responsiveness across both views. Upload the code and steps 1-3 to our GitHub repository: (https://github.com/The-MAS-Network/TheSolution/tree/SolutionCode).
+1.  Submissions to https://us17.list-manage.com/contact-form?u=9ccd4641b8ee796732538477e&form_id=6bdce4ef6cc28f1bcb12f124e313c9e3 by the deadline. Submit a functional web app with all specified features.
+2.  When submitting the project, **_please ensure to provide a direct URL link to the live version hosted on a website_** (e.g., exampledemo.liveproject.com). Provide documentation on implementation, used libraries, and briefly explain implemented security measures.
+3.  Include both mobile and desktop views in the application and ensure responsiveness across both views.
+4.  Upload the code and steps 1-3 to our GitHub repository: (https://github.com/The-MAS-Network/TheSolution/tree/SolutionCode).
 
 **Note:**
 1.	Contact us on Discord or email sales@themasnetwork.com if you would like us to design any figma file for the competition.
@@ -125,8 +124,8 @@ Contact us on Discord or email sales@themasnetwork.com if you would like us to d
 
 **Submission Guidelines:**
 
-* Submissions to the same link as Part 1 (https://us17.list-manage.com/contact-form?u=9ccd4641b8ee796732538477e&form_id=6bdce4ef6cc28f1bcb12f124e313c9e3) by the deadline. Submit a functional web app with the implemented Forgot Password functionality.
-
-* When submitting the project, please ensure to provide a direct URL link to the live version hosted on a website (e.g., exampledemo.liveproject.com). Provide documentation on the implementation of the Forgot Password functionality, used libraries, and briefly explain implemented security measures.
+1. Submissions to the same link as Part 1 (https://us17.list-manage.com/contact-form?u=9ccd4641b8ee796732538477e&form_id=6bdce4ef6cc28f1bcb12f124e313c9e3) by the deadline. Submit a functional web app with the implemented Forgot Password functionality.
+2. When submitting the project, please ensure to provide a direct URL link to the live version hosted on a website (e.g., exampledemo.liveproject.com). Provide documentation on the implementation of the Forgot Password functionality, used libraries, and briefly explain implemented security measures.
+3. Include both mobile and desktop views in the application and ensure responsiveness across both views. Upload the code and steps 1-3 to our GitHub repository: (https://github.com/The-MAS-Network/TheSolution/tree/SolutionCode).
 
 **Note:** Participating in this competition implies acknowledgment that winning codes will be shared as open source on The MAS Network's GitHub. This allows future developers to build upon them. Contact development@themasnetwork.com for clarifications or join our discord channel https://discord.gg/HKQ9susqWA.
