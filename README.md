@@ -88,7 +88,7 @@ ________________________________________________________________________________
 **Objective:** 
 Implement the Forgot Password functionality in the web application using **"Micro-Deposit Verification"** based on the provided Figma designs, where users can change passwords by verifying ownership of their Lightning address used to create the account.
 
-**Link to the Vuaue of "Micro-Deposit Verification" explanation** https://docs.google.com/document/d/1EjIACQduGDZG3BalZuEI2ijt_fNxMQHw7PK9kNfuccU/edit?usp=sharing
+**Link to the Value of "Micro-Deposit Verification" explanation** https://docs.google.com/document/d/1EjIACQduGDZG3BalZuEI2ijt_fNxMQHw7PK9kNfuccU/edit?usp=sharing
 
 **Requirements:**
 
@@ -103,7 +103,7 @@ b. Allow users to change passwords by verifying ownership of their Lightning add
 c. Use a non-Custodial lightning node setup for admins to verify user lightning addresses when sending the verification payments back to users, such as but not limited to Voltage Cloud, Umbrel, or Citadel. 
 
 
-**Link to the Vuaue of "Use a non-Custodial lightning node" explanation** 
+**Link to the Value of "Use a non-Custodial lightning node" explanation** 
 https://docs.google.com/document/d/1FjfZe4vndgUrpg-98QJtPz_2NEhW98psweSzCsIaMhY/edit?usp=sharing
 
 
