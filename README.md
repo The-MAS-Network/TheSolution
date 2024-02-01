@@ -9,6 +9,8 @@ For Part 1, the first 2 submissions that follow the guidelines correctly will be
 
 **Objective:** Develop a web application for both mobile and web view based on the provided Figma designs:
 
+**Prototype Link** https://themasnetwork.com/
+
 **Mobile View Link:** https://www.figma.com/file/RUFBEsbS5RS78bS541rbbu/Community-Design-Access-File?type=design&node-id=0-1&mode=design
 
 **Desktop View Link:** https://www.figma.com/file/RUFBEsbS5RS78bS541rbbu/Community-Design-Access-File?type=design&node-id=43-11637&mode=design&t=0oC9PkPNFbMHP9kg-4
@@ -84,6 +86,12 @@ _Contact development@themasnetwork.com for clarifications or join our discord ch
 
 _________________________________________________________________________________________________________________________
 **PART 2: The Solution Web Mobile Application Open Source Project Competition Rules and Guidelines - Forgot Password Implementation**
+
+**Prototype Link** https://themasnetwork.com/
+
+**Mobile View Link:** https://www.figma.com/file/RUFBEsbS5RS78bS541rbbu/Community-Design-Access-File?type=design&node-id=0-1&mode=design
+
+**Desktop View Link:** https://www.figma.com/file/RUFBEsbS5RS78bS541rbbu/Community-Design-Access-File?type=design&node-id=43-11637&mode=design&t=0oC9PkPNFbMHP9kg-4
 
 **Objective:** 
 Implement the Forgot Password functionality in the web application using **"Micro-Deposit Verification"** based on the provided Figma designs, where users can change passwords by verifying ownership of their Lightning address used to create the account.
