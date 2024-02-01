@@ -100,7 +100,7 @@ a. Develop and integrate the Forgot Password functionality as directed by Figma.
 
 b. Allow users to change passwords by verifying ownership of their Lightning address.
 
-c. Use a non-Custodial lightning node setup for admins to verify user lightning addresses when sending the verification payments back to users, such as but not limited to Voltage Cloud, Umbrel, or Citadel. 
+c. Use a non-Custodial lightning node setup for admins to verify user lightning addresses when sending the verification payments back to users, such as but not limited to Voltage Cloud, Umbrel, or Citadel, greenlight using core Lighning  (if you use this option it has to be compatible with lnd LN addresses). 
 
 
 **Link to the Value of "Use a non-Custodial lightning node" explanation** 
