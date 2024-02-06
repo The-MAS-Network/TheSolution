@@ -15,6 +15,7 @@ from django.conf import settings
 
 def loginPage(request):
     page = 'login'
+    option = request.session.get('option', 'en')
     if request.method == 'POST':
         lightning_address = request.POST.get('lightning_address').lower()
         password = request.POST.get('password')
@@ -40,7 +41,7 @@ def loginPage(request):
             text = ['Username OR password is incorrect']
             return render(request, 'base/loginerr.html', {'text': text})
 
-    context = {'page': page}
+    context = {'page': page, 'option': option}
 
     return render(request, 'base/login.html', context)
 
@@ -52,12 +53,12 @@ def logoutUser(request):
 
 def registerPage(request):
     form = MyUserCreationForm()
-    language = request.GET['language']
+    option = request.session.get('option', 'en')
     if request.method == 'POST':
         form = MyUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
-            user.language = language
+            user.language = option
             user.nick_name = request.POST.get('nick')
             user.save()
 
@@ -67,17 +68,41 @@ def registerPage(request):
             text = ["Your password must contain at least 8 characters.",
                    "Your password can't be entirely numeric.",
                    "Your password can't be a commonly used password."]
-            return render(request, 'base/loginerr.html', {'text': text})
+            return render(request, 'base/loginerr.html', {'text': text,'option': option})
 
 
-    return render(request, 'base/register.html', {'form': form, 'language': language})
+    return render(request, 'base/register.html', {'form': form, 'option': option})
 
 
 def home(request):
-    return render(request, 'base/The solution-Get Started.html')
+    option = request.session.get('option', 'en')
+    return render(request, 'base/The solution-Get Started.html', {'option': option})
 
 def language(request):
-    return render(request, 'base/Language.html')
+    option = request.session.get('option', 'en')
+    if request.method == 'POST':
+        option = request.POST.get('selected_option', 'en')
+        request.session['option'] = option
+        return redirect('home')
+    return render(request, 'base/Language.html', {'option': option})
+
+def languages(request):
+    if request.method == 'POST':
+        user = request.user
+        option = request.POST.get('selected_option')
+        user.language = option
+        user.save()
+        return redirect('enterpro')
+    return render(request, 'base/Language2.html',)
+
+def avatar(request):
+    if request.method == 'POST':
+        user = request.user
+        option = request.POST.get('selected_option')
+        user.dp = option
+        user.save()
+        return redirect('update-user')
+    return render(request, 'base/avatar.html', {})
 
 
 def userProfile(request, pk):
@@ -114,7 +139,6 @@ def updateUser(request):
             return redirect('enterpro')
 
     return render(request, 'base/Update Profile.html', {'form': form})
-
 
 
 
