@@ -1,26 +1,9 @@
-#icon-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    padding: 80px;
-}
 
-.icon {
-    margin-right: 10px;
-    cursor: pointer;
-    padding: 35px;
-}
+img{
+   height: 15px;
+   width: 15px;
+   }
 
-.icon i {
-    width: 50px; /* Adjust as needed */
-    height: 50px; /* Adjust as needed */
-    background-color: blue;
-    border-radius: 10px;
-    color: white;
-    padding:8px;
-}
 
 .label {
     text-align: center;
@@ -57,7 +40,7 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
 
 :root {
-  --color-main: #71c6dd;
+  --color-main: #4169f9;
   --color-initial: #10c9dd;
   --color-main-light: #e1f6fb;
   --color-dark: #3f4156;
@@ -103,8 +86,8 @@ body {
   font-weight: 400;
   font-size: 1.5rem;
   color: var(--color-light-gray);
-  background-color: var(--color-main);
-  min-height: 100vh;
+  background-color: #0072fb;
+  min-height: 70vh;
 }
 a {
   display: inline-block;
@@ -127,8 +110,24 @@ a {
 .main {
   background-color: transparent;
   color: white;
-  width: 100%;
-  max-width: 600px;
+  width: 90%;
+  height: 45px;
+  max-width: 400px;
+  align-items: center;
+  padding: 10px;
+  border-: 5px;
+  border:1px solid white;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.lang {
+  background-color: var(--color-main);
+  color: white;
+  width: 90%;
+  height: 45px;
+  max-width: 400px;
   align-items: center;
   padding: 10px;
   border-: 5px;
@@ -143,10 +142,11 @@ a {
 }
 
 .dark {
-  background-color: var(--color-dark);
-   color: white;
-  width: 100%;
-  max-width: 600px;
+  background-color: #13203b;
+  color: white;
+  width: 90%;
+  height: 45px;
+  max-width: 400px;
   align-items: center;
   padding: 10px;
   border-: 5px;
@@ -174,23 +174,29 @@ a {
 }
 
 .details{
-  padding: 15px;
-  margin: 15px;
+  margin: 5rem;
+  padding: 5px;
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+  height: 100%;
+  padding-top: 200px;
 }
 
 .details p{
   text-align: center;
   font-size: 25px;
   font-weight: 1000;
+  color: white;
 }
 
 .layout__body {
   margin: 5rem;
-  padding: 35px;
+  padding: 10px;
   max-width: 1100px;
   margin: 0 auto;
   text-align: center;
-  height: 100%;
+  width: 100%;
 }
 
 
@@ -200,11 +206,11 @@ a {
   }
 
 .action {
-  text-align: center;
-  padding: 50px;
-  align-items: center;
-  max-width: 800px;
+  margin: 5rem;
+  padding: 5px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding:25%;
+  text-align: center;
+  height: 100%;
+  padding-top: 200px;
 }
-
