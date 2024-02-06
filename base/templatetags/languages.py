@@ -30,13 +30,13 @@ translations = [
 
     {"id": "Email address", "en": "Email address", "esp": "Dirección de correo electrónico", "fr": "Adresse e-mail", "it": "Indirizzo email", "de": "E-Mail-Adresse"},
     {"id": "Password confirmation", "en": "Password confirmation", "esp": "Confirmación de contraseña", "fr": "Confirmation du mot de passe", "it": "Conferma password", "de": "Passwort-Bestätigung"},
-    {"id": "English", "en": "English", "esp": "Inglés", "fr": "Anglais", "it": "Inglese", "de": "Englisch"},
-    {"id": "Spanish", "en": "Spanish", "esp": "Español", "fr": "Espagnol", "it": "Spagnolo", "de": "Spanisch"},
-    {"id": "French", "en": "French", "esp": "Francés", "fr": "Français", "it": "Francese", "de": "Französisch"},
-    {"id": "Italian", "en": "Italian", "esp": "Italiano", "fr": "Italien", "it": "Italiano", "de": "Italienisch"},
+    {"id": "en", "en": "English", "esp": "Inglés", "fr": "Anglais", "it": "Inglese", "de": "Englisch"},
+    {"id": "esp", "en": "Spanish", "esp": "Español", "fr": "Espagnol", "it": "Spagnolo", "de": "Spanisch"},
+    {"id": "fr", "en": "French", "esp": "Francés", "fr": "Français", "it": "Francese", "de": "Französisch"},
+    {"id": "it", "en": "Italian", "esp": "Italiano", "fr": "Italien", "it": "Italiano", "de": "Italienisch"},
     {"id": "Pidgin English", "en": "Pidgin English", "esp": "Inglés pidgin", "fr": "Anglais pidgin", "it": "Inglese pidgin", "de": "Pidgin-Englisch"},
-    {"id": "German", "en": "German", "esp": "Alemán", "fr": "Allemand", "it": "Tedesco", "de": "Deutsch", "pt": "Alemão"},
-    {"id": "The solution", "en": "The solution", "esp": "La solución", "fr": "La solution", "it": "La soluzione", "de": "Die Lösung"},
+    {"id": "de", "en": "German", "esp": "Alemán", "fr": "Allemand", "it": "Tedesco", "de": "Deutsch", "pt": "Alemão"},
+    {"id": "The Solution", "en": "The Solution", "esp": "La solución", "fr": "La solution", "it": "La soluzione", "de": "Die Lösung"},
     {"id": "Get started", "en": "Get started", "esp": "Comenzar", "fr": "Commencer", "it": "Inizia", "de": "Los geht's", "pt": "Comece"},
     {"id": "Already have an account", "en": "Already have an account", "esp": "Ya tengo una cuenta", "fr": "J'ai déjà un compte", "it": "Hai già un account", "de": "Bereits ein Konto haben"},
     {"id": "Log in", "en": "Log in", "esp": "Iniciar sesión", "fr": "Se connecter", "it": "Accedi", "de": "Anmelden"},
@@ -45,6 +45,31 @@ translations = [
     {"id": "Password reset", "en": "Password reset", "esp": "Restablecimiento de contraseña",
      "fr": "Réinitialisation du mot de passe", "it": "Ripristino password", "de": "Passwort zurücksetzen"},
 
+{
+ "id": "Select an Avatar",
+  "en": "Select an Avatar",
+  "fr": "Sélectionner un Avatar",
+  "esp": "Seleccionar un Avatar",
+  "it": "Seleziona un Avatar",
+  "de": "Wähle einen Avatar"
+},
+
+{
+'id': 'Earn sats',
+    'en': 'Earn sats',
+    'fr': 'Gagner des sats',
+    'it': 'Guadagna sats',
+    'de': 'Sats verdienen',
+    'esp': 'Ganar sats'
+},
+{
+'id': 'Confirm',
+    'en': 'Confirm',
+    'fr': 'Confirmer',
+    'it': 'Conferma',
+    'de': 'Bestätigen',
+    'esp': 'Confirmar'
+},
     {
         "id": "Forgotten your password? Enter your email address below, and we will email instructions for setting a new one.",
         "en": "Forgotten your password? Enter your email address below, and we'll email instructions for setting a new one.",
@@ -146,6 +171,5 @@ def new_translate(id_value, la):
     translation = next((d[la] for d in translations if d["id"] == id_value), None)
     emerge = id_value
     return translation if translation else emerge
-
 
 
