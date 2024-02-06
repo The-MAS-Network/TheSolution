@@ -1,0 +1,155 @@
+
+{% extends 'base/login.html' %}
+{% load languages %}
+{% load static %}
+{% block content %}
+<body>
+<main id="desktop-content" class="update-account layout">
+    <div class="layout__box">
+          <div class="layout__body"><br>
+             <div class="layout__boxTitle">
+            <a href="{% url 'enterpro' %}">
+              <span  class="top-icon"><a href="{% url 'enterpro' %}"><i style="color:white;" class="fas fa-arrow-left"></i></a></span>
+            </a>
+            <a href="{% url 'enterpro' %}"><h3>{{"Back"|translate:request.user.id}}</h3></a>
+                 <a href="{% url 'update-user' %}">
+              <span ><a class="but" href="{% url 'update-user' %}"><i style="color:white;" class="fas fa-edit"></i></a></span>
+            </a>
+          </div><br>
+              <div class="form">
+                {% csrf_token %}
+           <div class="profile__avatar">
+            <div class="avatar avatar--large active">
+              <img src="{{request.user.dp.url}}" />
+            </div>
+          </div><br>
+          <div class="form__group2">
+            <p>{{"Nick name"|translate:request.user.id}}</p>
+            <h2><b>{{user.nick_name}}</b></h2>
+          </div>
+                  <div class="form__group2">
+            <label >{{"Lightning address"|translate:request.user.id}}</label>
+            <h2><b><i style="color:orange;" class="fas fa-bolt"></i> {{user.lightning_address}}</b></h2>
+          </div>
+                  <div class="form__group2">
+            <label >{{"Language"|translate:request.user.id}}</label>
+            <a href="{% url 'languages' %}" style="text-align: left; background-color: #333333;" class="lang"><i class="fas fa-globe"></i>
+                 {{user.language|translate:request.user.id}}
+                <span class="but">
+                        {% if user.language == 'fr' %}
+    <img src="{% static 'images/france.svg' %}">
+                            {% elif user.language == 'de' %}
+    <img src="{% static 'images/germany.svg' %}">
+                            {% elif user.language == 'en' %}
+        <img src="{% static 'images/uk.svg' %}">
+
+                            {% elif user.language == 'it' %}
+    <img src="{% static 'images/italy.svg' %}">
+                            {% else %}
+    <img src="{% static 'images/spain.svg' %}">{% endif %}
+                         <i class="fas fa-chevron-right">
+                        </i>
+                </span>
+                </a>
+          </div>
+
+
+           <div class="act">
+                <a href="{% url 'logout' %}" onclick="return confirm('Are you sure you want to logout?')">{{"Log out"|translate:request.user.id}}
+                  <span class="top-icon"> <i class="fas fa-sign-out-alt"></i></span></a>
+            </div>
+            </div>
+            <br><br>
+
+          </div>
+        </div>
+</main>
+</body>
+
+<style>
+    .but img{
+        height:15px;
+        width:15px;
+        margin-right: 5px;
+        }
+        #desktop-content {
+            display: block;
+
+        }
+
+        .but{
+        padding-left: 60%;
+        }
+
+
+        .layout__body {
+          margin: 5rem;
+          padding: 1px;
+          width: 100%;
+          max-width: 800px;
+          margin: 0 auto;
+          text-align: center;
+          height: 100%;
+        }
+        .profile__avatar{
+        text-align: center;
+          align-items: center;
+          max-width: 500px;
+          margin: 0 auto;
+        }
+
+        body {
+              line-height: 1.6;
+              font-weight: 400;
+              font-size: 1.5rem;
+              color: var(--color-light-gray);
+              background-color: #13203b;
+              min-height: 100vh;
+            }
+
+        @media (min-width: 768px) {
+
+        .profile__avatar{
+        text-align: center;
+          align-items: center;
+          padding-left: 140px;
+          max-width: 500px;
+          margin: 0 auto;
+        }
+            .but{
+        padding-left: 70%;
+        }
+        .form{
+        max-width: 500px;
+        padding-left: 40px;
+        text-align: center;
+        }
+            #desktop-content {
+                display: block;
+            }
+
+            body {
+              line-height: 1.6;
+              font-weight: 400;
+              font-size: 1.5rem;
+              color: var(--color-light-gray);
+              background-color: #324ad9;
+              min-height: 100vh;
+            }
+
+            .layout__body{
+            background-color:#001f3f;
+            border-radius: 15px;
+            padding: 40px;
+            max-width: 500px;
+            }
+
+
+        }
+
+
+    </style>
+{% endblock content %}
+
+
+

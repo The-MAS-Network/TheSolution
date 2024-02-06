@@ -1,0 +1,36 @@
+
+{% load languages %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>mas network</title>
+     <link rel="stylesheet" href="{% static 'styles/home.css' %}">
+
+</head>
+<body>
+
+<div class="card-container">
+    <div class="card">
+          <a href=""><div class="cad">
+              <img style="" src="{% static 'images/es.svg' %}">
+           </div></a>
+            <div class="label">{{"Earn sats"|translate:request.user.id}}</div>
+        </div>
+    <div class="card">
+           <a href=""><div class="cad"> <img style="" src="{% static 'images/lb.svg' %}">
+           </div></a>
+            <div class="label">{{"Leaderboard"|translate:request.user.id}}</div>
+      </div>
+    <div class="card">
+          <a href="{% url 'user-profile' user.id %}"> <div class="cad">  <i class="fas fa-user fa-3x"></i> </div></a>
+            <div class="label">{{"Profile"|translate:request.user.id}}</div>
+        </div>
+</div>
+
+</body>
+</html>
+

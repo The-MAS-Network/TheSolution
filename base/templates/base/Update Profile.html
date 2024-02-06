@@ -1,0 +1,133 @@
+{% extends 'base/login.html' %}
+{% load languages %}
+{% load static %}
+{% block content %}
+
+<body>
+<main id="desktop-content" class="update-account layout">
+    <div class="layout__box">
+          <div class="layout__body"><br>
+             <div class="layout__boxTitle">
+            <a href="{% url 'user-profile' user.id %}">
+              <span  class="top-icon"><a href="{% url 'user-profile' user.id %}"><i style="color:white;" class="fas fa-arrow-left"></i></a></span>
+            </a>
+            <a href="{% url 'user-profile' user.id %}"><h3>{{"Back"|translate:request.user.id}}</h3></a>
+          </div><br>
+              <form class="form" method="POST" action="" enctype="multipart/form-data">
+                {% csrf_token %}
+           <div class="profile__avatar">
+            <div class="avatar avatar--large active">
+              <img src="{{request.user.dp.url}}" />
+
+          </div><br><br>
+          <div class="btn2">
+
+              <a href="{% url 'avatar' %}"> <label for="{{field.label}}">{{"Change Avatar"|translate:request.user.id}}</label>
+              <input type="button" name="dp"  style="display:none"/></a>
+          </div>
+               </div><br><br>
+          {% for field in form %}
+                {% if field.label != 'Dp' %}
+              <div class="form__group2">
+            <label for="{{field.label}}">{{field.label|translate:request.user.id}}</label>
+            {{field}}
+          </div>
+                {% endif %}
+                {% endfor %}
+          <div class="form__group2">
+            <label >{{"Lightning address"|translate:request.user.id}}</label>
+            <input style="text-align:left;" type="button" value="{{user.lightning_address}}">
+          </div>
+
+
+            <input class="btn--main" type="submit" value="{{'Update Profile'|translate:request.user.id}}" />
+            </form>
+            <br><br>
+          
+          </div>
+        </div>
+</main>
+</body>
+
+<style>
+    .but img{
+        height:15px;
+        width:15px;
+        margin-right: 5px;
+        }
+        #desktop-content {
+            display: block;
+
+        }
+
+        .but{
+        padding-left: 60%;
+        }
+
+
+        .layout__body {
+          margin: 5rem;
+          padding: 1px;
+          width: 100%;
+          max-width: 800px;
+          margin: 0 auto;
+          text-align: center;
+          height: 100%;
+        }
+        .profile__avatar{
+        text-align: center;
+          align-items: center;
+          max-width: 500px;
+          margin: 0 auto;
+        }
+
+        body {
+              line-height: 1.6;
+              font-weight: 400;
+              font-size: 1.5rem;
+              color: var(--color-light-gray);
+              background-color: #13203b;
+              min-height: 100vh;
+            }
+
+        @media (min-width: 768px) {
+
+        .profile__avatar{
+        text-align: center;
+          align-items: center;
+          padding-left: 140px;
+          max-width: 500px;
+          margin: 0 auto;
+        }
+            .but{
+        padding-left: 70%;
+        }
+        .form{
+        max-width: 500px;
+        padding-left: 40px;
+        text-align: center;
+        }
+            #desktop-content {
+                display: block;
+            }
+
+            body {
+              line-height: 1.6;
+              font-weight: 400;
+              font-size: 1.5rem;
+              color: var(--color-light-gray);
+              background-color: #324ad9;
+              min-height: 100vh;
+            }
+
+            .layout__body{
+            background-color:#001f3f;
+            border-radius: 15px;
+            padding: 40px;
+            max-width: 500px;
+            }
+
+
+        }
+</style>
+{% endblock content %}

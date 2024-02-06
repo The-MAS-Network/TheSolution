@@ -1,0 +1,103 @@
+
+{% load languages %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+    <title>mas network</title>
+  </head>
+{% block content %}
+
+          <div class="layout__body" style="max-width: 500px;"><br>
+             <div class="layout__boxTitle">
+            <a href="{% url 'home' %}">
+              <span class="top-icon"><a href="{% url 'home' %}"><i style="color:white;" class="fas fa-arrow-left"></i></a></span>
+            </a>
+            <h3>{{'Back'|new_translate:option}}</h3>
+          </div><br>
+            <h1 class="auth__tagline">{{'Welcome Back'|new_translate:option}}</h1>
+
+            <form class="form" action="" method="POST">
+              {% csrf_token %}
+              <div class="form__group">
+                  <label for="room_name" style="text-align:left;"><i style="color:orange;" class="fas fa-bolt"></i> {{'Lightning address'|new_translate:option}}</label>
+                <input id="username" name="lightning_address" type="text"
+                placeholder="Enter your lightening address"
+                required />
+              </div>
+              <div class="form__group">
+                 <label for="password" style="text-align:left;">{{'Password'|new_translate:option}}</label>
+                <input
+
+                  id="password"
+                  name="password"
+                  type="password"
+                  placeholder="{{'Password'|new_translate:option}}"
+                  required
+                />
+                <span class="password-toggle-icon"><i style="color:#0072fb;" class="fas fa-eye"></i></span>
+              </div>
+
+                <div class="check">
+                <input type="checkbox" name="rem"/>
+                <span>{{'Remember me'|new_translate:option}}</span>
+
+              </div>
+               <div class="forgot_password">
+                <span><a href="">{{'Forgot Password'|new_translate:option}}</a></span>
+              </div>
+
+              <input style="background-color:#0072fb;" class="btn--main" type="submit" value="{{'Sign in'|new_translate:option}}" />
+
+            </form>
+            <br><br>
+          <div class="auth__action">
+              <p> {{"Don't have an account yet?"|new_translate:option}}
+              <a href="{% url 'register' %}" class="btn btn--link">{{"Sign up"|new_translate:option}}</a></p>
+
+            </div>
+          </div>
+{% endblock content %}
+
+  <script type="text/javascript">
+    const passwordField = document.getElementById("password");
+const togglePassword = document.querySelector(".password-toggle-icon i");
+
+togglePassword.addEventListener("click", function () {
+  if (passwordField.type === "password") {
+    passwordField.type = "text";
+    togglePassword.classList.remove("fa-eye-slash");
+    togglePassword.classList.add("fa-eye");
+  } else {
+    passwordField.type = "password";
+    togglePassword.classList.remove("fa-eye");
+    togglePassword.classList.add("fa-eye-slash");
+  }
+});
+
+
+</script>
+
+<style>
+    .layout__body {
+  margin: 35rem;
+  padding: 10px;
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  width: 90%;
+}
+
+.password-toggle-icon i{
+    color:#324ad9
+}
+
+</style>
+
+</html>

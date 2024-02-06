@@ -1,0 +1,77 @@
+
+{% extends 'base/login.html' %}
+{% load languages %}
+{% block content %}
+
+          <div class="layout__body" style="max-width: 500px;"><br>
+             <div class="layout__boxTitle">
+            <a href="{% url 'home' %}">
+              <span class="top-icon"><a href="{% url 'home' %}"><i class="fas fa-arrow-left"></i></a></span>
+            </a>
+            <h3>{{"Back"|new_translate:option}}</h3>
+          </div><br>
+            <h1 class="auth__tagline">{{"Get started"|new_translate:option}}</h1>
+
+            <form class="form" action="" method="POST">
+              {% csrf_token %}
+                <div class="form__group form__group">
+                    <label style="text-align:left">{{"Nick name"|new_translate:option}}</label>
+                <input
+                  id="clear"
+                  type="text"
+                  placeholder="{{'Nick name'|new_translate:option}}"
+                  name = "nick"
+                />
+                <span class="cancel"><i class="fas fa-remove"></i></span>
+              </div>
+              {% for field in form %}
+          <div class="form__group ">
+              {% if field.label == 'Lightning address' %}
+              <label style="text-align:left"><i style="color: orange" class="fas fa-bolt"></i> {{field.label|new_translate:option}}</label>
+            {{field}}
+              {% else %}
+            <label style="text-align:left">{{field.label|new_translate:option}}</label>
+            {{field}}
+              {% if field.label == 'Password' %}
+              <span class="password-toggle-icon"><i style="color:#0072fb;" class="fas fa-eye"></i></span>
+              {% endif %}
+              {% endif %}
+          </div>
+          {% endfor %}
+                <br>
+            <input style="background-color:#0072fb;" class="btn--main" type="submit" value="{{'Continue'|new_translate:option}}" />
+            </form>
+          <div class="action">
+              <p>{{"Already have an account?"|new_translate:option}}
+              <a href="{% url 'login' %}" class="btn btn--link">{{"Log in"|new_translate:option}}</a></p>
+
+            </div>
+
+          </div>
+ <script type="text/javascript">
+    const passwordField = document.getElementById("id_password1");
+const togglePassword = document.querySelector(".password-toggle-icon i");
+
+togglePassword.addEventListener("click", function () {
+  if (passwordField.type === "password") {
+    passwordField.type = "text";
+    togglePassword.classList.remove("fa-eye-slash");
+    togglePassword.classList.add("fa-eye");
+  } else {
+    passwordField.type = "password";
+    togglePassword.classList.remove("fa-eye");
+    togglePassword.classList.add("fa-eye-slash");
+  }
+});
+
+ const nickname = document.getElementById("clear");
+const cancel = document.querySelector(".cancel");
+
+cancel.addEventListener("click", function () {
+  if (nickname.type === "text") {
+    nickname.value = "";
+  }
+});
+
+</script>
+{% endblock content %}

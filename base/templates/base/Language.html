@@ -1,0 +1,60 @@
+{% extends 'base/login.html' %}
+{% load languages %}
+{% load static %}
+{% block content %}
+<style>
+    .highlight {
+    background-color: #0072fb;
+
+    }
+   img{
+   height: 15px;
+   width: 15px;
+   margin-right: 7px;
+   }
+</style>
+
+          <div class="layout__body"><br>
+             <div class="layout__boxTitle">
+            <a href="{{request.META.HTTP_REFERER}}">
+              <span class="top-icon"><a href="{{request.META.HTTP_REFERER}}"><i class="fas fa-arrow-left"></i></a></span>
+            </a>
+            <h3>{{"Back"|new_translate:option}}</h3>
+          </div><br>
+            <h1 class="auth__tagline">{{"What is your language"|new_translate:option}}</h1>
+            <p class="auth__tagline__comment">{{"Select a language to get started"|new_translate:option}}</p>
+
+                  <form method="post" class="language" action="">
+        {% csrf_token %}
+        <button type="button" class="lang" onclick="highlight(this, 'en')" name="selected_option" value="en"><img src="{% static 'images/uk.svg' %}">  {{"en"|new_translate:option}}</button>
+        <button type="button" class="lang" onclick="highlight(this, 'fr')" name="selected_option" value="fr"><img src="{% static 'images/france.svg' %}">  {{"fr"|new_translate:option}}</button>
+        <button type="button" class="lang" onclick="highlight(this, 'esp')" name="selected_option" value="esp"><img src="{% static 'images/spain.svg' %}">  {{"esp"|new_translate:option}}</button>
+        <button type="button" class="lang" onclick="highlight(this, 'it')" name="selected_option" value="it"><img src="{% static 'images/italy.svg' %}">  {{"it"|new_translate:option}}</button>
+        <button type="button" class="lang" onclick="highlight(this, 'de')" name="selected_option" value="de"><img src="{% static 'images/germany.svg' %}">  {{"de"|new_translate:option}}</button>
+        <input type="hidden" name="selected_option" id="selected_option"><br><br><br><br>
+                      <button style="text-align: center; display: none;" class="main" type="submit" id="submitBtn">{{'Confirm'|new_translate:option}}</button>
+    </form>
+          </div>
+     <script>
+        function highlight(button, option) {
+            // Remove highlight from all buttons
+            document.querySelectorAll('button').forEach(function(btn) {
+                btn.classList.remove('highlight');
+            });
+
+            // Highlight the selected button
+            button.classList.add('highlight');
+
+            // Set the selected option as the form value
+            document.getElementById('selected_option').value = option;
+
+            // Show the submit button
+            document.getElementById('submitBtn').style.display = 'inline-block';
+        }
+    </script>
+
+
+{% endblock content %}
+
+
+

@@ -1,0 +1,70 @@
+{% extends 'base/login.html' %}
+{% load languages %}
+{% load static %}
+{% block content %}
+          <div class="layout__body"><br>
+             <div class="layout__boxTitle">
+            <a href="{{request.META.HTTP_REFERER}}">
+              <span class="top-icon"><a href="{{request.META.HTTP_REFERER}}"><i class="fas fa-arrow-left"></i></a></span>
+            </a>
+            <h3>{{"Back"|translate:request.user.id}}</h3>
+          </div><br>
+            <h1 class="auth__tagline">{{"Select an Avatar"|translate:request.user.id}}</h1>
+
+                  <form method="post" class="language" action="">
+        {% csrf_token %}
+        <img src="{% static 'images/avatar 1.jpg' %}"
+             class="avatar avatar--medium" onclick="highlight(this, 'avatar 1.jpg')" name="selected_option" value="avatar 1.jpg"/>
+                      <img src="{% static 'images/avatar 2.jpg' %}"
+             class="avatar avatar--medium" onclick="highlight(this, 'avatar 2.jpg')" name="selected_option" value="avatar 2.jpg"/>
+        <img src="{% static 'images/avatar 3.jpg' %}"
+             class="avatar avatar--medium" onclick="highlight(this, 'avatar 3.jpg')" name="selected_option" value="avatar 3.jpg"/>
+        <img src="{% static 'images/avatar 4.jpg' %}"
+             class="avatar avatar--medium" onclick="highlight(this, 'avatar 4.jpg')" name="selected_option" value="avatar 4.jpg"/>
+        <img src="{% static 'images/avatar 5.jpg' %}"
+             class="avatar avatar--medium" onclick="highlight(this, 'avatar 5.jpg')" name="selected_option" value="avatar 5.jpg"/>
+        <img src="{% static 'images/avatar 6.jpg' %}"
+             class="avatar avatar--medium" onclick="highlight(this, 'avatar 6.jpg')" name="selected_option" value="avatar 6.jpg"/>
+        <img src="{% static 'images/avatar 7.jpg' %}"
+             class="avatar avatar--medium" onclick="highlight(this, 'avatar 7.jpg')" name="selected_option" value="avatar 7.jpg"/>
+        <img src="{% static 'images/avatar 8.jpg' %}"
+             class="avatar avatar--medium" onclick="highlight(this, 'avatar 8.jpg')" name="selected_option" value="avatar 8.jpg"/>
+        <img src="{% static 'images/avatar 9.jpg' %}"
+             class="avatar avatar--medium" onclick="highlight(this, 'avatar 9.jpg')" name="selected_option" value="avatar 9.jpg"/>
+        <img src="{% static 'images/avatar 10.jpg' %}"
+             class="avatar avatar--medium" onclick="highlight(this, 'avatar 10.jpg')" name="selected_option" value="avatar 10.jpg"/>
+
+
+        <input type="hidden" name="selected_option" id="selected_option"><br><br><br><br>
+        <button class="main" type="submit" id="submitBtn" style="display: none;">{{'Continue'|translate:request.user.id}}</button>
+    </form>
+          </div>
+     <script>
+        function highlight(button, option) {
+            // Remove highlight from all buttons
+            document.querySelectorAll('img').forEach(function(btn) {
+                btn.classList.remove('highlight');
+            });
+
+            // Highlight the selected button
+            button.classList.add('highlight');
+
+            // Set the selected option as the form value
+            document.getElementById('selected_option').value = option;
+
+            // Show the submit button
+            document.getElementById('submitBtn').style.display = 'inline-block';
+        }
+    </script>
+
+<style>
+   .highlight {
+    border-color: red;
+    border-width: 5px;
+    filter:blur(0.3px);
+    }
+    img{
+    height:10.3rem; width:10.3rem;
+    }
+</style>
+{% endblock content %}
