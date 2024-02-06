@@ -10,7 +10,7 @@
   --color-light: #e5e5e5;
   --color-gray: #8b8b8b;
   --color-light-gray: #b2bdbd;
-  --color-bg: #2d2d39;
+  --color-bg: #001f3f;
   --color-success: #5dd693;
   --color-error: #fc4b0b;
 }
@@ -49,7 +49,7 @@ body {
   font-weight: 400;
   font-size: 1.5rem;
   color: var(--color-light-gray);
-  background-color: var(--color-bg);
+  background-color: #13203b;
   min-height: 100vh;
 }
 
@@ -59,7 +59,7 @@ img {
 
 a {
   display: inline-block;
-  color: var(--color-main);
+  color: white;
   text-decoration: none;
 }
 
@@ -88,7 +88,7 @@ a {
 .btn--link {
   border-radius: 0;
   padding: 0;
-  color: var(--color-main);
+  color: white;
   box-shadow: none;
 }
 
@@ -97,8 +97,8 @@ a {
 }
 
 .btn--main {
-  background-color: var(--color-main);
-  color: var(--color-dark);
+  background-color: #0072fb;
+  color: white;
   width: 100%;
   align-items: center;
   padding: 10px;
@@ -109,18 +109,36 @@ a {
 }
 
 .main {
-  background-color: var(--color-main);
+  background-color: #0072fb;
   color: white;
-  width: 100%;
-  max-width: 800px;
-  align-items: center;
+  width: 90%;
+  height: 45px;
+  max-width: 400px;
   padding: 10px;
-  border: none;
-  border-radius: 5px;
+  border-: 5px;
+  border:1px solid white;
+  border-radius: 10px;
   cursor: pointer;
-  margin-top: 20px;
 }
 
+.lang {
+  background-color: var(--color-bg);
+  color: white;
+  width: 90%;
+  height: 45px;
+  max-width: 400px;
+  align-items: center;
+  padding: 5px;
+  border-: 5px;
+  border:1px solid white;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 10px;
+
+}
+.language button{
+  text-align:left;
+}
 .btn:hover {
   opacity: 0.9;
 }
@@ -131,12 +149,14 @@ a {
 }
 
 .btn--dark2 {
-  background-color: var(--color-dark);
+  background-color: transparent;
   color: var(--color-light);
+  text-align:left;
   width: 100%;
   border-color: white;
   border-radius: 10px;
   height: 50px;
+  margin: 5px;
 }
 
 .btn > svg {
@@ -239,6 +259,15 @@ a {
   background-color: var(--color-gray);
 }
 
+.layout__body {
+  margin: 5rem;
+  padding: 10px;
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+}
+
 .layout__boxTitle {
   display: flex;
   gap: 1.5rem;
@@ -252,20 +281,7 @@ a {
   font-size: 15px;;
 }
 
-.layout__boxTitle svg {
-  width: 1.9rem;
-  height: 1.9rem;
-  fill: var(--color-main);
-}
 
-.layout__body {
-  margin: 5rem;
-  padding: 35px;
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-  height: 100%;
-}
 .password-toggle-icon {
   position: absolute;
   top: relative;
@@ -278,7 +294,7 @@ a {
 .password-toggle-icon i {
   font-size: 17px;
   line-height: 1;
-  color: var(--color-main);
+  color: white;
   transition: color 0.3s ease-in-out;
   margin-bottom: 20px;
 
@@ -338,13 +354,17 @@ a {
   margin: 0 auto;
 }
 
+.forgot_password a{
+ color: white;
+ }
+
 .form__group input:focus,
 .form__group textarea:focus {
-  border-color: var(--color-main);
+  border-color: white;
 }
 
 .form__group textarea {
-  background: transparent;
+  background: #324ad9;
   height: 10rem;
   resize: none;
 }
@@ -386,7 +406,7 @@ a {
 .auth__tagline {
   text-align: center;
   margin-bottom: 3rem;
-  color: var(--color-main);
+  color: white;
   font-weight: 500;
   font-size: 3.0rem;
   text-align: left;
@@ -405,11 +425,10 @@ a {
 }
 
 .auth__action {
-  margin-top: 150px;/*Where to move signup up and down*/
+  margin-top: 50px;
   text-align: center;
   margin: 4rem;
   padding: 50px;
-
   max-width: 800px;
   margin: 1 auto;
 
@@ -441,17 +460,15 @@ a {
   color: white;
   transition: color 0.3s ease-in-out;
   margin-bottom: 20px;
-
   background: transparent;
   padding: 1rem;
 }
 
 .action {
-  margin-top: 100px;/*Where to move signup up and down*/
+  margin-top: 50px;
   text-align: center;
   margin: 4rem;
   padding: 3px;
-
   max-width: 800px;
   margin: 1 auto;
 
@@ -580,4 +597,3 @@ a {
   font-weight: 500;
   outline: none;
 }
-
