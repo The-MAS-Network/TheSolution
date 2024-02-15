@@ -82,8 +82,8 @@ This section focuses mainly on how to get the frontend running with React and th
 
     ### DESCRIPTION:
 
-          VITE_CRYPTO_JS_ENCRYPTION_KEY is a  value used for encryption of some details on the frontend you can change them to your own keys of choice
+    VITE_CRYPTO_JS_ENCRYPTION_KEY is a value used for encryption of some details on the frontend you can change them to your own keys of choice
 
-          VITE_APP_BACKEND_BASE_URL: This is a url to the backend you can use http://localhost:8080  but make sure that your backend is running on that port or alternatively  you can use the live url in which I am using for the submission of this challenge https://the-solution.ubongjacob.dev/api
+    VITE_APP_BACKEND_BASE_URL: This is a url to the backend you can use http://localhost:8080 but make sure that your backend is running on that port or alternatively you can use the live url in which I am using for the submission of this challenge https://the-solution.ubongjacob.dev/api
 
 4.  In case of any questions about any of the steps, you can always drop comments on the competition channel [here](https://discord.com/channels/1164829493781876806/1193633156599918612) or join the Discord server [here](https://discord.gg/XC9aCT3q).
