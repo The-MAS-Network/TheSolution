@@ -5,13 +5,23 @@ import { Icon } from "@iconify/react";
 import routes from "@/navigation/routes";
 import { useTranslationStore } from "@/stores/appTranslator.store";
 import { twMerge } from "tailwind-merge";
+import { useAppTranslator } from "@/hooks/useAppTranslator";
 
 interface Props {
   className?: string;
 }
 
+interface ITranslate {
+  [message: string]: string;
+}
+
 const ChangeLanguageButton = ({ className }: Props): JSX.Element => {
   const { currentLanguageDetails } = useStore(useTranslationStore);
+  const values: ITranslate = {
+    [currentLanguageDetails?.language]: currentLanguageDetails?.language,
+  };
+  const { translatedValues } = useAppTranslator<ITranslate>({ ...values });
+
   return (
     <Link
       to={routes.CHANGE_LANGUAGE_PAGE}
@@ -22,7 +32,9 @@ const ChangeLanguageButton = ({ className }: Props): JSX.Element => {
     >
       <span className="flex items-center gap-x-2">
         <Icon className="text-base sm:text-xl" icon="clarity:world-solid" />
-        <p className="font-semibold">{currentLanguageDetails.language}</p>
+        <p className="font-semibold">
+          {translatedValues[currentLanguageDetails.language]}
+        </p>
       </span>
 
       <span className="flex items-center gap-x-2">

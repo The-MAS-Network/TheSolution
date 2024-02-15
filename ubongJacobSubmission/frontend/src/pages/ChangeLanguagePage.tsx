@@ -1,13 +1,12 @@
 import { Icon } from "@iconify/react";
 import { useStore } from "zustand";
 
+import demoLanguages from "@/assets/data/demoLanguages";
 import AppBackButton from "@/components/AppBackButton";
 import { useAppTranslator } from "@/hooks/useAppTranslator";
 import { useTranslationStore } from "@/stores/appTranslator.store";
-import demoLanguages from "@/assets/data/demoLanguages";
-import { Link } from "react-router-dom";
-import routes from "@/navigation/routes";
 import { CurrentLanguageDetails } from "@/types";
+import { useNavigate } from "react-router-dom";
 
 interface ITranslate {
   whatIsYour: string;
@@ -43,8 +42,9 @@ const ChangeLanguagePage = (): JSX.Element => {
   const { currentLanguageDetails, setCurrentLanguageType } =
     useStore(useTranslationStore);
 
+  const navigate = useNavigate();
+
   const { translatedValues } = useAppTranslator<ITranslate>({ ...values });
-  console.log(translatedValues);
 
   return (
     <div className="min-h-screen  items-center justify-center bg-appDarkBlue100 md:flex">
@@ -62,8 +62,6 @@ const ChangeLanguagePage = (): JSX.Element => {
 
         <ul className="flex flex-1 flex-col gap-y-2">
           {demoLanguages.map((details, key) => {
-            // @ts-ignore
-            console.log(translatedValues[generateLanguageKey(details)]);
             return (
               <li
                 onClick={() => setCurrentLanguageType(details)}
@@ -93,13 +91,12 @@ const ChangeLanguagePage = (): JSX.Element => {
         </ul>
 
         <div className="py-6 md:pt-12">
-          <Link
-            to={routes.HOME_PAGE}
-            replace
+          <button
+            onClick={() => navigate(-1)}
             className="app-button-primary block text-center"
           >
             {translatedValues.confirm}
-          </Link>
+          </button>
         </div>
       </main>
     </div>

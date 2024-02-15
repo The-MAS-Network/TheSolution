@@ -36,8 +36,6 @@ const ErrorMessage = ({ message }: Props): JSX.Element | null => {
     )
       return;
 
-    console.log("hi");
-
     if (currentLanguageDetails.language === "en") {
       setFinalMessage(
         addSpaceBeforeCapitalLetters(
@@ -56,7 +54,7 @@ const ErrorMessage = ({ message }: Props): JSX.Element | null => {
   };
 
   return (
-    <p className="text-appYellow100 mt-1 p-1 font-baloo2 text-sm font-medium lowercase tracking-wider first-letter:uppercase">
+    <p className="mt-1 p-1 font-baloo2 text-sm font-medium lowercase tracking-wider text-appYellow100 first-letter:uppercase">
       {finalMessage}
     </p>
   );
