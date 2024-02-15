@@ -26,7 +26,7 @@ This is not a monolithic web application as the frontend (React) is separated fr
 4. Open the project in VsCode by using the command `cd TheSolution && code .`.
 5. Open your terminal in VsCode.
 6. Use Git to switch to `challenge1-submission/UbongJacob` branch using the command `git checkout challenge1-submission/UbongJacob`.
-7. Navigate to the `SolutionProject` folder in the file explorer of VsCode. Inside it, you should see `ubongJacobSubmission` folder. Inside this folder, there are 2 folders: `frontend` and `backend`.
+7. Navigate to the `ubongJacobSubmission` folder in the file explorer of VsCode. Inside it, there are 2 folders: `frontend` and `backend`.
 
 ## Section B: Backend Steps
 
@@ -37,7 +37,7 @@ This section focuses mainly on how to get the backend running with Node.js and M
 3. Start up MySQL and Apache servers.
 4. On your web browser, enter the URL `http://localhost/phpmyadmin/`.
 5. Create a database with any name of your choice. For this guide, we will name it `the-solution-db`.
-6. Navigate to the `backend` folder in VsCode terminal using the command `cd SolutionProject\ubongJacobSubmission\backend`.
+6. Navigate to the `backend` folder in VsCode terminal using the command `cd ubongJacobSubmission\backend`.
 7. Run the command `npm install` to install the dependencies.
 8. Create a `.env` file in the root folder of the backend and paste the following variables:
    APP_JWT_PRIVATE_KEY=WdBwe4qF4msjvT8Mys937QqFjgAor05MSZrB
@@ -73,7 +73,7 @@ This section focuses mainly on how to get the backend running with Node.js and M
 
 This section focuses mainly on how to get the frontend running with React and the backend we have set up.
 
-1.  Navigate to the `frontend` folder in VsCode terminal using the command `cd SolutionProject\ubongJacobSubmission\frontend`.
+1.  Navigate to the `frontend` folder in VsCode terminal using the command `cd ubongJacobSubmission\frontend`.
 2.  Run the command `npm install` to install the dependencies.
 3.  Create a `.env` file in the root folder of the frontend and paste the following variables:
     VITE_CRYPTO_JS_ENCRYPTION_KEY=K6BWKW7FFKi5mBK1fxK954hB
