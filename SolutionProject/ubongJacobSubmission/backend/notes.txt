@@ -1,4 +1,0 @@
-npm run migration:generate -- ./src/db/migrations/migrationName
-
-
-npm run migration:generate -- ./src/db/migrations/migrationName

@@ -13,7 +13,7 @@ function getAppConfig() {
     app_cryptoJsKey,
     db_username,
     db_host,
-    db_password,
+    db_password: !!db_password ? db_password : undefined,
     db_dbName,
     db_port,
   };
