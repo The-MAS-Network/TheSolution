@@ -94,4 +94,8 @@ This section focuses mainly on how to get the frontend running with React and th
 
     VITE_APP_BACKEND_BASE_URL: This is a url to the backend you can use http://localhost:8080 but make sure that your backend is running on that port or alternatively you can use the live url in which I am using for the submission of this challenge https://the-solution.ubongjacob.dev/api
 
-4.  In case of any questions about any of the steps, you can always drop comments on the competition channel [here](https://discord.com/channels/1164829493781876806/1193633156599918612) or join the Discord server [here](https://discord.gg/XC9aCT3q).
+4.  Run the command `npm run dev` and your website should be live on http://localhost:5173 or look at your vscode terminal to find the development server link.
+
+## Section C: Summary
+
+In case of any questions about any of the steps, you can always drop comments on the competition channel [here](https://discord.com/channels/1164829493781876806/1193633156599918612) or join the Discord server [here](https://discord.gg/XC9aCT3q).
