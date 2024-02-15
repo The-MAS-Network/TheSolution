@@ -40,12 +40,19 @@ This section focuses mainly on how to get the backend running with Node.js and M
 6. Navigate to the `backend` folder in VsCode terminal using the command `cd ubongJacobSubmission\backend`.
 7. Run the command `npm install` to install the dependencies.
 8. Create a `.env` file in the root folder of the backend and paste the following variables:
+
    APP_JWT_PRIVATE_KEY=WdBwe4qF4msjvT8Mys937QqFjgAor05MSZrB
+
    APP_CRYPTO_JS_KEY=VHDOxrE14AOp3LcQrFX3hWGLl4o9JT1C
+
    DB_USERNAME=root
+
    DB_PASSWORD=
+
    DB_HOST=localhost
+
    DB_DBNAME=the-solution-db
+
    DB_PORT=3306
 
    ### DESCRIPTION:
@@ -76,6 +83,7 @@ This section focuses mainly on how to get the frontend running with React and th
 1.  Navigate to the `frontend` folder in VsCode terminal using the command `cd ubongJacobSubmission\frontend`.
 2.  Run the command `npm install` to install the dependencies.
 3.  Create a `.env` file in the root folder of the frontend and paste the following variables:
+
     VITE_CRYPTO_JS_ENCRYPTION_KEY=K6BWKW7FFKi5mBK1fxK954hB
 
     VITE_APP_BACKEND_BASE_URL=http://localhost:8080
