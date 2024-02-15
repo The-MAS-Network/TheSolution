@@ -48,7 +48,7 @@ This section focuses mainly on how to get the backend running with Node.js and M
    DB_DBNAME=the-solution-db
    DB_PORT=3306
 
-   # DESCRIPTION:
+   ### DESCRIPTION:
 
    APP_JWT_PRIVATE_KEY and APP_CRYPTO_JS_KEY are values used for encryption of some details on the server you can change them to your own keys of choice
 
@@ -77,9 +77,10 @@ This section focuses mainly on how to get the frontend running with React and th
 2.  Run the command `npm install` to install the dependencies.
 3.  Create a `.env` file in the root folder of the frontend and paste the following variables:
     VITE_CRYPTO_JS_ENCRYPTION_KEY=K6BWKW7FFKi5mBK1fxK954hB
+
     VITE_APP_BACKEND_BASE_URL=http://localhost:8080
 
-    # DESCRIPTION:
+    ### DESCRIPTION:
 
           VITE_CRYPTO_JS_ENCRYPTION_KEY is a  value used for encryption of some details on the frontend you can change them to your own keys of choice
 
