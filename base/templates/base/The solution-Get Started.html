@@ -18,20 +18,6 @@
 
 }
 </style>
-{% if messages %}
-    <script>
-        {% for message in messages %}
-        {% if message.tags == 'error' %}
-        alert("{{message}}");
-        {% endif %}
-
-        {% if message.tags == 'success' %}
-        alert("{{message}}");
-        {% endif %}
-
-        {% endfor %}
-    </script>
-    {% endif %}
 
   </head>
 <body style="font-family: 'Baloo 2', cursive;">
