@@ -7,7 +7,12 @@ from django.contrib.auth.forms import PasswordResetForm
 class MyUserCreationForm(UserCreationForm):
     class Meta:
         model = User
-        fields = ['lightning_address', 'email']
+        fields = ['lightning_address']
+
+class MyUserCreationForm2(UserCreationForm):
+    class Meta:
+        model = User
+        fields = ['nick_name']
 
 
 class UserForm(ModelForm):
@@ -25,18 +30,9 @@ class UserForm(ModelForm):
         fields = ['dp', 'lightning_address','language', 'nick_name']
 
 class UserForm2(ModelForm):
-    foot = [
-       ('en', ('English')),
-       ('esp', ('Spanish')),
-       ('fr', ('French')),
-        ('it', ('Italian')),
-        ('de', ('German')),
-   ]
-
-    language = forms.ChoiceField(choices=foot)
     class Meta:
         model = User
-        fields = ['dp', 'language', 'nick_name']
+        fields = ['nick_name']
 
 
 
