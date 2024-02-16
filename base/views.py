@@ -5,12 +5,13 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.contrib.auth import authenticate, login, logout
 from .models import User
-from .forms import UserForm,UserForm2, MyUserCreationForm
+from .forms import UserForm,UserForm2, MyUserCreationForm,  MyUserCreationForm2
 from .templatetags.languages import translations
 import os
-from PIL import Image
-from django.conf import settings
+# from PIL import Image
+# from django.conf import settings
 # from .decorators import unauthenticated_user
+
 
 
 def loginPage(request):
@@ -21,25 +22,26 @@ def loginPage(request):
         password = request.POST.get('password')
         rem = request.POST.get('rem')
 
-        try:
-            user = User.objects.get(lightning_address=lightning_address)
-        except:
-            text = ['That User does not exist']
-            return render(request, 'base/loginerr.html', {'text': text})
+
+        # user = User.objects.get(lightning_address=lightning_address)
+
 
         user = authenticate(request, lightning_address=lightning_address, password=password)
-        if user is not None:
+        if user is None:
+            # text = ['Incorrect password']
+            # return render(request, 'base/loginerr.html', {'text': text, 'option': option})
+            messages.error(request, 'Invalid credentials')
+        else:
             login(request, user)
             if not rem:
                 request.session.set_expiry(0)
             else:
                 request.session.set_expiry(None)
+            messages.success(request, 'Login Successful')
             login(request, user)
 
             return redirect('enterpro')
-        else:
-            text = ['Username OR password is incorrect']
-            return render(request, 'base/loginerr.html', {'text': text})
+
 
     context = {'page': page, 'option': option}
 
@@ -50,28 +52,35 @@ def logoutUser(request):
     logout(request)
     return redirect('home')
 
-
 def registerPage(request):
-    form = MyUserCreationForm()
     option = request.session.get('option', 'en')
+    form = MyUserCreationForm(request.POST)
     if request.method == 'POST':
-        form = MyUserCreationForm(request.POST)
         if form.is_valid():
-            user = form.save(commit=False)
-            user.language = option
-            user.nick_name = request.POST.get('nick')
-            user.save()
-
-            login(request, user)
-            return redirect('enterpro')
+            request.session['lightning_address'] = form.cleaned_data['lightning_address']
+            request.session['password1'] = form.cleaned_data['password1']
+            request.session['password2'] = form.cleaned_data['password2']
+            return redirect('register2')
         else:
-            text = ["Your password must contain at least 8 characters.",
-                   "Your password can't be entirely numeric.",
-                   "Your password can't be a commonly used password."]
-            return render(request, 'base/loginerr.html', {'text': text,'option': option})
+            text = ["Invalid Credentials"]
+            return render(request, 'base/loginerr.html', {'text': text, 'option': option})
+    return render(request, 'base/register.html', {'form':form, 'option': option})
 
 
-    return render(request, 'base/register.html', {'form': form, 'option': option})
+def registerPage2(request):
+    option = request.session.get('option', 'en')
+    form = MyUserCreationForm2(request.POST)
+    if request.method == 'POST':
+        nickname = request.POST.get('nick_name')
+        lightning_address = request.session.get('lightning_address')
+        password1 = request.session.get('password1')
+        password2 = request.session.get('password2')
+        user = User.objects.create_user(nick_name=nickname, username=lightning_address,
+                    lightning_address=lightning_address, language=option,
+                    password=password1)
+        user.save()
+        return redirect('login')
+    return render(request, 'base/register2.html', {'form': form, 'option': option})
 
 
 def home(request):
@@ -81,7 +90,7 @@ def home(request):
 def language(request):
     option = request.session.get('option', 'en')
     if request.method == 'POST':
-        option = request.POST.get('selected_option', 'en')
+        option = request.POST.get('selectedvalue', 'en')
         request.session['option'] = option
         return redirect('home')
     return render(request, 'base/Language.html', {'option': option})
@@ -89,10 +98,10 @@ def language(request):
 def languages(request):
     if request.method == 'POST':
         user = request.user
-        option = request.POST.get('selected_option')
+        option = request.POST.get('selectedvalue')
         user.language = option
         user.save()
-        return redirect('enterpro')
+        return redirect('languages')
     return render(request, 'base/Language2.html',)
 
 def avatar(request):
@@ -104,7 +113,7 @@ def avatar(request):
         return redirect('update-user')
     return render(request, 'base/avatar.html', {})
 
-
+@login_required(login_url='login')
 def userProfile(request, pk):
     user = User.objects.get(id=pk)
     context = {'user':user}
@@ -116,29 +125,18 @@ def enterpro(request):
 
 @login_required(login_url='login')
 def updateUser(request):
-    user = request.user
-    form = UserForm2(instance=user)
-
     if request.method == 'POST':
-        form = UserForm2(request.POST, request.FILES, instance=user)
-        if form.is_valid():
-            form.save()
-            images_folder = os.path.join(settings.BASE_DIR, 'static/images')
-            target_size = (500, 500)
-            max_size_in_bytes = 100 * 1024  # 100KB
+        user = request.user
+        nick = request.POST.get('nick_name')
+        nick2 = request.POST.get('nick_name2')
+        if nick is None:
+            user.nick_name = nick2
+        else:
+            user.nick_name = nick
+        user.save()
+        return redirect('enterpro')
 
-            for filename in os.listdir(images_folder):
-                if filename.endswith(('.png', '.jpg', '.jpeg')):
-                    image_path = os.path.join(images_folder, filename)
-                    image_size_bytes = os.path.getsize(image_path)
-                    if image_size_bytes > max_size_in_bytes:
-                        image = Image.open(image_path)
-                        image.thumbnail(target_size)
-                        image.save(image_path)
-
-            return redirect('enterpro')
-
-    return render(request, 'base/Update Profile.html', {'form': form})
+    return render(request, 'base/Update Profile.html')
 
 
 
