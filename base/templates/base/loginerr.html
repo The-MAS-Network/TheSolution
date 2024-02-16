@@ -3,7 +3,7 @@
 {% block content %}
 <h3 style="text-align:center; color: red;"><br><br>Error</h3><br><hr>
 <h1 style="text-align:center; color: #71c6dd;"><br><br>{% for text in text %}
-     <li>{{text|safe|translate:request.user.id}}</li><br><br>
+     <li>{{text|safe|new_translate:option}}</li><br><br>
 {% endfor %}
 </h1><br>
 
