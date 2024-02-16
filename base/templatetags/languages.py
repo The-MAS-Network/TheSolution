@@ -1,6 +1,6 @@
 from django import template
 register = template.Library()
-from base.models import User
+from pracs.models import User
 
 translations = [
     {"id": "Welcome Back", "en": "Welcome Back", "esp": "Bienvenido de nuevo", "it": "Benvenuto di nuovo", "fr": "Bienvenue de retour", "de": "Willkommen zurück"},
@@ -56,7 +56,7 @@ translations = [
 
 {
 'id': 'Earn sats',
-    'en': 'Earn sats',
+    'en': 'Earn SATS',
     'fr': 'Gagner des sats',
     'it': 'Guadagna sats',
     'de': 'Sats verdienen',
@@ -70,6 +70,41 @@ translations = [
     'de': 'Bestätigen',
     'esp': 'Confirmar'
 },
+
+
+{
+    'id': 'What is your',
+    'en': 'What is your',
+    'esp': '¿Cuál es tu',
+    'it': 'Qual è il tuo',
+    'de': 'Was ist dein',
+    'fr': 'Quel est ton'
+},
+{
+    'id': 'This is what other community members see',
+    'en': 'This is what other community members see.',
+    'esp': 'Esto es lo que ven otros miembros de la comunidad.',
+    'it': 'Questo è ciò che vedono gli altri membri della comunità.',
+    'de': 'Das ist, was andere Community-Mitglieder sehen.',
+    'fr': 'Ceci est ce que voient les autres membres de la communauté.'
+},
+{
+    'id': 'Ordinals',
+    'en': 'Ordinals',
+    'esp': 'Ordinales',
+    'it': 'Ordinali',
+    'de': 'Ordinalzahlen',
+    'fr': 'Ordinaux'
+},
+{
+    'id': 'Edit profile',
+    'en': 'Edit Profile',
+    'esp': 'Editar perfil',
+    'it': 'Modifica profilo',
+    'de': 'Profil bearbeiten',
+    'fr': 'Modifier le profil'
+},
+
     {
         "id": "Forgotten your password? Enter your email address below, and we will email instructions for setting a new one.",
         "en": "Forgotten your password? Enter your email address below, and we'll email instructions for setting a new one.",
@@ -171,5 +206,6 @@ def new_translate(id_value, la):
     translation = next((d[la] for d in translations if d["id"] == id_value), None)
     emerge = id_value
     return translation if translation else emerge
+
 
 
