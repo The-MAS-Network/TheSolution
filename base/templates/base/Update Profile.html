@@ -30,7 +30,9 @@
         </div>
         <label class="mb-2 mt-7 block text-sm text-appGray400 sm:text-base">{{"Nick name"|translate:request.user.id}}
         </label>
-          <form method="POST" action="">
+
+        <div>
+        <form method="POST" action="">
               {% csrf_token %}
         <input type="text" name="nick_name" class="w-full rounded-2xl bg-white p-4 text-base text-appBlue100 outline-0" value="{{user.nick_name}}">
 
@@ -41,6 +43,8 @@
         <button type="submit" class="app-button-primary mt-8 sm:mb-10">{{"Update Profile"|translate:request.user.id}}
         </button>
 
+        </form>
+        </div>
         </main>
 </div>
 </div>
@@ -70,7 +74,10 @@
         <label class="mb-2 mt-7 block text-sm text-appGray400 sm:text-base">{{"Nick name"|translate:request.user.id}}
         </label>
 
-        <input type="text" name="nick_name2" class="w-full rounded-2xl bg-white p-4 text-base text-appBlue100 outline-0" value="{{user.nick_name}}">
+        <div>
+        <form method="POST" action="">
+              {% csrf_token %}
+        <input type="text" name="nick_name" class="w-full rounded-2xl bg-white p-4 text-base text-appBlue100 outline-0" value="{{user.nick_name}}">
 
         <label class="mb-2 mt-5 block text-sm text-appGray400 sm:text-base">{{"Lightning address"|translate:request.user.id}}
         </label>
@@ -79,6 +86,7 @@
         <button type="submit" class="app-button-primary mt-8 sm:mb-10">{{"Update Profile"|translate:request.user.id}}
         </button>
           </form>
+          </div>
         </main>
 </div>
 </div>
