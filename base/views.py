@@ -28,9 +28,9 @@ def loginPage(request):
 
         user = authenticate(request, lightning_address=lightning_address, password=password)
         if user is None:
-            # text = ['Incorrect password']
-            # return render(request, 'base/loginerr.html', {'text': text, 'option': option})
-            messages.error(request, 'Invalid credentials')
+            text = ['Invalid details']
+            return render(request, 'base/loginerr.html', {'text': text, 'option': option})
+            # messages.error(request, 'Invalid credentials')
         else:
             login(request, user)
             if not rem:
