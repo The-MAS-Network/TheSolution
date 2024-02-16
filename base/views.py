@@ -28,9 +28,9 @@ def loginPage(request):
 
         user = authenticate(request, lightning_address=lightning_address, password=password)
         if user is None:
-            text = ['Invalid details']
-            return render(request, 'base/loginerr.html', {'text': text, 'option': option})
-            # messages.error(request, 'Invalid credentials')
+            # text = ['Invalid details']
+            # return render(request, 'base/loginerr.html', {'text': text, 'option': option})
+            messages.error(request, 'Invalid credentials')
         else:
             login(request, user)
             if not rem:
@@ -110,6 +110,7 @@ def avatar(request):
         option = request.POST.get('selected_option')
         user.dp = option
         user.save()
+        messages.success(request, 'Avatar updated Successfully')
         return redirect('update-user')
     return render(request, 'base/avatar.html', {})
 
@@ -127,19 +128,14 @@ def enterpro(request):
 def updateUser(request):
     if request.method == 'POST':
         user = request.user
-        nick = request.POST.get('nick_name')
-        nick2 = request.POST.get('nick_name2')
-        if nick is None:
-            user.nick_name = nick2
-        else:
-            user.nick_name = nick
+        nn = request.POST.get('nick_name')
+        user.nick_name = nn
         user.save()
-        return redirect('enterpro')
+        messages.success(request, 'Profile updated Successfully')
+        return redirect('update-user')
+
 
     return render(request, 'base/Update Profile.html')
-
-
-
 
 
 
