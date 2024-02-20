@@ -1,0 +1,71 @@
+
+{% extends 'base/The solution-Get Started.html' %}
+{% load languages %}
+{% block content %}
+
+<body>
+<div id="root"><div class="mx-auto max-w-[200rem] ">
+    <div class="min-h-screen  items-center justify-center
+bg-appDarkBlue100 md:flex"><main class="app-container flex min-h-screen flex-col text-white md:min-h-max ">
+    <header class="mb-11 pt-12">
+        <a href="{% url 'register' %}"><button type="button" class="flex items-center gap-x-2 text-base font-medium md:text-lg lg:text-xl">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
+                 role="img" class="text-2xl md:text-3xl lg:text-4xl iconify iconify--ion" width="1em" height="1em"
+                 viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round"
+                                             stroke-linejoin="round" stroke-width="48" d="M244 400L100 256l144
+                                             -144M120 256h292"></path></svg><span>{{"Back"|new_translate:option}}
+        </span></button></a>
+    </header>
+    <h1 class="text-2xl font-semibold md:text-3xl lg:text-4xl">{{"What is your"|new_translate:option}} <br>
+        <span class="lowercase">
+    {{"Nick name"|new_translate:option}}</span></h1><p class="pb-6 pt-3 text-sm font-normal sm:text-base">
+        {{"This is what other community members see"|new_translate:option}}</p>
+	<form class="flex flex-1 flex-col gap-y-2" action="" method="POST"><div>
+        {% csrf_token %}
+
+        <div class="focus-within:bg-appDarkBlue200
+	focus-within:border-appBlue500 flex items-center gap-x-2 rounded-lg border border-transparent
+	bg-appGray100 px-4 transition-all duration-300">
+{% for field in form %}
+            {% if field.label == 'Nick name' %}
+	<input type="text" name="nick_name" maxlength="200" class="placeholder:text-appGray200 w-full bg-transparent py-4
+	text-white outline-0" placeholder="{{'Nick name'|new_translate:option}}" required id="clear">
+	<button type="button" class="cancel"><svg xmlns="http://www.w3.org/2000/svg"
+                                              xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
+                                              role="img" width="1em" height="1em" viewBox="0 0 24 24">
+        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+              stroke-width="2.5" d="m7 7l10 10M7 17L17 7"></path></svg>
+	</button>
+            {% endif %}
+             {% endfor %}
+</div>
+</div>
+        <div class="flex flex-1 flex-col justify-end py-6 md:pt-12">
+    <input type="submit" class="app-button-primary flex items-center justify-center gap-x-2"
+    value="{{'Continue'|new_translate:option}}">
+</div></form>
+    </main></div></div></div>
+
+
+
+
+
+</body>
+
+<script src="scrip.js"></script>
+
+
+<script type="text/javascript">
+
+ const nickname = document.getElementById("clear");
+const cancel = document.querySelector(".cancel");
+
+cancel.addEventListener("click", function () {
+  if (nickname.type === "text") {
+    nickname.value = "";
+  }
+});
+
+</script>
+
+{% endblock content %}
