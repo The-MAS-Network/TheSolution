@@ -1,0 +1,56 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<main class="profile-page layout layout--3">
+  <div class="container">
+    <!-- Topics Start -->
+    {% include 'base/topics_component.html' %}
+    <!-- Topics End -->
+
+    <!-- Room List Start -->
+    <div class="roomList">
+      <div class="profile">
+        <div class="profile__avatar">
+          <div class="avatar avatar--large active">
+            <img src="{{user.dp.url}}" />
+          </div>
+        </div>
+        <div class="profile__info">
+          <p>@{{user.username}}</p>
+          <p>PHONE NUMBER: {% if user.phone != None %}{{user.phone}}{% else %}Not Mentioned{% endif %}</p>
+          <p>NAME: {{user.firstname}} {{user.lastname}}</p>
+            <p>POSITION: {% if user.position != None %}{{user.position}}{% else %}Not Mentioned{% endif %}</p>
+          <p>STRONGER FOOT: {% if user.stronger_foot != None %}{{user.stronger_foot}}{% else %}Not Mentioned{% endif %} </p>
+          <p>DATE OF BIRTH: {% if user.birth_date != None %}{{user.birth_date}}{% else %}Not Mentioned{% endif %}</p>
+          {% if request.user == user %}
+          <a href="{% url 'update-user' %}" class="btn btn--main btn--pill">Edit Profile</a>
+          {% endif %}
+        </div>
+        <div class="profile__about">
+
+          <p>
+
+          </p>
+        </div>
+      </div>
+
+      <div class="roomList__header">
+        <div>
+          <h2>Tournaments Hosted by {{user.firstname}}</a>
+          </h2>
+        </div>
+      </div>
+      {% include 'base/feed_component.html' %}
+
+
+    </div>
+    <!-- Room List End -->
+
+    <!-- Activities Start -->
+    {% include 'base/activity_component.html' %}
+    <!-- Activities End -->
+  </div>
+</main>
+{% endblock content %}
+
+

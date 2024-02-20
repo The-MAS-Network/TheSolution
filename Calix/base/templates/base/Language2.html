@@ -1,0 +1,70 @@
+{% extends 'base/The solution-Get Started.html' %}
+{% load languages %}
+{% load static %}
+{% block content %}
+  <body>
+    <div id="root">
+      <div class="mx-auto max-w-[200rem]">
+        <div class="min-h-screen  items-center justify-center bg-appDarkBlue100 md:flex">
+          <main class="app-container flex min-h-screen flex-col text-white md:min-h-max ">
+            <header class="mb-11 pt-12">
+              <a href="{% url 'user-profile' user.id %}"><button type="button" class="flex items-center gap-x-2 text-base font-medium md:text-lg lg:text-xl">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="text-2xl md:text-3xl lg:text-4xl iconify iconify--ion" width="1em" height="1em" viewBox="0 0 512 512">
+                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M244 400L100 256l144-144M120 256h292"></path>
+              </svg><span>{{"Back"|translate:request.user.id}}</span></button></a>
+            </header>
+            <h1 class="text-2xl font-semibold md:text-3xl lg:text-4xl">
+                {{"What is your language"|translate:request.user.id}}</h1><br>
+            <!--<p class="pb-6 pt-3 text-sm font-normal sm:text-base">-->
+            <!--    {{"Select a language to get started"|translate:request.user.id}}</p>-->
+            <form method="post" id="myForm" action="">
+                {% csrf_token %}
+            <ul class="flex flex-1 flex-col gap-y-2" id="list">
+              <li data-value="en" class="flex cursor-pointer items-center rounded-lg border-[2px] border-appGray100 px-3 py-4 text-sm font-semibold transition-all duration-300 sm:text-base">
+            <img src="{% static 'svg/en.svg' %}">
+          {{"en"|translate:request.user.id}}
+
+          </li>
+          <li data-value="esp" class="flex cursor-pointer items-center rounded-lg border-[2px] border-appGray100 px-3 py-4 text-sm font-semibold transition-all duration-300 sm:text-base">
+          <img src="{% static 'svg/esp.svg' %}"> {{"esp"|translate:request.user.id}}</li>
+        <li data-value="fr" class="flex cursor-pointer items-center rounded-lg border-[2px] border-appGray100 px-3 py-4 text-sm font-semibold transition-all duration-300 sm:text-base">
+          <img src="{% static 'svg/fr.svg' %}">{{"fr"|translate:request.user.id}}</li></ul>
+        <input type="hidden" id="selectedValue" name="selectedvalue"/>
+        <div id="submitBtn" class="py-6 md:pt-12"><button class="app-button-primary block text-center">{{"Confirm"|translate:request.user.id}}</button></div>
+      </form></main></div></div></div>
+  </body>
+ <script>
+// Get the list element
+var list = document.getElementById("list");
+
+// Add click event listeners to list items
+list.addEventListener("click", function(event) {
+  var selectedValue = event.target.getAttribute("data-value");
+
+  // Remove existing selected class from all list items
+  var items = list.getElementsByTagName("li");
+  for (var i = 0; i < items.length; i++) {
+    items[i].classList.remove("selected");
+  }
+
+  // Add selected class to the clicked item
+  event.target.classList.add("selected");
+
+  // Set the value of the hidden input field
+  document.getElementById("selectedValue").value = selectedValue;
+});
+
+</script>
+
+<style>
+  .selected {
+    background-color: #0072fb;
+  }
+  img{
+    margin-right: 15px;
+  }
+</style>
+
+
+
+{% endblock content %}

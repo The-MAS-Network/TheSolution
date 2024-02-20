@@ -1,0 +1,97 @@
+{% extends 'base/The solution-Get Started.html' %}
+{% load languages %}
+{% load static %}
+{% block content %}
+
+
+<div id="root">
+<div class="mx-auto max-w-[200rem]">
+<div class=" min-h-screen flex-col items-center justify-center bg-appBlue100 sm:flex">
+<div class="w-full sm:hidden">
+<div class="flex min-h-screen flex-col">
+        <main class="flex flex-1 flex-col bg-appDarkBlue100 px-6 pt-8 text-white">
+        <div class="pt-4">
+       <a href="{% url 'user-profile' user.id %}"> <button class="hover:text-appYellow100 absolute flex items-center gap-x-2 transition-all duration-300">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class=" text-xl md:text-2xl lg:text-3xl iconify iconify--ion" width="1em" height="1em" viewBox="0 0 512 512">
+        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M244 400L100 256l144-144M120 256h292">
+        </path>
+        </svg>
+        <span class="text-base font-semibold md:text-lg lg:text-xl">{{"Back"|translate:request.user.id}}
+        </span>
+        </button></a>
+        </div>
+        <div class="pt-14 sm:hidden">
+        <img src="/static/images/{{user.dp}}" class="mx-auto aspect-square w-40 rounded-full object-contain" alt="Avatar">
+        </div>
+        <div class="flex items-center pt-2">
+        <button class="mx-auto w-full max-w-[12.25rem] rounded-2xl bg-appGreen300 p-2 shadow-appButtonInnerShadow">
+            <a href="{% url 'avatar' %}">{{"Change Avatar"|translate:request.user.id}}</a>
+       </button>
+        </div>
+        <label class="mb-2 mt-7 block text-sm text-appGray400 sm:text-base">{{"Nick name"|translate:request.user.id}}
+        </label>
+
+        <div>
+        <form method="POST" action="">
+              {% csrf_token %}
+        <input type="text" name="nick_name" class="w-full rounded-2xl bg-white p-4 text-base text-appBlue100 outline-0" value="{{user.nick_name}}">
+
+        <label class="mb-2 mt-5 block text-sm text-appGray400 sm:text-base">{{"Lightning address"|translate:request.user.id}}
+        </label>
+        <div class="rounded-2xl bg-appGray600 px-4 py-4 text-sm font-normal text-appGray500 sm:text-base">{{user.lightning_address}}
+        </div>
+        <button type="submit" class="app-button-primary mt-8 sm:mb-10">{{"Update Profile"|translate:request.user.id}}
+        </button>
+
+        </form>
+        </div>
+        </main>
+</div>
+</div>
+<div class="hidden w-full  sm:block">
+        <main class="bg-appBlue800 mx-auto w-full max-w-[31.813rem] rounded-2xl px-8 py-4 text-white ">
+        <header class="relative flex items-center justify-between py-5">
+       <a href="{% url 'user-profile' user.id %}"> <button class="hover:text-appYellow100 absolute flex items-center gap-x-2 transition-all duration-300">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class=" text-xl md:text-2xl lg:text-3xl iconify iconify--ion" width="1em" height="1em" viewBox="0 0 512 512">
+        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M244 400L100 256l144-144M120 256h292">
+        </path>
+        </svg>
+        <span class="text-base font-semibold md:text-lg lg:text-xl">{{"Back"|translate:request.user.id}}
+        </span>
+       </button></a>
+        <p class="flex-1 text-center text-base font-bold md:text-lg lg:text-xl">{{"Edit profile"|translate:request.user.id}}
+        </p>
+        </header>
+        <img class="mx-auto aspect-square  w-full max-w-[7rem] rounded-full bg-appBlue100 object-contain" src="/static/images/{{user.dp}}" alt="Avatar">
+        <div class="pt-14 sm:hidden">
+        <img src="FEL.JPG" class="mx-auto aspect-square w-40 rounded-full object-contain" alt="">
+        </div>
+        <div class="flex items-center pt-2">
+        <button class="mx-auto w-full max-w-[12.25rem] rounded-2xl bg-appGreen300 p-2 shadow-appButtonInnerShadow">
+            <a href="{% url 'avatar' %}">{{"Change Avatar"|translate:request.user.id}}</a>
+        </button>
+        </div>
+        <label class="mb-2 mt-7 block text-sm text-appGray400 sm:text-base">{{"Nick name"|translate:request.user.id}}
+        </label>
+
+        <div>
+        <form method="POST" action="">
+              {% csrf_token %}
+        <input type="text" name="nick_name" class="w-full rounded-2xl bg-white p-4 text-base text-appBlue100 outline-0" value="{{user.nick_name}}">
+
+        <label class="mb-2 mt-5 block text-sm text-appGray400 sm:text-base">{{"Lightning address"|translate:request.user.id}}
+        </label>
+        <div class="rounded-2xl bg-appGray600 px-4 py-4 text-sm font-normal text-appGray500 sm:text-base">{{user.lightning_address}}
+        </div>
+        <button type="submit" class="app-button-primary mt-8 sm:mb-10">{{"Update Profile"|translate:request.user.id}}
+        </button>
+          </form>
+          </div>
+        </main>
+</div>
+</div>
+</div>
+</div>
+
+
+{% endblock content %}
