@@ -69,7 +69,7 @@ Monday March 18th, 2024 (new submissions after the deadline will not be consider
 Until March 29th, 2024
 
 **Winner Announcement:** 
-Winners announced on @masbtc21 Twitter. Once those winners are announced, only Part 2 will be available for submissions.
+Winners announced on @soengaged Twitter. Once those winners are announced, only Part 2 will be available for submissions.
 
 **Submission Guidelines:**
 
