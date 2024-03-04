@@ -60,13 +60,13 @@ a. Implement secure practices for authentication and data protection.
 **Timeline:**
 
 **Development Period:** 
-Starting Feb 1st, 2024 (you can submit your code at any time for feedback or questions before the official deadline as many times as needed)
+Starting Feb 1, 2024 (you can submit your code at any time for feedback or questions before the official deadline as many times as needed)
 
 **Submission Deadline:** 
-Monday March 18th, 2024 (new submissions after the deadline will not be considered)
+Monday March 18, 2024 (new submissions after the deadline will not be considered)
 
 **Evaluation Period:** 
-Until March 29th, 2024
+Until March 29, 2024
 
 **Winner Announcement:** 
 Winners announced on @soengaged Twitter. Once those winners are announced, only Part 2 will be available for submissions.
@@ -122,11 +122,11 @@ Contact us on Discord or email sales@themasnetwork.com if you would like us to d
 
 **Timeline:**
 
-* Development Period: Starting Feb 1st, 2024 (you can submit your code at any time for feedback or ask questions before the official deadline as many times as needed)
+* Development Period: Starting Feb 1, 2024 (you can submit your code at any time for feedback or ask questions before the official deadline as many times as needed)
 
-* Submission Deadline: March 18th, 2024 (new submissions after the deadline will not be considered)
+* Submission Deadline: March 18, 2024 (new submissions after the deadline will not be considered)
 
-* Evaluation Period: Until March 29th, 2024
+* Evaluation Period: Until March 2h, 2024
 
 * Winner Announcement: April 1, 2024
 
