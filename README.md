@@ -63,13 +63,13 @@ a. Implement secure practices for authentication and data protection.
 Starting Feb 1st, 2024 (you can submit your code at any time for feedback or questions before the official deadline as many times as needed)
 
 **Submission Deadline:** 
-Monday March 4th, 2024 (new submissions after the deadline will not be considered)
+Monday March 18th, 2024 (new submissions after the deadline will not be considered)
 
 **Evaluation Period:** 
-Until March 15th, 2024
+Until March 29th, 2024
 
 **Winner Announcement:** 
-Winners announced on @masbtc21 Twitter anytime before March 18th, 2024. Once those winners are announced, only Part 2 will be available for submissions.
+Winners announced on @masbtc21 Twitter. Once those winners are announced, only Part 2 will be available for submissions.
 
 **Submission Guidelines:**
 
@@ -124,11 +124,11 @@ Contact us on Discord or email sales@themasnetwork.com if you would like us to d
 
 * Development Period: Starting Feb 1st, 2024 (you can submit your code at any time for feedback or ask questions before the official deadline as many times as needed)
 
-* Submission Deadline: March 4th, 2024 (new submissions after the deadline will not be considered)
+* Submission Deadline: March 18th, 2024 (new submissions after the deadline will not be considered)
 
-* Evaluation Period: Until March 15th, 2024
+* Evaluation Period: Until March 29th, 2024
 
-* Winner Announcement: March 18th, 2024
+* Winner Announcement: April 1, 2024
 
 
 **Prizes 💰:**
