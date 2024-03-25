@@ -27,7 +27,7 @@ const GenerateInvoicePage = (): JSX.Element => {
       destination: state?.destination,
       lightningAddress: state?.lightningAddress,
     });
-    console.log(response?.data);
+
     if (response?.ok) {
       navigate(routes?.SATS_RECEIVED_PAGE, {
         state: {

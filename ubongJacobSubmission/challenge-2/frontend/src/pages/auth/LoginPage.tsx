@@ -73,23 +73,6 @@ const LoginPage = (): JSX.Element => {
   });
 
   const onSubmit = handleSubmit(async (data) => {
-    // console.log(data);
-    // setLoginResponse({
-    //   data: {
-    //     createdAt: "",
-    //     id: "",
-    //     imageURL: "",
-    //     isVerified: false,
-    //     lightningAddress: "test@lightningaddress",
-    //     nickName: "Michael Angelo",
-    //     token: "token",
-    //     updatedAt: "",
-    //   },
-    // });
-    // navigate(getRedirectedPath(), {
-    //   replace: true,
-    // });
-
     const response = await loginAPI.mutateAsync(data);
     if (response.ok) {
       if (response.data) setLoginResponse(response.data);

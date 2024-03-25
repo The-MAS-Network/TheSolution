@@ -31,9 +31,12 @@ export default {
         appGreen300:'#0F9D58',
         appRed100:'#F9B9BB',
         appRed200:'#FD6969',
+        appRed300:'#EC1C24',
+        appRed400:'#FDE8E9C4',
         appYellow100: '#fbb11c',
         appYellow200: '#E9CE0266',
-        appYellow300: '#FFD000'
+        appYellow300: '#FFD000',
+        appYellow400: '#FFF0B042'
       },
       fontFamily: {
         baloo2: ['Baloo2']

@@ -11,14 +11,17 @@ import {
 import { appToast } from "@/utilities/appToast";
 import { handleApiErrors } from "@/utilities/handleErrors";
 import { useVisitIntendedRoute } from "@/utilities/visitIntendedRoute";
+import { Icon } from "@iconify/react";
 import { useMutation } from "@tanstack/react-query";
+import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const pageValues = [
   "We need to verify ownership of your lightning address",
   "In order to verify ownership we need you to send us 1000 SATS, which will be sent back to your lightning address:",
-  "in two different amounts minus the transaction fee of XXX. This is to help validate a user account.",
+  "in two different amounts. This is to help validate a user account.",
   "CLICK HERE TO GENERATE INVOICE",
+  "By checking this box, you agree to our terms and conditions",
 ] as const;
 
 type PageValuesType = {
@@ -30,6 +33,7 @@ const pageValuesObject = pageValues.reduce((acc, value) => {
 }, {});
 
 const ResetPasswordInstructionsPage = (): JSX.Element => {
+  const [isChecked, setIsChecked] = useState(false);
   const { translatedValues } = useAppTranslator<PageValuesType>({
     ...pageValuesObject,
   });
@@ -42,6 +46,11 @@ const ResetPasswordInstructionsPage = (): JSX.Element => {
   const { state } = resetPasswordInstructionsState;
 
   const handleGenerateInvoice = async () => {
+    if (!isChecked)
+      return appToast.Warning(
+        "Accept the terms and conditions by checking the box below.",
+      );
+
     const response = await createInvoiceAPI.mutateAsync({
       lightningAddress: state?.lightningAddress,
     });
@@ -87,7 +96,7 @@ const ResetPasswordInstructionsPage = (): JSX.Element => {
           {state?.lightningAddress}
         </h2>
 
-        <p className="mb-14 text-center text-base font-normal text-white">
+        <p className=" text-center text-base font-normal text-white">
           {
             translatedValues[
               "In order to verify ownership we need you to send us 1000 SATS, which will be sent back to your lightning address:"
@@ -98,11 +107,27 @@ const ResetPasswordInstructionsPage = (): JSX.Element => {
           </span>{" "}
           {
             translatedValues[
-              "in two different amounts minus the transaction fee of XXX. This is to help validate a user account."
+              "in two different amounts. This is to help validate a user account."
             ]
           }
         </p>
 
+        <div className="mb-8 mt-9 flex items-center gap-3 text-sm font-normal sm:text-base">
+          <button type="button" onClick={() => setIsChecked((value) => !value)}>
+            <span className="flex aspect-square h-6 items-center justify-center rounded border-[2px] border-appGray300">
+              {isChecked && (
+                <Icon className="text-lg" icon="line-md:check-all" />
+              )}
+            </span>
+          </button>
+          <p className="text-start">
+            {
+              translatedValues[
+                "By checking this box, you agree to our terms and conditions"
+              ]
+            }
+          </p>
+        </div>
         <button
           type="button"
           disabled={isLoading}

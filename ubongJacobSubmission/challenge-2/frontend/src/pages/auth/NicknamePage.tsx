@@ -54,8 +54,6 @@ const NicknamePage = (): JSX.Element => {
   const { state } = nickNamePageState;
 
   const onSubmit = handleSubmit(async (data) => {
-    // navigate(routes.LOGIN_PAGE, { replace: true });
-    // console.log(data);
     const response = await registerAPI.mutateAsync({
       password: state.password,
       lightningAddress: state.lightningAddress,
