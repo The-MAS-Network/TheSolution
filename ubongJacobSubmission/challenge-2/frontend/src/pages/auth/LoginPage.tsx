@@ -20,6 +20,7 @@ import { useStore } from "zustand";
 import { appToast } from "@/utilities/appToast";
 import { handleApiErrors } from "@/utilities/handleErrors";
 import { joiLightningSchema } from "@/utilities";
+import CheckIcon from "@/assets/icons/CheckIcon";
 
 interface ITranslate {
   welcomeBack: string;
@@ -150,10 +151,8 @@ const LoginPage = (): JSX.Element => {
               onClick={() => setIsChecked((value) => !value)}
               className="flex items-center gap-3 text-sm font-normal sm:text-base"
             >
-              <span className="flex aspect-square h-6 items-center justify-center rounded border-[2px] border-appGray300">
-                {isChecked && (
-                  <Icon className="text-lg" icon="line-md:check-all" />
-                )}
+              <span className="flex aspect-square h-6 items-center justify-center overflow-hidden rounded border-[2px] border-appGray300">
+                <CheckIcon isChecked={isChecked} />
               </span>
               <span>{translatedValues.rememberMe}</span>
             </button>

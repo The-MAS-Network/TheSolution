@@ -9,6 +9,7 @@ export default {
       colors:{
         appBlue100: '#0074FF',
         appBlue110: '#03499D73',
+        appBlue120: '#2678F3',
         appBlue200: '#0055BB',
         appBlue300: '#3381E1',
         appBlue400: '#0072FB',

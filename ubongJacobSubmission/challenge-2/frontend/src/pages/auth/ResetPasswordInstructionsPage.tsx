@@ -1,4 +1,5 @@
 import { createInvoice } from "@/api/user.api";
+import CheckIcon from "@/assets/icons/CheckIcon";
 import AppBackButton from "@/components/AppBackButton";
 import SpinnerIcon from "@/components/icons/SpinnerIcon";
 import { useAppTranslator } from "@/hooks/useAppTranslator";
@@ -11,7 +12,6 @@ import {
 import { appToast } from "@/utilities/appToast";
 import { handleApiErrors } from "@/utilities/handleErrors";
 import { useVisitIntendedRoute } from "@/utilities/visitIntendedRoute";
-import { Icon } from "@iconify/react";
 import { useMutation } from "@tanstack/react-query";
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -114,10 +114,8 @@ const ResetPasswordInstructionsPage = (): JSX.Element => {
 
         <div className="mb-8 mt-9 flex items-center gap-3 text-sm font-normal sm:text-base">
           <button type="button" onClick={() => setIsChecked((value) => !value)}>
-            <span className="flex aspect-square h-6 items-center justify-center rounded border-[2px] border-appGray300">
-              {isChecked && (
-                <Icon className="text-lg" icon="line-md:check-all" />
-              )}
+            <span className="flex aspect-square h-6 items-center justify-center overflow-hidden rounded border-[2px] border-appGray300">
+              <CheckIcon isChecked={isChecked} />
             </span>
           </button>
           <p className="text-start">

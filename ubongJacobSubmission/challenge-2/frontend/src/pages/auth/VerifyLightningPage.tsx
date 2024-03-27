@@ -119,7 +119,7 @@ const VerifyLightningPage = (): JSX.Element => {
       <main className="mx-auto w-full max-w-[30rem] rounded-lg px-5 py-14 sm:bg-appBlue110 sm:py-10">
         {!!maxTrial && currentTrialCount > maxTrial ? (
           <section className="mx-auto flex max-w-[23rem] flex-col items-center justify-center gap-y-6 px-5 py-24 text-center ">
-            <div className="text-appRed300 bg-appRed400 flex flex-col items-center gap-y-7  rounded-2xl px-2 py-5">
+            <div className="flex flex-col items-center gap-y-7 rounded-2xl bg-appRed400  px-2 py-5 text-appRed300">
               <Icon
                 className="text-5xl md:text-6xl lg:text-7xl"
                 icon="carbon:warning"
@@ -131,7 +131,7 @@ const VerifyLightningPage = (): JSX.Element => {
 
             <Link
               className="app-button-primary"
-              to={routes.FORGOT_PASSWORD_PAGE}
+              to={routes.HOME_PAGE}
               replace={true}
             >
               {translatedValues?.["RETURN TO HOME"]}
@@ -147,7 +147,7 @@ const VerifyLightningPage = (): JSX.Element => {
               }
             </h1>
 
-            <p className="bg-appYellow400 mb-6 mt-2 rounded-lg px-3 py-2  text-sm text-appYellow300">
+            <p className="mb-6 mt-2 rounded-lg bg-appYellow400 px-3 py-2  text-sm text-appYellow300">
               {
                 translatedValues?.[
                   "Double-check wallet for accurate SATs sent. Enter both amounts received. Second payment may take up to 1 minute to reflect."
