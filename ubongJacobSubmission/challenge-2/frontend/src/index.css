@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Baloo2"; /* Specify the desired font-family name */
+  src: url("./assets/fonts/Baloo2-VariableFont_wght.ttf") format("truetype"); /* Specify the path to your font file and its format */
+  /* You can include additional src lines for different file formats (e.g., .woff, .woff2) */
+}
+
+body {
+  @apply bg-appDarkBlue100  font-baloo2;
+}
+
+.app-container {
+  @apply mx-auto w-full  max-w-[26.75rem] px-5;
+}
+
+.app-container-lg {
+  @apply mx-auto w-full  max-w-[62rem] px-5;
+}
+
+.app-button-primary {
+  @apply w-full rounded-2xl bg-appBlue400 py-4 text-sm font-bold text-white shadow-appButtonInnerShadow transition-all duration-300 hover:scale-105 active:scale-95 disabled:cursor-not-allowed disabled:opacity-50 sm:text-base;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
