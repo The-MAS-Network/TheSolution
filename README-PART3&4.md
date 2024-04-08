@@ -20,7 +20,7 @@ Develop a comprehensive web application that extends the functionalities from Pa
 - Update Welcome Screen sign-up buttons 
 
 **Ordinal Wallet Verification:**
-- Implement a feature for users to verify ownership of their ordinal wallet on chain using 1 confirmation as directed by the provided Figma designs
+- Implement a feature for users to verify ownership of their Ordinal Wallet on chain using 1 confirmation as directed by the provided Figma designs
 - This verification should be available only after users have verified their Lightning Address as directed in Part 3
 - After verification, users should be able to see the current ordinals under the given wallet address, a refresh button to review the ordinals under the given address again, and a disconnect wallet button
 
