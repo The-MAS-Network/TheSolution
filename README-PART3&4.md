@@ -6,8 +6,8 @@ Develop a comprehensive web application that extends the functionalities from Pa
 
 **User Requirements:**
 - Prototype Link: 🎨 [UI Design Files](https://)  
-- Mobile View Link: [Mobile View Link](https://) 
-- Desktop View Link: [Desktop View Link](https://)
+- Mobile View Link: 🎨[Mobile View Link](https://) 
+- Desktop View Link: 🎨[Desktop View Link](https://)
 
 
 **Lightning Address Verification:**
@@ -27,9 +27,9 @@ After verification, users should be able to see the current ordinals under the g
 
 
 **Admin Requirements:**
-- Prototype Link: [Admin UI Design File](https://)
-- Mobile View Link: [Mobile Admin](https://)
-- Desktop View Link: [Desktop Admin](https://)
+- Prototype Link:🎨 [Admin UI Design File](https://)
+- Mobile View Link: 🎨[Mobile Admin](https://)
+- Desktop View Link: 🎨[Desktop Admin](https://)
 - Develop functionality in the admin panel allowing administrators to:
 
 **Log In:**
@@ -73,9 +73,9 @@ ________________________________________________________________________________
 Develop streamlined admin controls for activating and managing collections, facilitating Lightning Address-based tipping within collections. Add the ability for users to access a dynamic leaderboard showcasing top earners weekly and all-time.
 
 **Admin Section:**
-- Prototype Link: [Admin UI Design File](https://)
-- Mobile View Link: [Tipping Feature UI](https://)
-- Desktop View Link: [Tipping Desktop View UI](https://)
+- Prototype Link: 🎨[Admin UI Design File](https://)
+- Mobile View Link: 🎨[Tipping Feature UI](https://)
+- Desktop View Link: 🎨[Tipping Desktop View UI](https://)
 
 **Activate Collection:**
 - Activating collection and then allowing the admin to search for lightning addresses in a collection to see what Lightning Address owns what Ordinal form the collection
@@ -91,9 +91,9 @@ Develop streamlined admin controls for activating and managing collections, faci
 When tipping a community/individual, the ability to switch payment denomination between sats, BTC, and USD via Lightning is available
 
 **User Section:**
-- Prototype Link: [UI Design Files]
-- Mobile View Link: [UI Screen Design]
-- Desktop View Link: [Desktop UI Screen Design]
+- Prototype Link: [UI Design Files](https://)
+- Mobile View Link: [UI Screen Design](https://)
+- Desktop View Link: [Desktop UI Screen Design](https://)
 
 **Leaderboard:**
 Users should be able to see a ranking of the top 15 earners on the platforms
