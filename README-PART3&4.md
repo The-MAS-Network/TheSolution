@@ -26,8 +26,8 @@ After verification, users should be able to see the current ordinals under the g
 
 
 **Admin Requirements:**
-- Prototype Link:🎨 [Admin UI Design File](https://)
-- Mobile View Link: 🎨[Mobile Admin](https://)
+- Prototype Link:🎨 [Admin UI Design File](https://www.figma.com/file/RUFBEsbS5RS78bS541rbbu/Community-Design-Access-File?type=design&node-id=2940-11887&mode=design&t=eG2K4kNe0wrU5pw2-4)
+- Mobile View Link: 🎨[Mobile Admin](https://www.figma.com/proto/RUFBEsbS5RS78bS541rbbu/Community-Design-Access-File?type=design&node-id=2940-11888&t=yGBIqTROV0XsrBAz-1&scaling=scale-down&page-id=0%3A1&starting-point-node-id=2940%3A11888&show-proto-sidebar=1&mode=design)
 - Desktop View Link: 🎨[Desktop Admin](https://)
 - Develop functionality in the admin panel allowing administrators to:
 
