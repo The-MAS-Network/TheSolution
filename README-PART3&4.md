@@ -12,16 +12,17 @@ Develop a comprehensive web application that extends the functionalities from Pa
 
 **Lightning Address Verification:**
 - During sign up, the application will verify if the username is an active Lightning Address. Non-active Lightning Addresses should not be allowed to sign up. 
--(example of non-active LN Address https://docs.google.com/document/d/1ZvfVuuY1mpB_ct7O8dDYe_SPzoy2vMWICGuI1TKhl58/edit?usp=sharing)-
-Implement a feature for users to verify their LN username in the settings (using the lightning Forgot Password flow for the same process)
+  (example of non-active LN Address https://docs.google.com/document/d/1ZvfVuuY1mpB_ct7O8dDYe_SPzoy2vMWICGuI1TKhl58/edit?usp=sharing)
+- Implement a feature for users to verify their LN username in the settings (using the lightning Forgot Password flow for the same process)
 Link
-Accounts of users who haven't verified their Lightning Address within 24 hours will be automatically deleted
+- Accounts of users who haven't verified their Lightning Address within 24 hours will be automatically deleted
 Unlock the ordinal wallet setting on the home screen upon successful Lightning Address verification, as directed by the provided Figma designs. (Check below Ordinal Wallet Verification for details of process)
-Remove Earn Sats icon from the home screen for now as directed by the Figma (Update)
-Update Welcome Screen sign-up buttons 
-Ordinal Wallet Verification:
-Implement a feature for users to verify ownership of their ordinal wallet on chain using 1 confirmation as directed by the provided Figma designs
-This verification should be available only after users have verified their Lightning Address as directed in Part 3
+- Remove Earn Sats icon from the home screen for now as directed by the Figma (Update)
+- Update Welcome Screen sign-up buttons 
+
+**Ordinal Wallet Verification:**
+- Implement a feature for users to verify ownership of their ordinal wallet on chain using 1 confirmation as directed by the provided Figma designs
+- This verification should be available only after users have verified their Lightning Address as directed in Part 3
 After verification, users should be able to see the current ordinals under the given wallet address, a refresh button to review the ordinals under the given address again, and a disconnect wallet button
 
 
