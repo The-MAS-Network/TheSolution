@@ -13,7 +13,7 @@ Develop a comprehensive web application that extends the functionalities from Pa
 **Lightning Address Verification:**
 - During sign up, the application will verify if the username is an active Lightning Address. Non-active Lightning Addresses should not be allowed to sign up. 
 *(example of non-active [LN Address](https://docs.google.com/document/d/1ZvfVuuY1mpB_ct7O8dDYe_SPzoy2vMWICGuI1TKhl58/edit?usp=sharing))*
-- Implement a feature for users to verify their LN username in the settings (using the lightning Forgot Password flow for the same process) [Link](https://the-solution-challenge.web.app/forgot-password)
+- Implement a feature for users to verify their LN username in the settings (using the lightning [Forgot Password flow](https://the-solution-challenge.web.app/forgot-password) for the same process).
 - Accounts of users who haven't verified their Lightning Address within 24 hours will be automatically deleted
 Unlock the ordinal wallet setting on the home screen upon successful Lightning Address verification, as directed by the provided Figma designs. *(Check below Ordinal Wallet Verification for details of process)*
 - Remove Earn Sats icon from the home screen for now as directed by the Figma **(Update)**
@@ -90,9 +90,9 @@ Develop streamlined admin controls for activating and managing collections, faci
 When tipping a community/individual, the ability to switch payment denomination between sats, BTC, and USD via Lightning is available
 
 **User Section:**
-- Prototype Link: [UI Design Files](https://www.figma.com/file/RUFBEsbS5RS78bS541rbbu/Community-Design-Access-File?type=design&node-id=1-2116&mode=design&t=eG2K4kNe0wrU5pw2-4)
-- Mobile View Link: [UI Screen Design](https://www.figma.com/proto/RUFBEsbS5RS78bS541rbbu/Community-Design-Access-File?type=design&node-id=2904-10600&t=IEkbEFkfUBNl2p11-0&scaling=scale-down&page-id=0%3A1&starting-point-node-id=1%3A2474&show-proto-sidebar=1)
-- Desktop View Link: [Desktop UI Screen Design](https://www.figma.com/proto/RUFBEsbS5RS78bS541rbbu/Community-Design-Access-File?type=design&node-id=2915-12740&t=IEkbEFkfUBNl2p11-0&scaling=scale-down&page-id=43%3A11636&starting-point-node-id=43%3A11972&show-proto-sidebar=1)
+- Prototype Link: 🎨[UI Design Files](https://www.figma.com/file/RUFBEsbS5RS78bS541rbbu/Community-Design-Access-File?type=design&node-id=1-2116&mode=design&t=eG2K4kNe0wrU5pw2-4)
+- Mobile View Link: 🎨[UI Screen Design](https://www.figma.com/proto/RUFBEsbS5RS78bS541rbbu/Community-Design-Access-File?type=design&node-id=2904-10600&t=IEkbEFkfUBNl2p11-0&scaling=scale-down&page-id=0%3A1&starting-point-node-id=1%3A2474&show-proto-sidebar=1)
+- Desktop View Link: 🎨[Desktop UI Screen Design](https://www.figma.com/proto/RUFBEsbS5RS78bS541rbbu/Community-Design-Access-File?type=design&node-id=2915-12740&t=IEkbEFkfUBNl2p11-0&scaling=scale-down&page-id=43%3A11636&starting-point-node-id=43%3A11972&show-proto-sidebar=1)
 
 **Leaderboard:**
 Users should be able to see a ranking of the top 15 earners on the platforms
