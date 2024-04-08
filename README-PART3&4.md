@@ -6,8 +6,8 @@ Develop a comprehensive web application that extends the functionalities from Pa
 
 **User Requirements:**
 - Prototype Link: 🎨 [UI Design Files](https://)  
-- Mobile View Link: Mobile View Link 
-- Desktop View Link: Desktop View Link
+- Mobile View Link: [Mobile View Link](https://) 
+- Desktop View Link: [Desktop View Link](https://)
 
 
 **Lightning Address Verification:**
