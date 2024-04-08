@@ -27,25 +27,26 @@ After verification, users should be able to see the current ordinals under the g
 
 
 **Admin Requirements:**
-a. Prototype Link: Admin UI Design File 
-b. Mobile View Link: Mobile Admin 
-c. Desktop View Link: Desktop Admin
-d. Develop functionality in the admin panel allowing administrators to:
+- Prototype Link: Admin UI Design File
+- Mobile View Link: Mobile Admin
+- Desktop View Link: Desktop Admin
+- Develop functionality in the admin panel allowing administrators to:
 
 **Log In:**
-Create Log-In Screen for the Admin to enter the Admin Dashboard 
-Add OTP sent to the Admin’s email when signing in 
-Add OTP when using Forgot Password 
-Upon the Admin signing in for the first time, the Admin is prompted to change and reset their password
-See Icons as per Figma
-Ordinal Collection Management:
-Create and delete Ordinal Collections 
-Search for an Ordinal via wallet address or Ordinal ID
-Add Ordinals from the search results to collections as directed by the provided Figma designs
-Relevant links: https://docs.hiro.so/ordinals-explorer
-Click on the 3 dots and then modify in order to remove an Ordinals from the collection 
-Create a separate test site for administrators to perform any developed abilities
-Timeline:
+- Create Log-In Screen for the Admin to enter the Admin Dashboard
+- Add OTP sent to the Admin’s email when signing in
+- Add OTP when using Forgot Password
+- Upon the Admin signing in for the first time, the Admin is prompted to change and reset their password
+- See Icons as per Figma
+
+**Ordinal Collection Management:**
+- Create and delete Ordinal Collections
+- Search for an Ordinal via wallet address or Ordinal ID
+- Add Ordinals from the search results to collections as directed by the provided Figma designs *Relevant links: https://docs.hiro.so/ordinals-explorer*
+- Click on the 3 dots and then modify in order to remove an Ordinals from the collection
+- Create a separate test site for administrators to perform any developed abilities
+
+**Timeline:**
 Development Period: Starting April 8, 2024
 Submission Deadline:  April 29, 2024 (anytime before the general deadline of April 29 is also acceptable)
 Evaluation Period: Until May 3, 2024
