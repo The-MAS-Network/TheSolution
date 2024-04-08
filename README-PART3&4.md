@@ -27,9 +27,9 @@ After verification, users should be able to see the current ordinals under the g
 
 
 **Admin Requirements:**
-- Prototype Link: [Admin UI Design File]
-- Mobile View Link: [Mobile Admin]
-- Desktop View Link: [Desktop Admin]
+- Prototype Link: [Admin UI Design File](https://)
+- Mobile View Link: [Mobile Admin](https://)
+- Desktop View Link: [Desktop Admin](https://)
 - Develop functionality in the admin panel allowing administrators to:
 
 **Log In:**
@@ -57,7 +57,7 @@ After verification, users should be able to see the current ordinals under the g
 - Runner Up: 500,000 SATs
 
 **Submission Guidelines:**
-- Submit here: (Submission link)
+- Submit here: [Submission link](https://)
 - When submitting the project, please ensure to provide a direct URL link to the live version hosted on a website (e.g., exampledemo.liveproject.com)
 - Provide documentation on the used methodologies, libraries, and implemented security measures
 - Include both mobile and desktop views in the application and ensure responsiveness across both views
