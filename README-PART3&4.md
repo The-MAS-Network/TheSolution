@@ -60,7 +60,7 @@ Unlock the ordinal wallet setting on the home screen upon successful Lightning A
 - When submitting the project, please ensure to provide a direct URL link to the live version hosted on a website (e.g., exampledemo.liveproject.com)
 - Provide documentation on the used methodologies, libraries, and implemented security measures
 - Include both mobile and desktop views in the application and ensure responsiveness across both views
-- Upload the code and steps 1-4 to our GitHub repository: [UploadLink]().
+- Upload the code and steps 1-4 to our [GitHub Repository](https://github.com/The-MAS-Network/TheSolution/tree/Challenge-Phase-3).
 - Ensure that the implemented functionalities are thoroughly documented, while providing clear instructions for users to verify ownership of their Ordinal Wallet and for administrators to manage Ordinal collections via the Admin panel
 
 **Note:** Participating in this competition implies acknowledgment that winning codes will be shared as open source on The MAS Network's GitHub. This allows future developers to build upon them. TFurthermore, the MAS Network has the right to reward projects on its own discretion. Contact sales@themasnetwork.com for clarifications or join our discord channel *[Discord](https://discord.com/invite/UeNA5yXAug)*.
@@ -113,7 +113,7 @@ Show who earned the most sats weekly and then all time
 - When submitting the project, please ensure to provide a direct URL link to the live version hosted on a website (e.g., exampledemo.liveproject.com).
 - Provide documentation on the used methodologies, libraries, and implemented security measures.
 - Include both mobile and desktop views in the application and ensure responsiveness across both views.
-- Upload the code and steps 1-4 to our [GitHub repository](https://github.com/The-MAS-Network/TheSolution/tree/SolutionCode).
+- Upload the code and steps 1-4 to our [GitHub repository](https://github.com/The-MAS-Network/TheSolution/tree/Challenge-Phase-4).
 - Ensure that the implemented functionalities are thoroughly documented while providing clear instructions for users to verify ownership of their ordinal wallet and for administrators to manage ordinal collections via the admin panel.
 
 **Note:** Participating in this competition implies acknowledgment that winning codes will be shared as open source on The MAS Network's GitHub. This allows future developers to build upon them. Furthermore, the MAS Network has the right to reward projects on its own discretion. Contact sales@themasnetwork.com for clarifications or join our discord channel *[Discord](https://discord.com/invite/UeNA5yXAug)*.
