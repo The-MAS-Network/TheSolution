@@ -25,7 +25,7 @@ This verification should be available only after users have verified their Light
 After verification, users should be able to see the current ordinals under the given wallet address, a refresh button to review the ordinals under the given address again, and a disconnect wallet button
 
 
-Admin Requirements: 
+**Admin Requirements:**
 Prototype Link: Admin UI Design File 
 Mobile View Link: Mobile Admin 
 Desktop View Link: Desktop Admin
