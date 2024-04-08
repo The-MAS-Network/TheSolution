@@ -5,9 +5,9 @@ ________________________________________________________________________________
 Develop a comprehensive web application that extends the functionalities from Parts 1 and 2, incorporating enhanced user management features, wallet verification mechanisms, and an admin control panel.
 
 **User Requirements:**
-- Prototype Link: 🎨 [UI Design Files](https://)  
-- Mobile View Link: 🎨[Mobile View Link](https://) 
-- Desktop View Link: 🎨[Desktop View Link](https://)
+- **Prototype Link:** 🎨 [UI Design Files](https://)  
+- **Mobile View Link:** 🎨[Mobile View Link](https://) 
+- **Desktop View Link:** 🎨[Desktop View Link](https://)
 
 
 **Lightning Address Verification:**
