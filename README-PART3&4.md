@@ -15,14 +15,14 @@ Develop a comprehensive web application that extends the functionalities from Pa
 *(example of non-active [LN Address](https://docs.google.com/document/d/1ZvfVuuY1mpB_ct7O8dDYe_SPzoy2vMWICGuI1TKhl58/edit?usp=sharing))*
 - Implement a feature for users to verify their LN username in the settings (using the Lightning [Forgot Password Flow](https://the-solution-challenge.web.app/forgot-password) for the same process).
 - Accounts of users who haven't verified their Lightning Address within 24 hours will be automatically deleted
-- Unlock the ordinal wallet setting on the home screen upon successful Lightning Address verification, as directed by the provided Figma designs. *(Check below Ordinal Wallet Verification for details of process)*
+- Unlock the Ofrdinal wallet setting on the home screen upon successful Lightning Address verification, as directed by the provided Figma designs. *(Check below Ordinal Wallet Verification for details of process)*
 - Remove Earn Sats icon from the home screen for now as directed by the Figma **(Update)**
 - Update Welcome Screen sign-up buttons 
 
 **Ordinal Wallet Verification:**
 - Implement a feature for users to verify ownership of their Ordinal Wallet on chain using 1 confirmation as directed by the provided Figma designs
 - This verification should be available only after users have verified their Lightning Address as directed in Part 3
-- After verification, users should be able to see the current ordinals under the given wallet address, a refresh button to review the ordinals under the given address again, and a disconnect wallet button
+- After verification, users should be able to see the current Ordinals under the given wallet address, a refresh button to review the Ordinals under the given address again, and a disconnect wallet button
 
 
 **Admin Requirements:**
@@ -77,15 +77,15 @@ Develop streamlined admin controls for activating and managing collections, faci
 - Desktop View Link: 🎨[Tipping Desktop View UI](https://www.figma.com/proto/RUFBEsbS5RS78bS541rbbu/Community-Design-Access-File?type=design&node-id=2924-21845&t=IEkbEFkfUBNl2p11-0&scaling=scale-down&page-id=43%3A11636&starting-point-node-id=2871%3A9887)
 
 **Activate Collection:**
-- Activating collection and then allowing the admin to search for lightning addresses in a collection to see what Lightning Address owns what Ordinal form the collection
+- Activating collection and then allowing the admin to search for Lightning Addresses in a collection to see what Lightning Address owns what Ordinal form the collection
 - When making a inactive collection active, then that collection moves from inactive to active
 - Active collections can be made inactive by clicking on the three dots at the top right of the collection
 - Active collections can not be edited until you make the collection inactive *(for clarity on collections, contact the Admins in the Discord)*
 
 **Active Collection Tipping Functionality:**
-- In active collections, the Admin should be able to tip all verified owners of the ordinals in that collection via their Lightning Address.
+- In active collections, the Admin should be able to tip all verified owners of the Ordinals in that collection via their Lightning Address.
 - After searching a verified Lightning Address within one collection, the Admin should be able to tip Lightning Addresses individually as long as they own an Ordinal in that collection.
-- When tipping a community, sats are evenly divided among users based on how many ordinals they own from that collection and recorded in the history tab as per Figma.
+- When tipping a community, sats are evenly divided among users based on how many Ordinals they own from that collection and recorded in the history tab as per Figma.
 - When tipping a user, sats are paid out via Lightning and recorded in the history tab as per Figma.
 When tipping a community/individual, the ability to switch payment denomination between sats, BTC, and USD via Lightning is available
 
