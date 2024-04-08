@@ -64,33 +64,38 @@ After verification, users should be able to see the current ordinals under the g
 - Upload the code and steps 1-4 to our GitHub repository: (UploadLink ).
 - Ensure that the implemented functionalities are thoroughly documented, while providing clear instructions for users to verify ownership of their Ordinal Wallet and for administrators to manage Ordinal collections via the Admin panel
 
-*Note:* Participating in this competition implies acknowledgment that winning codes will be shared as open source on The MAS Network's GitHub. This allows future developers to build upon them. TFurthermore, the MAS Network has the right to reward projects on its own discretion. Contact sales@themasnetwork.com for clarifications or join our discord channel *https://discord.com/invite/UeNA5yXAug*.
+**Note:** Participating in this competition implies acknowledgment that winning codes will be shared as open source on The MAS Network's GitHub. This allows future developers to build upon them. TFurthermore, the MAS Network has the right to reward projects on its own discretion. Contact sales@themasnetwork.com for clarifications or join our discord channel *https://discord.com/invite/UeNA5yXAug*.
 
 _________________________________________________________________________________________________________________________
 > **Part 4: Active Collection Management and Tipping System**
 
 **Objective:**
 Develop streamlined admin controls for activating and managing collections, facilitating Lightning Address-based tipping within collections. Add the ability for users to access a dynamic leaderboard showcasing top earners weekly and all-time.
-Admin Section:
-Prototype Link: Admin UI Design File 
-Mobile View Link: Tipping Feature UI
-Desktop View Link: Tipping Desktop View UI
-Activate Collection: 
-Activating collection and then allowing the admin to search for lightning addresses in a collection to see what Lightning Address owns what Ordinal form the collection 
-When making a inactive collection active, then that collection moves from inactive to active
-Active collections can be made inactive by clicking on the three dots at the top right of the collection
-Active collections can not be edited until you make the collection inactive (for clarity on collections, contact the Admins in the Discord)
-Active Collection Tipping Functionality:
-In active collections, the Admin should be able to tip all verified owners of the ordinals in that collection via their Lightning Address.
-After searching a verified Lightning Address within one collection, the Admin should be able to tip Lightning Addresses individually as long as they own an Ordinal in that collection. 
-When tipping a community, sats are evenly divided among users based on how many ordinals they own from that collection and recorded in the history tab as per Figma.
-When tipping a user, sats are paid out via Lightning and recorded in the history tab as per Figma.
+
+**Admin Section:**
+- Prototype Link: Admin UI Design File
+- Mobile View Link: Tipping Feature UI
+- Desktop View Link: Tipping Desktop View UI
+
+**Activate Collection:**
+- Activating collection and then allowing the admin to search for lightning addresses in a collection to see what Lightning Address owns what Ordinal form the collection
+- When making a inactive collection active, then that collection moves from inactive to active
+- Active collections can be made inactive by clicking on the three dots at the top right of the collection
+- Active collections can not be edited until you make the collection inactive (for clarity on collections, contact the Admins in the Discord)
+
+**Active Collection Tipping Functionality:**
+- In active collections, the Admin should be able to tip all verified owners of the ordinals in that collection via their Lightning Address.
+- After searching a verified Lightning Address within one collection, the Admin should be able to tip Lightning Addresses individually as long as they own an Ordinal in that collection.
+- When tipping a community, sats are evenly divided among users based on how many ordinals they own from that collection and recorded in the history tab as per Figma.
+- When tipping a user, sats are paid out via Lightning and recorded in the history tab as per Figma.
 When tipping a community/individual, the ability to switch payment denomination between sats, BTC, and USD via Lightning is available
-User Section: 
-Prototype Link: UI Design Files 
-Mobile View Link: UI Screen Design
-Desktop View Link: Desktop UI Screen Design
-Leaderboard:
+
+**User Section:**
+- Prototype Link: UI Design Files
+- Mobile View Link: UI Screen Design
+- Desktop View Link: Desktop UI Screen Design
+
+**Leaderboard:**
 Users should be able to see a ranking of the top 15 earners on the platforms
 Show who earned the most sats weekly and then all time 
 Timeline:
