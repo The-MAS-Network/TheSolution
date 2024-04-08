@@ -63,7 +63,7 @@ Unlock the ordinal wallet setting on the home screen upon successful Lightning A
 - Upload the code and steps 1-4 to our GitHub repository: (UploadLink ).
 - Ensure that the implemented functionalities are thoroughly documented, while providing clear instructions for users to verify ownership of their Ordinal Wallet and for administrators to manage Ordinal collections via the Admin panel
 
-**Note:** Participating in this competition implies acknowledgment that winning codes will be shared as open source on The MAS Network's GitHub. This allows future developers to build upon them. TFurthermore, the MAS Network has the right to reward projects on its own discretion. Contact sales@themasnetwork.com for clarifications or join our discord channel *https://discord.com/invite/UeNA5yXAug*.
+**Note:** Participating in this competition implies acknowledgment that winning codes will be shared as open source on The MAS Network's GitHub. This allows future developers to build upon them. TFurthermore, the MAS Network has the right to reward projects on its own discretion. Contact sales@themasnetwork.com for clarifications or join our discord channel *[Discord Channel](https://discord.com/invite/UeNA5yXAug)*.
 
 _________________________________________________________________________________________________________________________
 > ### Part 4: Active Collection Management and Tipping System
@@ -116,7 +116,7 @@ Show who earned the most sats weekly and then all time
 - Upload the code and steps 1-4 to our GitHub repository: (https://github.com/The-MAS-Network/TheSolution/tree/SolutionCode).
 - Ensure that the implemented functionalities are thoroughly documented while providing clear instructions for users to verify ownership of their ordinal wallet and for administrators to manage ordinal collections via the admin panel.
 
-**Note:** Participating in this competition implies acknowledgment that winning codes will be shared as open source on The MAS Network's GitHub. This allows future developers to build upon them. Furthermore, the MAS Network has the right to reward projects on its own discretion. Contact sales@themasnetwork.com for clarifications or join our discord channel *https://discord.com/invite/UeNA5yXAug*.
+**Note:** Participating in this competition implies acknowledgment that winning codes will be shared as open source on The MAS Network's GitHub. This allows future developers to build upon them. Furthermore, the MAS Network has the right to reward projects on its own discretion. Contact sales@themasnetwork.com for clarifications or join our discord channel *[Discord Channel](https://discord.com/invite/UeNA5yXAug)*.
 
 
 
