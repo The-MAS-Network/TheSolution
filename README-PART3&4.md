@@ -98,22 +98,26 @@ When tipping a community/individual, the ability to switch payment denomination 
 **Leaderboard:**
 Users should be able to see a ranking of the top 15 earners on the platforms
 Show who earned the most sats weekly and then all time 
-Timeline:
-Development Period: April 8, 2024, but only after completing parts 1-3 
-Submission Deadline:  May 20, 2024 
-Evaluation Period: Until May 31, 2024
-Winner Announcement: June 3, 2024
-Prizes:
-1st Place: 1,000,000 SATs
-Runner Up: 500,000 SATs
-Submission Guidelines:
-Submissions to the same link as Part 3 (Submission link) 
-When submitting the project, please ensure to provide a direct URL link to the live version hosted on a website (e.g., exampledemo.liveproject.com). 
-Provide documentation on the used methodologies, libraries, and implemented security measures.
-Include both mobile and desktop views in the application and ensure responsiveness across both views.
-Upload the code and steps 1-4 to our GitHub repository: (https://github.com/The-MAS-Network/TheSolution/tree/SolutionCode).
-Ensure that the implemented functionalities are thoroughly documented while providing clear instructions for users to verify ownership of their ordinal wallet and for administrators to manage ordinal collections via the admin panel.
-Note: Participating in this competition implies acknowledgment that winning codes will be shared as open source on The MAS Network's GitHub. This allows future developers to build upon them. Furthermore, the MAS Network has the right to reward projects on its own discretion. Contact sales@themasnetwork.com for clarifications or join our discord channel https://discord.com/invite/UeNA5yXAug.
+
+**Timeline:**
+- Development Period: April 8, 2024, but only after completing parts 1-3
+- Submission Deadline:  May 20, 2024
+- Evaluation Period: Until May 31, 2024
+- Winner Announcement: June 3, 2024
+
+**Prizes:**
+- 1st Place: 1,000,000 SATs
+- Runner Up: 500,000 SATs
+
+**Submission Guidelines:**
+- Submissions to the same link as Part 3 (Submission link)
+- When submitting the project, please ensure to provide a direct URL link to the live version hosted on a website (e.g., exampledemo.liveproject.com).
+- Provide documentation on the used methodologies, libraries, and implemented security measures.
+- Include both mobile and desktop views in the application and ensure responsiveness across both views.
+- Upload the code and steps 1-4 to our GitHub repository: (https://github.com/The-MAS-Network/TheSolution/tree/SolutionCode).
+- Ensure that the implemented functionalities are thoroughly documented while providing clear instructions for users to verify ownership of their ordinal wallet and for administrators to manage ordinal collections via the admin panel.
+
+**Note:** Participating in this competition implies acknowledgment that winning codes will be shared as open source on The MAS Network's GitHub. This allows future developers to build upon them. Furthermore, the MAS Network has the right to reward projects on its own discretion. Contact sales@themasnetwork.com for clarifications or join our discord channel *https://discord.com/invite/UeNA5yXAug*.
 
 
 
