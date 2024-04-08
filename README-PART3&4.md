@@ -73,9 +73,9 @@ ________________________________________________________________________________
 Develop streamlined admin controls for activating and managing collections, facilitating Lightning Address-based tipping within collections. Add the ability for users to access a dynamic leaderboard showcasing top earners weekly and all-time.
 
 **Admin Section:**
-- Prototype Link: Admin UI Design File
-- Mobile View Link: Tipping Feature UI
-- Desktop View Link: Tipping Desktop View UI
+- Prototype Link: [Admin UI Design File](https://)
+- Mobile View Link: [Tipping Feature UI](https://)
+- Desktop View Link: [Tipping Desktop View UI](https://)
 
 **Activate Collection:**
 - Activating collection and then allowing the admin to search for lightning addresses in a collection to see what Lightning Address owns what Ordinal form the collection
@@ -91,9 +91,9 @@ Develop streamlined admin controls for activating and managing collections, faci
 When tipping a community/individual, the ability to switch payment denomination between sats, BTC, and USD via Lightning is available
 
 **User Section:**
-- Prototype Link: UI Design Files
-- Mobile View Link: UI Screen Design
-- Desktop View Link: Desktop UI Screen Design
+- Prototype Link: [UI Design Files]
+- Mobile View Link: [UI Screen Design]
+- Desktop View Link: [Desktop UI Screen Design]
 
 **Leaderboard:**
 Users should be able to see a ranking of the top 15 earners on the platforms
@@ -110,7 +110,7 @@ Show who earned the most sats weekly and then all time
 - Runner Up: 500,000 SATs
 
 **Submission Guidelines:**
-- Submissions to the same link as Part 3 (Submission link)
+- Submissions to the same link as Part 3 [Submission link](https://)
 - When submitting the project, please ensure to provide a direct URL link to the live version hosted on a website (e.g., exampledemo.liveproject.com).
 - Provide documentation on the used methodologies, libraries, and implemented security measures.
 - Include both mobile and desktop views in the application and ensure responsiveness across both views.
