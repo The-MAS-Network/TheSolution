@@ -51,7 +51,7 @@ Unlock the ordinal wallet setting on the home screen upon successful Lightning A
 - **Evaluation Period:** Until May 3, 2024
 - **Winner Announcement:** May 6, 2024
 
-**Prizes:**
+**Prizes:💰**
 - 1st Place: 1,000,000 SATs
 - Runner Up: 500,000 SATs
 
@@ -104,7 +104,7 @@ Show who earned the most sats weekly and then all time
 - Evaluation Period: Until May 31, 2024
 - Winner Announcement: June 3, 2024
 
-**Prizes:**
+**Prizes:💰**
 - 1st Place: 1,000,000 SATs
 - Runner Up: 500,000 SATs
 
