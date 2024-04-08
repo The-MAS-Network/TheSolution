@@ -1,12 +1,16 @@
-**Part 3: Enhanced User Management and Wallet Verification**
+> **Part 3: Enhanced User Management and Wallet Verification**
 
 **Objective:**
+
 Develop a comprehensive web application that extends the functionalities from Parts 1 and 2, incorporating enhanced user management features, wallet verification mechanisms, and an admin control panel.
-User Requirements:
+
+**User Requirements:**
 Prototype Link: UI Design Files 
 Mobile View Link: Mobile View Link 
 Desktop View Link: Desktop View Link
-Lightning Address Verification:
+
+
+**Lightning Address Verification:**
 During sign up, the application will verify if the username is an active Lightning Address. Non-active Lightning Addresses should not be allowed to sign up. 
 (example of non-active LN Address https://docs.google.com/document/d/1ZvfVuuY1mpB_ct7O8dDYe_SPzoy2vMWICGuI1TKhl58/edit?usp=sharing)
 Implement a feature for users to verify their LN username in the settings (using the lightning Forgot Password flow for the same process)
