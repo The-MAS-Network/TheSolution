@@ -5,7 +5,7 @@ ________________________________________________________________________________
 Develop a comprehensive web application that extends the functionalities from Parts 1 and 2, incorporating enhanced user management features, wallet verification mechanisms, and an admin control panel.
 
 **User Requirements:**
-- **Prototype Link:** 🎨 [UI Design Files](https://www.figma.com/proto/RUFBEsbS5RS78bS541rbbu/Community-Design-Access-File?type=design&node-id=1-2474&t=9vHXFN5SgPVvdcJr-1&scaling=scale-down&page-id=0%3A1&starting-point-node-id=1%3A2474&show-proto-sidebar=1&mode=design)  
+- **Prototype Link:** 🎨 [UI Design Files](https://www.figma.com/file/RUFBEsbS5RS78bS541rbbu/Community-Design-Access-File?type=design&node-id=1-2116&mode=design&t=IEkbEFkfUBNl2p11-4)  
 - **Mobile View Link:** 🎨[Mobile View Link](https://the-solution-challenge.web.app/forgot-password) 
 - **Desktop View Link:** 🎨[Desktop View Link](https://www.figma.com/proto/RUFBEsbS5RS78bS541rbbu/Community-Design-Access-File?type=design&node-id=43-11972&t=DGLI2iHWagSU0f63-0&scaling=scale-down&page-id=43%3A11636&starting-point-node-id=43%3A11972&show-proto-sidebar=1)
 
