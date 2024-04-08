@@ -5,7 +5,7 @@ ________________________________________________________________________________
 Develop a comprehensive web application that extends the functionalities from Parts 1 and 2, incorporating enhanced user management features, wallet verification mechanisms, and an admin control panel.
 
 **User Requirements:**
-- **Prototype Link:** 🎨 [UI Design Files](https://)  
+- **Prototype Link:** 🎨 [UI Design Files](https://www.figma.com/proto/RUFBEsbS5RS78bS541rbbu/Community-Design-Access-File?type=design&node-id=1-2474&t=9vHXFN5SgPVvdcJr-1&scaling=scale-down&page-id=0%3A1&starting-point-node-id=1%3A2474&show-proto-sidebar=1&mode=design)  
 - **Mobile View Link:** 🎨[Mobile View Link](https://) 
 - **Desktop View Link:** 🎨[Desktop View Link](https://)
 
@@ -13,8 +13,7 @@ Develop a comprehensive web application that extends the functionalities from Pa
 **Lightning Address Verification:**
 - During sign up, the application will verify if the username is an active Lightning Address. Non-active Lightning Addresses should not be allowed to sign up. 
 *(example of non-active LN Address https://docs.google.com/document/d/1ZvfVuuY1mpB_ct7O8dDYe_SPzoy2vMWICGuI1TKhl58/edit?usp=sharing)*
-- Implement a feature for users to verify their LN username in the settings (using the lightning Forgot Password flow for the same process)
-Link
+- Implement a feature for users to verify their LN username in the settings (using the lightning Forgot Password flow for the same process) [Link](https://the-solution-challenge.web.app/forgot-password)
 - Accounts of users who haven't verified their Lightning Address within 24 hours will be automatically deleted
 Unlock the ordinal wallet setting on the home screen upon successful Lightning Address verification, as directed by the provided Figma designs. **(Check below Ordinal Wallet Verification for details of process)**
 - Remove Earn Sats icon from the home screen for now as directed by the Figma **(Update)**
