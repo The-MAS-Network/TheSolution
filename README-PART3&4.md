@@ -47,24 +47,29 @@ After verification, users should be able to see the current ordinals under the g
 - Create a separate test site for administrators to perform any developed abilities
 
 **Timeline:**
-Development Period: Starting April 8, 2024
-Submission Deadline:  April 29, 2024 (anytime before the general deadline of April 29 is also acceptable)
-Evaluation Period: Until May 3, 2024
-Winner Announcement: May 6, 2024
-Prizes:
-1st Place: 1,000,000 SATs
-Runner Up: 500,000 SATs
-Submission Guidelines:
- Submit here: (Submission link) 
-When submitting the project, please ensure to provide a direct URL link to the live version hosted on a website (e.g., exampledemo.liveproject.com) 
-Provide documentation on the used methodologies, libraries, and implemented security measures
-Include both mobile and desktop views in the application and ensure responsiveness across both views
-Upload the code and steps 1-4 to our GitHub repository: (UploadLink ).
-Ensure that the implemented functionalities are thoroughly documented, while providing clear instructions for users to verify ownership of their Ordinal Wallet and for administrators to manage Ordinal collections via the Admin panel
-Note: Participating in this competition implies acknowledgment that winning codes will be shared as open source on The MAS Network's GitHub. This allows future developers to build upon them. TFurthermore, the MAS Network has the right to reward projects on its own discretion. Contact sales@themasnetwork.com for clarifications or join our discord channel https://discord.com/invite/UeNA5yXAug.
+- Development Period: Starting April 8, 2024
+- Submission Deadline:  April 29, 2024 (anytime before the general deadline of April 29 is also acceptable)
+- Evaluation Period: Until May 3, 2024
+- Winner Announcement: May 6, 2024
 
-Part 4: Active Collection Management and Tipping System
-Objective: 
+**Prizes:**
+- 1st Place: 1,000,000 SATs
+- Runner Up: 500,000 SATs
+
+**Submission Guidelines:**
+- Submit here: (Submission link)
+- When submitting the project, please ensure to provide a direct URL link to the live version hosted on a website (e.g., exampledemo.liveproject.com)
+- Provide documentation on the used methodologies, libraries, and implemented security measures
+- Include both mobile and desktop views in the application and ensure responsiveness across both views
+- Upload the code and steps 1-4 to our GitHub repository: (UploadLink ).
+- Ensure that the implemented functionalities are thoroughly documented, while providing clear instructions for users to verify ownership of their Ordinal Wallet and for administrators to manage Ordinal collections via the Admin panel
+
+*Note:* Participating in this competition implies acknowledgment that winning codes will be shared as open source on The MAS Network's GitHub. This allows future developers to build upon them. TFurthermore, the MAS Network has the right to reward projects on its own discretion. Contact sales@themasnetwork.com for clarifications or join our discord channel *https://discord.com/invite/UeNA5yXAug*.
+
+_________________________________________________________________________________________________________________________
+> **Part 4: Active Collection Management and Tipping System**
+
+**Objective:**
 Develop streamlined admin controls for activating and managing collections, facilitating Lightning Address-based tipping within collections. Add the ability for users to access a dynamic leaderboard showcasing top earners weekly and all-time.
 Admin Section:
 Prototype Link: Admin UI Design File 
