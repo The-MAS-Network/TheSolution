@@ -12,7 +12,7 @@ Develop a comprehensive web application that extends the functionalities from Pa
 
 **Lightning Address Verification:**
 - During sign up, the application will verify if the username is an active Lightning Address. Non-active Lightning Addresses should not be allowed to sign up. 
-*(example of non-active LN Address https://docs.google.com/document/d/1ZvfVuuY1mpB_ct7O8dDYe_SPzoy2vMWICGuI1TKhl58/edit?usp=sharing)*
+*(example of non-active [LN Address](https://docs.google.com/document/d/1ZvfVuuY1mpB_ct7O8dDYe_SPzoy2vMWICGuI1TKhl58/edit?usp=sharing))*
 - Implement a feature for users to verify their LN username in the settings (using the lightning Forgot Password flow for the same process) [Link](https://the-solution-challenge.web.app/forgot-password)
 - Accounts of users who haven't verified their Lightning Address within 24 hours will be automatically deleted
 Unlock the ordinal wallet setting on the home screen upon successful Lightning Address verification, as directed by the provided Figma designs. *(Check below Ordinal Wallet Verification for details of process)*
