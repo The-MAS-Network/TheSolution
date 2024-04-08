@@ -1,4 +1,4 @@
-> ### Part 3: Enhanced User Management and Wallet Verification
+> ### Part 3: Enhanced User Management and Wallet Verification ⚡
 __________________________________________________________________________________________________________________________
 **Objective:**
 
@@ -66,7 +66,7 @@ Unlock the ordinal wallet setting on the home screen upon successful Lightning A
 **Note:** Participating in this competition implies acknowledgment that winning codes will be shared as open source on The MAS Network's GitHub. This allows future developers to build upon them. TFurthermore, the MAS Network has the right to reward projects on its own discretion. Contact sales@themasnetwork.com for clarifications or join our discord channel *[Discord](https://discord.com/invite/UeNA5yXAug)*.
 
 _________________________________________________________________________________________________________________________
-> ### Part 4: Active Collection Management and Tipping System
+> ### Part 4: Active Collection Management and Tipping System ⚡
 
 **Objective:**
 Develop streamlined admin controls for activating and managing collections, facilitating Lightning Address-based tipping within collections. Add the ability for users to access a dynamic leaderboard showcasing top earners weekly and all-time.
