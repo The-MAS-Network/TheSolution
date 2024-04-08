@@ -27,9 +27,9 @@ After verification, users should be able to see the current ordinals under the g
 
 
 **Admin Requirements:**
-- Prototype Link: Admin UI Design File
-- Mobile View Link: Mobile Admin
-- Desktop View Link: Desktop Admin
+- Prototype Link: [Admin UI Design File]
+- Mobile View Link: [Mobile Admin]
+- Desktop View Link: [Desktop Admin]
 - Develop functionality in the admin panel allowing administrators to:
 
 **Log In:**
