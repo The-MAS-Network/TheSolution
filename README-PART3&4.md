@@ -64,6 +64,7 @@ Develop a comprehensive web application that extends the functionalities from Pa
 - Include both mobile and desktop views in the application and ensure responsiveness across both views
 - Upload the code and steps 1-4 to our [GitHub Repository](https://github.com/The-MAS-Network/TheSolution/tree/Challenge-Phase-3).
 - Ensure that the implemented functionalities are thoroughly documented, while providing clear instructions for users to verify ownership of their Ordinal Wallet and for administrators to manage Ordinal collections via the Admin panel
+- - For design suggestions or enquries contact: [Speak with an Expert](https://calendar.google.com/calendar/u/0/appointments/AcZssZ3lCTME501WtZS2JSzSA3HHeTcXoxOxvoIrYio=)
 
 **Note:** Participating in this competition implies acknowledgment that winning codes will be shared as open source on The MAS Network's GitHub. This allows future developers to build upon them. TFurthermore, the MAS Network has the right to reward projects on its own discretion. Contact sales@themasnetwork.com for clarifications or join our discord channel *[Discord](https://discord.com/invite/UeNA5yXAug)*.
 
@@ -117,6 +118,7 @@ Show who earned the most sats weekly and then all time
 - Include both mobile and desktop views in the application and ensure responsiveness across both views.
 - Upload the code and steps 1-4 to our [GitHub repository](https://github.com/The-MAS-Network/TheSolution/tree/Challenge-Phase-4).
 - Ensure that the implemented functionalities are thoroughly documented while providing clear instructions for users to verify ownership of their ordinal wallet and for administrators to manage ordinal collections via the admin panel.
+- For design suggestions or enquries contact: [Speak with an Expert](https://calendar.google.com/calendar/u/0/appointments/AcZssZ3lCTME501WtZS2JSzSA3HHeTcXoxOxvoIrYio=)
 
 **Note:** Participating in this competition implies acknowledgment that winning codes will be shared as open source on The MAS Network's GitHub. This allows future developers to build upon them. Furthermore, the MAS Network has the right to reward projects on its own discretion. Contact sales@themasnetwork.com for clarifications or join our discord channel *[Discord](https://discord.com/invite/UeNA5yXAug)*.
 
