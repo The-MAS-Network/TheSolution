@@ -17,7 +17,7 @@ Develop a comprehensive web application that extends the functionalities from Pa
 *(example of non-active [LN Address](https://docs.google.com/document/d/1ZvfVuuY1mpB_ct7O8dDYe_SPzoy2vMWICGuI1TKhl58/edit?usp=sharing))*
 - Implement a feature for users to verify their LN username in the settings (using the Lightning [Forgot Password Flow](https://the-solution-challenge.web.app/forgot-password) for the same process).
 - Accounts of users who haven't verified their Lightning Address within 24 hours will be automatically deleted
-- Unlock the Ofrdinal wallet setting on the home screen upon successful Lightning Address verification, as directed by the provided Figma designs. *(Check below Ordinal Wallet Verification for details of process)*
+- Unlock the Ordinal wallet setting on the home screen upon successful Lightning Address verification, as directed by the provided Figma designs. *(Check below Ordinal Wallet Verification for details of process)*
 - Remove Earn Sats icon from the home screen for now as directed by the Figma **(Update)**
 - Update Welcome Screen sign-up buttons 
 
