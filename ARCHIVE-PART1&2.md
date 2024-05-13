@@ -1,7 +1,7 @@
-> **PART 1 + 2: The Solution Web Mobile Application Open Source Project Competition Rules and Guidelines**
+> **PART 1 + 2: The Solution Web Application Open Source Project Competition Rules and Guidelines**
 ___________________________________________________________________________________________________________________________
 
-**PART 1: The Solution Web Mobile Application Open Source Project Competition Rules and Guidelines**
+**PART 1: The Solution Web Application Open Source Project Competition Rules and Guidelines**
 
 **Note:** 
 For Part 1, the first 2 submissions that follow the guidelines correctly will be awarded and announced.
@@ -60,23 +60,23 @@ a. Implement secure practices for authentication and data protection.
 **Timeline:**
 
 **Development Period:** 
-Starting Feb 1st, 2024 (you can submit your code at any time for feedback or questions before the official deadline as many times as needed)
+Starting Feb 1, 2024 (you can submit your code at any time for feedback or questions before the official deadline as many times as needed)
 
 **Submission Deadline:** 
-Monday March 4th, 2024 (new submissions after the deadline will not be considered)
+Monday March 18, 2024 (new submissions after the deadline will not be considered)
 
 **Evaluation Period:** 
-Until March 15th, 2024
+Until March 29, 2024
 
 **Winner Announcement:** 
-Winners announced on @masbtc21 Twitter anytime before March 18th, 2024. Once those winners are announced, only Part 2 will be available for submissions.
+Winners announced on @soengaged Twitter. Once those winners are announced, only Part 2 will be available for submissions.
 
 **Submission Guidelines:**
 
 1.  Submissions to https://us17.list-manage.com/contact-form?u=9ccd4641b8ee796732538477e&form_id=6bdce4ef6cc28f1bcb12f124e313c9e3 by the deadline. Submit a functional web app with all specified features.
 2.  When submitting the project, **_please ensure to provide a direct URL link to the live version hosted on a website_** (e.g., exampledemo.liveproject.com). Provide documentation on implementation, used libraries, and briefly explain implemented security measures.
 3.  Include both mobile and desktop views in the application and ensure responsiveness across both views.
-4.  Upload the code and steps 1-3 to our GitHub repository: (https://github.com/The-MAS-Network/TheSolution/tree/SolutionCode).
+4.  Upload the code and steps 1-3 to our GitHub repository: (https://github.com/The-MAS-Network/TheSolution/tree/TheSolution_Phase_2).
 
 **Note:**
 1.	Contact us on Discord or email sales@themasnetwork.com if you would like us to design any figma file for the competition.
@@ -85,7 +85,7 @@ Winners announced on @masbtc21 Twitter anytime before March 18th, 2024. Once tho
 _Contact development@themasnetwork.com for clarifications or join our discord channel https://discord.com/invite/UeNA5yXAug.
 
 _________________________________________________________________________________________________________________________
-**PART 2: The Solution Web Mobile Application Open Source Project Competition Rules and Guidelines - Forgot Password Implementation**
+**PART 2: The Solution Web Application Open Source Project Competition Rules and Guidelines - Forgot Password Implementation**
 
 **Prototype Link** https://themasnetwork.com/
 
@@ -122,13 +122,13 @@ Contact us on Discord or email sales@themasnetwork.com if you would like us to d
 
 **Timeline:**
 
-* Development Period: Starting Feb 1st, 2024 (you can submit your code at any time for feedback or ask questions before the official deadline as many times as needed)
+* Development Period: Starting Feb 1, 2024 (you can submit your code at any time for feedback or ask questions before the official deadline as many times as needed)
 
-* Submission Deadline: March 4th, 2024 (new submissions after the deadline will not be considered)
+* Submission Deadline: March 18, 2024 (new submissions after the deadline will not be considered)
 
-* Evaluation Period: Until March 15th, 2024
+* Evaluation Period: Until March 2h, 2024
 
-* Winner Announcement: March 18th, 2024
+* Winner Announcement: April 1, 2024
 
 
 **Prizes 💰:**
