@@ -93,6 +93,7 @@ Develop streamlined admin controls for activating and managing collections, Dele
 When tipping a community/individual, the ability to switch payment denomination between sats, BTC, and USD via Lightning is available
 
 **Account Deletion:**
+
 Users should be able to delete their account and a confirmation check to grant such access. 
 
 **User Section:**
