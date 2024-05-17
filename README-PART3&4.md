@@ -72,7 +72,7 @@ ________________________________________________________________________________
 > ### Part 4: Active Collection Management and Tipping System ⚡
 
 **Objective:**
-Develop streamlined admin controls for activating and managing collections, facilitating Lightning Address-based tipping within collections. Add the ability for users to access a dynamic leaderboard showcasing top earners weekly and all-time.
+Develop streamlined admin controls for activating and managing collections, Delete account functionality, facilitating Lightning Address-based tipping within collections. Add the ability for users to access a dynamic leaderboard showcasing top earners weekly and all-time.
 
 **Admin Section:**
 - Prototype Link: 🎨[Admin UI Design File](https://www.figma.com/file/RUFBEsbS5RS78bS541rbbu/Community-Design-Access-File?type=design&node-id=2940-11887&mode=design&t=eG2K4kNe0wrU5pw2-4)
@@ -91,6 +91,9 @@ Develop streamlined admin controls for activating and managing collections, faci
 - When tipping a community, sats are evenly divided among users based on how many Ordinals they own from that collection and recorded in the history tab as per Figma.
 - When tipping a user, sats are paid out via Lightning and recorded in the history tab as per Figma.
 When tipping a community/individual, the ability to switch payment denomination between sats, BTC, and USD via Lightning is available
+
+**Account Deletion:**
+Users should be able to delete their account and a confirmation check to grant such access. 
 
 **User Section:**
 - Prototype Link: 🎨[UI Design Files](https://www.figma.com/file/RUFBEsbS5RS78bS541rbbu/Community-Design-Access-File?type=design&node-id=1-2116&mode=design&t=eG2K4kNe0wrU5pw2-4)
