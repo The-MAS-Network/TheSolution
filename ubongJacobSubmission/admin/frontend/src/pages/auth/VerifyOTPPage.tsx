@@ -14,7 +14,7 @@ import { useVisitIntendedRoute } from "@/utilities/visitIntendedRoute";
 import { joiResolver } from "@hookform/resolvers/joi";
 import { useLocation, useNavigate } from "react-router-dom";
 import AppBackButton from "@/components/AppBackButton";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { generateOTP, verifyOTP } from "@/api/user.api";
 import { useMutation } from "@tanstack/react-query";
 import { appToast } from "@/utilities/appToast";
@@ -48,6 +48,11 @@ const VerifyOTPPage = (): JSX.Element => {
   const { state } = verifyOTPPageState;
   const generateOTPAPI = useMutation({ mutationFn: generateOTP });
   const verifyOTPAPI = useMutation({ mutationFn: verifyOTP });
+  const seconds = 60; // value in seconds  which is equals to 1 minutes
+  const [timeLeft, setTimeLeft] = useState(seconds);
+
+  const purpose =
+    state?.purpose === "Change Password" ? "ON_BOARDING" : "FORGOT_PASSWORD";
 
   const {
     handleSubmit,
@@ -66,13 +71,20 @@ const VerifyOTPPage = (): JSX.Element => {
     }
   }, [state?.email]);
 
+  useEffect(() => {
+    if (timeLeft === 0) return;
+
+    const timer = setTimeout(() => {
+      setTimeLeft(timeLeft - 1);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, [timeLeft]);
+
   const onSubmit = handleSubmit(async (data) => {
     const response = await verifyOTPAPI.mutateAsync({
       otp: data?.OTP,
-      purpose:
-        state?.purpose === "Change Password"
-          ? "ON_BOARDING"
-          : "FORGOT_PASSWORD",
+      purpose,
     });
     if (response.ok) {
       appToast.Success(
@@ -90,6 +102,19 @@ const VerifyOTPPage = (): JSX.Element => {
   });
 
   const isLoading = verifyOTPAPI?.isPending;
+  const minutes = Math.floor(timeLeft / 60);
+  const secondsRemaining = timeLeft % 60;
+
+  const handleResendOTP = async () => {
+    setTimeLeft(seconds);
+    const response = await generateOTPAPI.mutateAsync({
+      purpose,
+      email: state?.email,
+    });
+    if (!response.ok) {
+      setTimeLeft(0);
+    }
+  };
 
   // SHOULD BE LAST
   const { isEffectDone } = useVisitIntendedRoute({
@@ -127,6 +152,23 @@ const VerifyOTPPage = (): JSX.Element => {
             ignoreCapitalLetterSpacing
             hookFormProps={{ ...register("OTP") }}
           />
+          <button
+            disabled={timeLeft > 0}
+            onClick={handleResendOTP}
+            className="ml-auto mt-5 transition-all duration-300 hover:text-appYellow100 disabled:cursor-not-allowed disabled:text-appGray300"
+            type="button"
+          >
+            Resend OTP{" "}
+            {timeLeft > 0 && (
+              <span>
+                {` in ${minutes} : ${
+                  secondsRemaining < 10
+                    ? `0 ${secondsRemaining}`
+                    : `${secondsRemaining}`
+                }`}
+              </span>
+            )}
+          </button>
 
           <div className="mt-auto  pb-11 pt-8">
             <button

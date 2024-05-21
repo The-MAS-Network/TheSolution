@@ -4,11 +4,11 @@ import { appStateStore } from "@/stores/appState.store";
 import { OrdinalsCollectionPageState } from "@/types";
 import { OrdinalCollection } from "@/types/api/ordinals.types";
 import { Icon } from "@iconify/react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useStore } from "zustand";
-import DeleteCollectionCard from "./DeleteCollectionCard";
-import QuickActions from "./QuickActions";
 import DeactivateOrdinalCollectionCard from "./DeactivateOrdinalCollectionCard";
+import DeleteCollectionCard from "./DeleteCollectionCard";
 
 interface Props {
   collection: OrdinalCollection;
@@ -16,6 +16,7 @@ interface Props {
 
 const OrdinalCollectionCard = ({ collection }: Props): JSX.Element => {
   const { setActiveModal } = useStore(appStateStore);
+  const [isVisible, setVisibility] = useState(false);
   const navigate = useNavigate();
 
   const handleDelete = () => {
@@ -38,12 +39,11 @@ const OrdinalCollectionCard = ({ collection }: Props): JSX.Element => {
     });
   };
 
-  const options = [
-    {
-      title: "Change to inactive",
-      onClick: handleStatusToggle,
-    },
-  ];
+  const handleBlur = () => {
+    setTimeout(() => {
+      setVisibility(false);
+    }, 300);
+  };
 
   return (
     <li
@@ -63,7 +63,27 @@ const OrdinalCollectionCard = ({ collection }: Props): JSX.Element => {
         className="absolute right-0 top-0 z-10 cursor-default  p-4"
       >
         {isActive ? (
-          <QuickActions isParentActive options={options} />
+          <span className="relative">
+            <button
+              onBlur={handleBlur}
+              onClick={() => setVisibility((value) => !value)}
+              className={`-z-[1] text-3xl transition-all duration-300 hover:text-appBlue120`}
+              type="button"
+            >
+              <Icon icon="mi:options-vertical" />
+            </button>
+
+            <ul
+              className={`absolute -left-[450%] top-[70%] z-[3] flex w-max flex-col gap-3 rounded-xl bg-appDarkBlue100   transition-all  ${isVisible ? "scale-100" : "scale-0"}`}
+            >
+              <li
+                onClick={handleStatusToggle}
+                className="flex  cursor-pointer items-center gap-2 p-4 text-sm font-normal  transition-all duration-300 hover:text-appYellow100 sm:text-base"
+              >
+                Change to Inactive
+              </li>
+            </ul>
+          </span>
         ) : (
           <Icon
             onClick={handleDelete}
