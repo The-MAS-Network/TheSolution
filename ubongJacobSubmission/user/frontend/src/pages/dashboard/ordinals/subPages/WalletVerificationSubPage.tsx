@@ -24,6 +24,7 @@ const pageValues = [
   "Expires in",
   "Wallet Verification for ordinal address:",
   "Disconnect Wallet",
+  paymentAmount,
 ] as const;
 
 type PageValuesType = {
@@ -119,7 +120,7 @@ const WalletVerificationSubPage = (): JSX.Element => {
           </h2>
 
           <p className="truncate  text-base font-semibold text-appYellow300 md:text-lg lg:text-xl">
-            {paymentAmount}
+            {translatedValues?.["Any amount"]}
           </p>
         </div>
 

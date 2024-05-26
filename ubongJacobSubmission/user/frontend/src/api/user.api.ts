@@ -13,6 +13,7 @@ import {
   VerifyDualAmountRes,
   VerifyInvoiceParams,
   VerifyInvoiceRes,
+  VerifyOrdinalTransactionRes,
 } from "../types/api/auth.types";
 
 import { GetUserWalletOrdinalsRes } from "@/types/api/ordinals.types";
@@ -35,6 +36,9 @@ export const getProfile = () =>
 
 export const editProfile = (data: { nickName?: string; imageURL?: string }) =>
   baseApi.patch<RegisterResponse, GenericAPIResponse>("/auth/profile", data);
+
+export const deleteAccount = (data: { password: string }) =>
+  baseApi.post<GenericAPIResponse>("/auth/delete-account", data);
 
 export const createInvoice = (data: CreateInvoiceParams) =>
   baseApi.post<CreateInvoiceRes, GenericAPIResponse>("/payment", data);
@@ -79,6 +83,4 @@ export const disconnectWallet = () =>
   baseApi.patch<GenericAPIResponse>("/auth/disconnect-wallet");
 
 export const verifyUserOrdinalTransaction = () =>
-  baseApi.get<RegisterResponse, GenericAPIResponse>(
-    "/auth/verify-ordinal-transaction",
-  );
+  baseApi.get<VerifyOrdinalTransactionRes>("/auth/verify-ordinal-transaction");

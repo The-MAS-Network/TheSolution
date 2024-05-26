@@ -166,7 +166,8 @@ async function confirmBothWallets({
       } else {
         return {
           status: false,
-          message: `Transacation details confirmation is less than 1. Current confirmation is ${
+          // FRONTEND IS MAKING STRICT USE OF THE STARTING WORDS OF THIS MESSAGE. IN THE CASE OF ANY CHANGES FIND IT ON THE USER FRONTEND AND CHANGE IT TOO.
+          message: `Transaction details confirmation is less than 1. Current confirmation is ${
             transactionDetailRes?.data?.confirmations ?? 0
           }`,
         };

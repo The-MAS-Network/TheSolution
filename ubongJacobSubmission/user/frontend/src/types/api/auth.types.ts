@@ -103,3 +103,8 @@ export interface ChangePasswordParams {
   password: string;
   token: string;
 }
+
+
+export interface VerifyOrdinalTransactionRes extends GenericAPIResponse {
+  data: OrdinalWalletData;
+}

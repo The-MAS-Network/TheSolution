@@ -592,7 +592,9 @@ export const verifyOrdinalTransaction = async (req: Request, res: Response) => {
   );
 
   if (resDetails.status === false) {
-    return res.status(500).send(message(false, resDetails.message));
+    return res
+      .status(500)
+      .send(message(false, resDetails.message, ordinalWallet));
   }
 
   // CHECK IF USER EXISTS ALREADY
