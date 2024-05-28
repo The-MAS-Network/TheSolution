@@ -1,0 +1,12 @@
+node_modules
+dist
+dist.zip
+yarn.lock
+package-lock.json
+
+.env
+.env.local
+
+src/db/migrations
+logfile.log
+yarn-error.log

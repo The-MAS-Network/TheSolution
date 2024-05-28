@@ -1,0 +1,27 @@
+{
+  "name": "the-solution-admin-mono-repo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+
+  "author": "ubongjacob.dev for the mas network competition",
+  
+  "scripts": {
+    "backend:dev": "cd ./backend && npm run dev",
+    "frontend:dev": "cd ./frontend && npm run dev",
+    "migration:generate": "cd ./backend && npx drizzle-kit generate:mysql",
+    "migration:run": "cd ./backend && npx tsx src/drizzle/migrate.ts",
+    "migrate": "npm run migration:generate && npm run migration:run",
+    "create-admin": "cd ./backend && npx tsx src/drizzle/seed.ts",
+    "dev": "npm-run-all --parallel backend:dev frontend:dev ",
+    "backend:install": "cd ./backend && npm install",
+    "frontend:install": "cd ./frontend && npm install",
+    "install": "npm-run-all frontend:install backend:install",
+    "build": "cd ./backend && npm run build && cd ../frontend && npm run build"
+  },
+  "license": "ISC",
+
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
+  }
+}
