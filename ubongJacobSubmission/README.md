@@ -1,15 +1,19 @@
-# The Solution Tasks by Ubong Jacob Documentation
+# The Solution Web Application - Phase 4 Documentation
 
 ## Overview
 
-This is not a monolithic web application as the frontend (React) is separated from the backend (Node.js). Note: This is documentation for the first phase of this competition and it is subject to change as new tools may or may not be introduced.
+This is a monolithic web application that uses React for the frontend and is Node.js for the backend. Note: This is documentation for the solution web application challenge as outlined on the fourth phase of this competition and it is subject to change as new tools may or may not be introduced.
 
 ## Major Tools Used
 
 - React JS - Frontend
 - Node.js - Backend
 - MySQL - Database
-- VsCode - IDE
+- Visual Studio Code ( VsCode ) - IDE
+- Yarn - Package manager
+- [hiro.so](http://hiro.so/) - For inscriptions look up
+- [btcpayserver.org](https://btcpayserver.org) - For handling payments.
+- [voltage.cloud](https://voltage.cloud) - Bitcoin Node server.
 
 ## Requirements
 
@@ -17,16 +21,19 @@ This is not a monolithic web application as the frontend (React) is separated fr
 2. XAMPP
 3. Git and basic knowledge of git
 4. VsCode or any IDE
+5. Hiro.so API Key which can be gotten from here [https://platform.hiro.so/settings/api-keys](https://platform.hiro.so/settings/api-keys)
+6. Basic knowlege of Bitcoin Node setup. A guide can be found here **[Voltage's comprehensive video playlist](https://www.youtube.com/playlist?list=PLuMtKGSqizH1vMPiWvxgwIM8KRx1V9-Di)**
+7. BTCpayserver account which can be gotten from here [btcpayserver.org](https://btcpayserver.org)
 
 ## Section A: General Steps
 
 1. Download Node.js LTS (minimum of Node.js version 20.9.0) from [Node.js website](https://nodejs.org/en).
 2. Run the installation wizard and install Node.js.
 3. Clone the repository from [GitHub](https://github.com/UbongJacob/TheSolution.git).
-4. Open the project in VsCode by using the command `cd TheSolution && code .`.
-5. Open your terminal in VsCode.
-6. Use Git to switch to `challenge1-submission/UbongJacob` branch using the command `git checkout challenge1-submission/UbongJacob`.
-7. Navigate to the `ubongJacobSubmission` folder in the file explorer of VsCode. Inside it, navigate to challenge-1 folder you should see 2 folders: `frontend` and `backend`.
+4. Open the project in your IDE ( VsCode ).
+5. Open your terminal in your IDE ( VsCode ).
+6. Install yarn using the command `npm install --global yarn`
+7. Install all project dependencies ( user-frontend, admin-frontend and backend ) using a single command `yarn install`
 
 ## Section B: Backend Steps
 
@@ -36,53 +43,81 @@ This section focuses mainly on how to get the backend running with Node.js and M
 2. Follow this guide to download and install XAMPP [here](https://www.temok.com/blog/xampp-installation-on-windows).
 3. Start up MySQL and Apache servers.
 4. On your web browser, enter the URL `http://localhost/phpmyadmin/`.
-5. Create a database with any name of your choice. For this guide, we will name it `the-solution-db`.
-6. Navigate to the `backend` folder in VsCode terminal using the command `cd ubongJacobSubmission\backend`.
-7. Run the command `npm install` to install the dependencies.
-8. Create a `.env` file in the root folder of the backend and paste the following variables:
+5. Create a database with any name of your choice. For this guide, we will name it `the-solution-app-db`.
+6. Navigate to the `backend` folder using your IDE ( VsCode ).
+7. Create a folder and name it assets in the path backend/src if it does not exists already
+8. Get your admin or super-admin macroon file from your voltage dashboard and rename it solution.macaroon
+9. Place the solution.macaroon file from step 8 in the directory backend/src/assets
+10. Create a `.env` file in the root folder of the backend and copy the contents of `.env.sample` into it. Some of the environment variables are outline below:
 
-   APP_JWT_PRIVATE_KEY=WdBwe4qF4msjvT8Mys937QqFjgAor05MSZrB
+APP_JWT_PRIVATE_KEY=QB4qF4msjvT8fjkasdfjaFjgAoralnnvoB
 
-   APP_CRYPTO_JS_KEY=VHDOxrE14AOp3LcQrFX3hWGLl4o9JT1C
+DB_USERNAME=root
 
-   DB_USERNAME=root
+DB_PASSWORD=
 
-   DB_PASSWORD=
+DB_HOST=localhost
 
-   DB_HOST=localhost
+DB_DBNAME=the-solution-app-db
 
-   DB_DBNAME=the-solution-db
+DB_PORT=3306
 
-   DB_PORT=3306
+HIRO_SO_API_KEY=00x
 
-   ### DESCRIPTION:
+APP_GRPC_PORT=
 
-   APP_JWT_PRIVATE_KEY and APP_CRYPTO_JS_KEY are values used for encryption of some details on the server you can change them to your own keys of choice
+### Configuration Settings:
 
-   DB_USERNAME: This is your database admin username by default when you install xampp it configures one named root for you.
+This guide walks you through configuring your application's settings file. Let's explore each key element and how to customize it for your environment.
 
-   DB_PASSWORD: this is the admin password of the database by default it is undefined that is why we did not pass any value.
+#### Database Connection:
 
-   DB_HOST: This is a URL where our database is located since we are using this locally on our machine we can use localhost.
+DB_USERNAME: This is the username you use to access your database. By default, XAMPP uses "root" for administrative access.
 
-   DB_DBNAME: this is the name that we used in creating out database in SECTION B step 5 we chose the-solution-db but if you used any other name do use that name here.
+DB_PASSWORD: Enter your database password if you've set one. If not, leave it blank (the default).
 
-   DB_PORT: This is the port in which our MySQL database is running by default it runs on port 3306
+DB_HOST: This specifies the location of your database server. Since we're running it locally, use "localhost".
 
-9. Run `npm run migration:generate -– ./src/db/migrations/migrationName` to generate migration files.
-10. Once migration files are created successfully, run `npm run migration:run`.
-11. You should see a new table on your phpMyAdmin tab in your browser once you refresh.
-12. Go back to your VsCode terminal and run `npm run dev`.
-13. After a minute or less, you will see messages on the console: "Connected to MySQL" and "Now running on port 8080".
+DB_DBNAME: Enter the name you assigned to your database during creation (e.g., "the-solution-app-db").
+
+DB_PORT: This defines the port your MySQL database uses for communication. The default is 3306.
+
+APP_GRPC_PORT: This defines the GRPC port of your voltage node, It can be found on your voltage dashboard.
+
+#### External Services:
+
+HIRO_SO_API_KEY: We use the Hiro.so platform to access Ordinal and Inscription data. Obtain your API key from [https://platform.hiro.so/settings/api-keys](https://platform.hiro.so/settings/api-keys)
+
+BTC_PAY_SERVER: **[btcpayserver](https://btcpayserver.org)**
+
+VOLTAGE_NODE: **[Voltage lightning node](https://voltage.cloud)**
+
+### Steps:
+
+1.  Create accounts on both platforms.
+2.  Open a channel on Voltage with a minimum of 500,000 sats.
+3.  Follow **[Voltage's comprehensive video playlist](https://www.youtube.com/playlist?list=PLuMtKGSqizH1vMPiWvxgwIM8KRx1V9-Di)** for detailed instructions.
+4.  Link your btcpay server to your Voltage node by providing the required credentials from Voltage to btcpay server.
+
+#### Remember:
+
+Replace the placeholders with your specific values.
+Double-check your entries to ensure smooth operation.
+
+8. Run `yarn migrate` to generate migration files. NOTE: Make sure your XAMP or MySQL is running before you run this command.
+
+9. You should see some new tables on your phpMyAdmin tab in your browser once you refresh.
+
+10. Go back to your VsCode terminal and run `yarn dev`.
+11. After a minute or less, you will see messages on the console:"Now running on port 8080 or any given custom port".
     At this point we have been able to connect our backend to the data base.. If you are a backend developer and want to explore more you can check out the documentation [here](https://documenter.getpostman.com/view/19556853/2sA2r6Win5)
 
 ## Section C: Frontend Steps
 
 This section focuses mainly on how to get the frontend running with React and the backend we have set up.
 
-1.  Navigate to the `frontend` folder in VsCode terminal using the command `cd ubongJacobSubmission\frontend`.
-2.  Run the command `npm install` to install the dependencies.
-3.  Create a `.env` file in the root folder of the frontend and paste the following variables:
+1.  Navigate to the `frontend` folder in your IDE (VsCode).
+2.  Create a `.env` file in the root folder of the frontend and paste the following variables:
 
     VITE_CRYPTO_JS_ENCRYPTION_KEY=K6BWKW7FFKi5mBK1fxK954hB
 
@@ -92,47 +127,36 @@ This section focuses mainly on how to get the frontend running with React and th
 
     VITE_CRYPTO_JS_ENCRYPTION_KEY is a value used for encryption of some details on the frontend you can change them to your own keys of choice
 
-    VITE_APP_BACKEND_BASE_URL: This is a url to the backend you can use http://localhost:8080 but make sure that your backend is running on that port or alternatively you can use the live url in which I am using for the submission of this challenge https://seahorse-app-kkcbg.ondigitalocean.app/api (NOTE: THIS MIGHT CHANGE OVER TIME.)
+    VITE_APP_BACKEND_BASE_URL: This is a url to the backend you can use http://localhost:8080 but make sure that your backend is running on that port or alternatively you can use the live url in which I am using for the submission of this challenge https://the-solution-backend.ubongjacob.com/api (NOTE: THIS MIGHT CHANGE OVER TIME.)
 
-4.  Run the command `npm run dev` and your website should be live on http://localhost:5173 or look at your vscode terminal to find the development server link.
+3.  Run the command `yarn dev` and your website should be live on http://localhost:5173 or look at your vscode terminal to find the development server link.
 
-## Section C: Summary
+## Secton D: Production Deployment for Monolithic Architecture
+
+This section outlines the deployment process for our monolithic application in a production environment.
+
+Key Points:
+
+Independent Platform Deployment: Despite being monolithic, it is best to run independent deployments for each platform (user-frontend , admin-frontend and backend) during production.
+
+### Deployment Steps:
+
+1. Extract Folders: Extract the folders for the user-frontend , admin-frontend and backend on your production server.
+
+2. Build for Distribution:
+
+For the frontend: Navigate to the extracted frontend directory and run the command yarn build. This will generate an optimized production-ready folder named dist.
+
+For the backend: Navigate to the extracted barckend directory and run the command yarn build.
+
+Production Deployment:
+
+Copy the generated dist folder (from the frontend) and the built backend application files to their designated locations on your production server.
+Start the Application:
+
+Follow the instructions provided in package.json for your backend framework to start the backend server process.
+Your production environment should now be operational!
+
+## Section E: Summary
 
 In case of any questions about any of the steps, you can always drop comments on the competition channel [here](https://discord.com/channels/1164829493781876806/1193633156599918612) or join the Discord server [here](https://discord.gg/XC9aCT3q).
-
-#
-
-#
-
-#
-
-# Challenge 2 Documentation
-
-## General Steps
-
-1. Clone this repository to your local machine.
-2. Navigate to the `challenge-2` folder.
-3. Inside, you will find the same folder structure as the first challenge: the `frontend` folder and the `backend` folder.
-
-## Frontend Steps
-
-- No significant changes from the previous challenge.
-
-## Configurations
-
-For this project, some new services are utilized:
-
-1. **[btcpayserver](https://btcpayserver.org)**
-2. **[Voltage lightning node](https://voltage.cloud)**
-
-### Steps:
-
-1. Create accounts on both platforms.
-2. Open a channel on Voltage with a minimum of 500,000 sats.
-3. Follow **[Voltage's comprehensive video playlist](https://www.youtube.com/playlist?list=PLuMtKGSqizH1vMPiWvxgwIM8KRx1V9-Di)** for detailed instructions.
-4. Link your btcpay server to your Voltage node by providing the required credentials from Voltage to btcpay server.
-
-## Backend Steps
-
-1. In the root folder of the `backend` directory, create a `.env` file.
-2. Paste the following variables into the `.env` file:
