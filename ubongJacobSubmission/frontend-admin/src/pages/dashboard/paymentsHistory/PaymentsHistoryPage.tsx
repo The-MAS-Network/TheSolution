@@ -6,10 +6,9 @@ import SpinnerIcon from "@/components/icons/SpinnerIcon";
 import { useAppTranslator } from "@/hooks/useAppTranslator";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import dayjs from "dayjs";
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import { useInView } from "react-intersection-observer";
 import CollectionHistoryCard from "./components/CollectionHistoryCard";
-import FilterButton from "./components/FilterButton";
 import UserHistoryCard from "./components/UserHistoryCard";
 
 const pageValues = ["No tip history found"] as const;
@@ -23,18 +22,18 @@ const pageValuesObject = pageValues.reduce((acc, value) => {
 }, {});
 
 const PaymentsHistoryPage = (): JSX.Element => {
-  const [isVisible, setVisibility] = useState(false);
+  // const [isVisible, setVisibility] = useState(false);
   // const [activeMenu, setActiveMenu] = useState("SATs");
   const { ref, inView } = useInView();
   const { translatedValues } = useAppTranslator<PageValuesType>({
     ...pageValuesObject,
   });
 
-  const handleBlur = () => {
-    setTimeout(() => {
-      setVisibility(false);
-    }, 300);
-  };
+  // const handleBlur = () => {
+  //   setTimeout(() => {
+  //     setVisibility(false);
+  //   }, 300);
+  // };
 
   const {
     fetchNextPage,
@@ -66,14 +65,14 @@ const PaymentsHistoryPage = (): JSX.Element => {
         <div className="sticky top-0 z-20 bg-appBlue100  pt-12 ">
           <DashboardTitle
             title={"Details"}
-            rightIcon={
-              <FilterButton
-                setActiveMenu={(value) => console.log(value)}
-                handleBlur={handleBlur}
-                isVisible={isVisible}
-                setVisibility={() => setVisibility((value) => !value)}
-              />
-            }
+            // rightIcon={
+            //   <FilterButton
+            //     setActiveMenu={(value) => console.log(value)}
+            //     handleBlur={handleBlur}
+            //     isVisible={isVisible}
+            //     setVisibility={() => setVisibility((value) => !value)}
+            //   />
+            // }
           />
         </div>
 
