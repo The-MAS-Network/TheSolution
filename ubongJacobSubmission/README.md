@@ -32,8 +32,9 @@ This is a monolithic web application that uses React for the frontend and is Nod
 3. Clone the repository from [GitHub](https://github.com/UbongJacob/TheSolution.git).
 4. Open the project in your IDE ( VsCode ).
 5. Open your terminal in your IDE ( VsCode ).
-6. Install yarn using the command `npm install --global yarn`
-7. Install all project dependencies ( user-frontend, admin-frontend and backend ) using a single command `yarn install`
+6. Checkout to the challenge-4 branch using the comman `git chekout challenge-4`
+7. Install yarn using the command `npm install --global yarn`
+8. Install all project dependencies ( user-frontend, admin-frontend and backend ) using a single command `yarn install`
 
 ## Section B: Backend Steps
 
