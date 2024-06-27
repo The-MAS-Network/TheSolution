@@ -1,0 +1,30 @@
+name: Deploy user frontend to production  on merge
+on:
+  push:
+    branches:
+      - mainz
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+
+    env:
+      VITE_CRYPTO_JS_ENCRYPTION_KEY: "${{ secrets.VITE_CRYPTO_JS_ENCRYPTION_KEY }}"
+      VITE_APP_BACKEND_BASE_URL: "${{ secrets.VITE_APP_BACKEND_BASE_URL }}"
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies and build
+        run: cd ./ubongJacobSubmission/frontend-user && yarn && yarn build
+
+      - name: deploy dist folder to server
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+        with:
+          username: "${{ secrets.SSH_USER }}"
+          server: "${{ secrets.DROPLET_IP}}"
+          password: "${{ secrets.SSH_PASSWORD }}"
+          local_path: "./ubongJacobSubmission/frontend-user/dist"
+          remote_path: "/srv/users/the-soultion-user/apps/the-soultion-user/public"
+          sftpArgs: "-o ConnectTimeout=5"
+          sftp_only: true
