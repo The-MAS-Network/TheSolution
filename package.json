@@ -1,0 +1,28 @@
+{
+  "name": "the-solution-application",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "author": "Teiko Labs",
+  "scripts": {
+    "backend": "cd ./backend && yarn dev",
+    "admin": "cd ./frontend-admin && yarn dev",
+    "user": "cd ./frontend-user && yarn dev",
+    
+    "migrate": "cd ./backend && yarn migrate",
+    "create:admin": "cd ./backend && yarn create:admin:dev",
+
+    "backend:install": "cd ./backend && yarn",
+    "frontend:admin:install": "cd ./frontend-admin && yarn",
+    "frontend:user:install": "cd ./frontend-user && yarn",
+
+    "install": "npm-run-all frontend:user:install frontend:admin:install backend:install",
+    "dev": "npm-run-all --parallel backend user admin",
+    "build": "cd ./backend && yarn build && cd ../frontend-user && yarn build && cd ../frontend-admin && yarn build "
+    },
+  "license": "ISC",
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
+  },
+  "dependencies": {}
+}

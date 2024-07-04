@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Baloo2"; /* Specify the desired font-family name */
+  src: url("./assets/fonts/Baloo2-VariableFont_wght.ttf") format("truetype"); /* Specify the path to your font file and its format */
+  /* You can include additional src lines for different file formats (e.g., .woff, .woff2) */
+}
+
+body {
+  @apply bg-appDarkBlue100  font-baloo2;
+}
+
+.app-container {
+  @apply mx-auto w-full  max-w-[26.75rem] px-5;
+}
+
+.app-container-lg {
+  @apply mx-auto w-full bg-appBlue100 px-5;
+}
+
+.app-button-primary {
+  @apply w-full rounded-2xl bg-appBlue400 py-4 text-sm font-bold text-white shadow-appButtonInnerShadow transition-all duration-300 hover:scale-105 active:scale-95 disabled:cursor-not-allowed disabled:opacity-50 sm:text-base;
+}
+.app-button-secondary {
+  @apply w-full rounded-2xl bg-appBlue800 py-4 text-sm font-bold text-white shadow-appSeccondaryButtonInnerShadow transition-all duration-300 hover:scale-105 active:scale-95 disabled:cursor-not-allowed disabled:opacity-50 sm:text-base;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.dashboard-card-bg {
+  background: linear-gradient(138.84deg, #003dbe 48.2%, #043191 53.37%);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  background-color: transparent; /* Replace with your color */
+  -webkit-text-fill-color: light-dark(
+    rgb(232, 240, 254),
+    rgba(70, 90, 126, 0.4)
+  ) !important; /* Ensure dark text for readability */
+  cursor: light-dark(rgb(232, 240, 254), rgba(70, 90, 126, 0.4)) !important;
+  transition: background-color 5000s ease-in-out 0s; /* Hide background with long transition */
+}
+
+.custom-break-words {
+  word-break: break-word !important;
+}
+
+.app-collapse {
+  display: grid !important;
+  transition: grid-template-rows 500ms !important;
+  transition-duration: 700ms;
+}
+
+.app-collapse-close {
+  grid-template-rows: 0fr !important;
+}
+
+.app-collapse-open {
+  grid-template-rows: 1fr !important;
+}
+
+.pagination-loader {
+  @apply mx-auto mt-10 block text-4xl text-appYellow100;
+}
+
+.app-page {
+  @apply app-container-lg  h-full  min-h-screen flex-col  items-center justify-center md:flex;
+}
