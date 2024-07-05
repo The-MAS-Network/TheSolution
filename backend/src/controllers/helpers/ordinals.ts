@@ -230,7 +230,7 @@ export async function deleteOrdinalInDb(id: string) {
 
   const ordinalInDB = await ordinalsRepository.findOne({
     where: { id },
-    relations: { ordinalCollections: true },
+    relations: { ordinalCollections: true, user: true },
   });
 
   if (!ordinalInDB) {
@@ -244,7 +244,7 @@ export async function deleteOrdinalInDb(id: string) {
     return message(false, "Ordinal contains one or more ordinal collections");
   }
 
-  if (!!ordinalInDB?.lightningAddress) {
+  if (!!ordinalInDB?.user?.lightningAddress) {
     return message(false, "Ordinal is owned by a lightning address");
   }
 
@@ -357,7 +357,7 @@ export async function saveOrdinalByUserInDb(props: SaveOrdinalByUserInDb) {
 
   if (!!ordinalInDB) {
     if (!!user) ordinalInDB.user = user;
-    ordinalInDB.lightningAddress = lightningAddress;
+    // ordinalInDB.lightningAddress = lightningAddress;
     return await ordinalsRepository.save(ordinalInDB);
   } else {
     const ordinal = ordinalsRepository.create({
@@ -366,7 +366,7 @@ export async function saveOrdinalByUserInDb(props: SaveOrdinalByUserInDb) {
       contentType,
       mimeType,
       isAdmin: false,
-      lightningAddress,
+      // lightningAddress,
       possibleOrdinalContent:
         !!possibleOrdinalContent && possibleOrdinalContent?.length > 0
           ? possibleOrdinalContent

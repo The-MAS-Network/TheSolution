@@ -113,7 +113,7 @@ export function copyTextToClipboard({
   navigator.clipboard
     .writeText(text)
     .then(function () {
-      appToast.Success(successText);
+      appToast.Info(successText);
     })
     .catch(function (err) {
       appToast.Error(`${errorText} ${err}`);
