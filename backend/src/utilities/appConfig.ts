@@ -53,6 +53,8 @@ function getAppConfig() {
     hiro_so_api_key: process.env?.HIRO_SO_API_KEY ?? "",
 
     app_admin_email: process.env?.APP_ADMIN_EMAIL ?? "",
+
+    app_macroon_hex: process.env?.APP_MACROON_HEX,
   };
 }
 

@@ -113,10 +113,10 @@ export const tipUser = async (req: Request, res: Response) => {
 
   const userOrdinals = await ordinalsRepository.find({
     where: {
-      lightningAddress: lightningAddress,
       ordinalCollections: {
         id: collectionId,
       },
+      user: { lightningAddress },
     },
     relations: {
       ordinalCollections: true,
@@ -352,7 +352,7 @@ export const tipCommunity = async (req: Request, res: Response) => {
   const nonAwaitOrdinals: Ordinals[] = [];
 
   for (let i = 0; i < filteredOrdinals.length; i++) {
-    if (i < 5) {
+    if (i < 50) {
       awaitOrdinals.push(filteredOrdinals[i]);
     } else {
       nonAwaitOrdinals.push(filteredOrdinals[i]);
@@ -367,7 +367,7 @@ export const tipCommunity = async (req: Request, res: Response) => {
     isAwait: boolean;
   }) => {
     const response = await handleLNURLPayment({
-      address: ordinal?.lightningAddress,
+      address: ordinal?.user?.lightningAddress,
       amountInSat: individualAmount,
     });
     const responseData = response?.data as PayResult;
@@ -376,7 +376,7 @@ export const tipCommunity = async (req: Request, res: Response) => {
       ordinalTipGroup: savedOrdinalGroup,
       amount: individualAmount,
       transactionId: (responseData?.id ?? "") as string,
-      lightningAddress: ordinal?.lightningAddress,
+      lightningAddress: ordinal?.user?.lightningAddress,
       status: mapStatus(response?.message ?? PaymentStatus.FAILED),
       imageURL: ordinal?.user?.imageURL ?? "",
       ...(!response?.status
@@ -387,7 +387,7 @@ export const tipCommunity = async (req: Request, res: Response) => {
     if (!!response?.status) {
       const leaderboardRepository = dataSource.getRepository(LeaderboardTips);
       const userLeaderboard = await leaderboardRepository.findOneBy({
-        user: { lightningAddress: ordinal?.lightningAddress },
+        user: { lightningAddress: ordinal?.user?.lightningAddress },
       });
 
       if (!!userLeaderboard) {

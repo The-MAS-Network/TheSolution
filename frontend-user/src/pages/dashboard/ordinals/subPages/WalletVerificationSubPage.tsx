@@ -18,11 +18,11 @@ const pageValues = [
   "SCAN QR CODE WITH ANOTHER DEVICE",
   "Payment Details:",
   "Amount to Pay:",
-  "Payment Unique Address:",
+  "Payment Unique address:",
   "Copy",
   "Waiting for payment to be broadcasted",
   "Expires in",
-  "Wallet Verification for Ordinal Address:",
+  "Wallet Verification for ordinal address:",
   "Disconnect Wallet",
   paymentAmount,
 ] as const;
@@ -51,10 +51,9 @@ const WalletVerificationSubPage = (): JSX.Element => {
     });
   };
 
-  const { isRefetching, isPending, isLoading } =
-    useVerifyUserOrdinalTransaction();
+  const { isPending, isLoading } = useVerifyUserOrdinalTransaction();
 
-  const isPageLoading = isRefetching || isPending || isLoading;
+  const isPageLoading = isPending || isLoading;
 
   return (
     <>
@@ -73,8 +72,8 @@ const WalletVerificationSubPage = (): JSX.Element => {
       </header>
 
       <div className="mb-7 w-full rounded-2xl bg-appBlue160 p-4">
-        <p className="text-base font-bold sm:text-lg">
-          {translatedValues?.["Wallet Verification for Ordinal Address:"]}
+        <p className="mb-1 text-base font-medium">
+          {translatedValues?.["Wallet Verification for ordinal address:"]}
         </p>
 
         <p className="custom-break-words flex-1   text-base font-semibold text-appYellow300">
@@ -87,7 +86,7 @@ const WalletVerificationSubPage = (): JSX.Element => {
           {translatedValues["Payment Details:"]}
         </h1>
         <h2 className="mb-1 mt-4 text-sm font-normal">
-          {translatedValues?.["Payment Unique Address:"]}
+          {translatedValues?.["Payment Unique address:"]}
         </h2>
 
         <ul className="flex items-center justify-between gap-10">

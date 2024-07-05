@@ -48,13 +48,6 @@ export class Ordinals {
   })
   isAdmin: boolean;
 
-  @Column({
-    length: 255,
-    nullable: true,
-    default: null,
-  })
-  lightningAddress: string;
-
   @ManyToOne(() => Users, (user) => user.id, {
     onDelete: "SET NULL",
     nullable: true,

@@ -611,6 +611,10 @@ export const verifyOrdinalTransaction = async (req: Request, res: Response) => {
       .send(
         message(false, "Ordinal wallet with the given user id  does not exist.")
       );
+  const formattedOrdinalWallet = {
+    ...ordinalWallet,
+    user: formatUserData(ordinalWallet?.user),
+  };
   if (!!ordinalWallet?.isVerified)
     return res
       .status(403)
@@ -618,7 +622,7 @@ export const verifyOrdinalTransaction = async (req: Request, res: Response) => {
         message(
           false,
           "User ordinal wallet is already verified.",
-          ordinalWallet
+          formattedOrdinalWallet
         )
       );
 
@@ -630,7 +634,7 @@ export const verifyOrdinalTransaction = async (req: Request, res: Response) => {
   if (resDetails.status === false) {
     return res
       .status(500)
-      .send(message(false, resDetails.message, ordinalWallet));
+      .send(message(false, resDetails.message, formattedOrdinalWallet));
   }
 
   // CHECK IF USER EXISTS ALREADY

@@ -1,5 +1,4 @@
 import { create } from "apisauce";
-import fs from "fs";
 import {
   authenticatedLndGrpc,
   createInvoice,
@@ -8,6 +7,7 @@ import {
   pay,
 } from "lightning";
 import { getISOTimeInHours } from "..";
+import { PaymentStatus } from "../../entities/ordinal/OrdinalTips.entity";
 import { message } from "../../middlewares/utility";
 import { APP_NAME } from "../../startup/config";
 import { GenericAPIResponse } from "../../types";
@@ -17,23 +17,10 @@ import {
   HandleLNURLPaymentProps,
 } from "../../types/lnd";
 import getAppConfig from "../appConfig";
-import { PaymentStatus } from "../../entities/ordinal/OrdinalTips.entity";
 import { handleApiErrors } from "../handleErrors";
-import { basePath } from "../../basePath";
-
-const MACAROON_PATH = basePath + "/assets/solution.macaroon";
-
-const getMacroonMetaData = () => {
-  const data = fs.readFileSync(MACAROON_PATH).toString("hex");
-  if (!data)
-    throw new Error(
-      "Macroon Data not found. Make sure a file with the name solution.macroon exists in src/assets folder"
-    );
-  return data;
-};
 
 export const LndInstance = authenticatedLndGrpc({
-  macaroon: getMacroonMetaData(),
+  macaroon: getAppConfig().app_macroon_hex,
   socket: `${getAppConfig()?.lnd_baseURL}:${getAppConfig()?.app_grpc_port}`,
 });
 

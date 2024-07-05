@@ -26,9 +26,9 @@ const WeeklyLeaderboardPage = (): JSX.Element => {
   const { fetchNextPage, hasNextPage, isFetching, isFetchingNextPage, data } =
     useInfiniteQuery({
       initialPageParam: "",
-      queryKey: ["getAllTimeLeaderboard"],
+      queryKey: ["getWeeklyLeaderboard"],
       queryFn: ({ pageParam }) =>
-        getLeaderboard({ cursor: pageParam, duration: "ALL_TIME" }),
+        getLeaderboard({ cursor: pageParam, duration: "WEEKLY" }),
       getNextPageParam: (lastPage) => lastPage?.metadata?.cursor?.afterCursor,
     });
 

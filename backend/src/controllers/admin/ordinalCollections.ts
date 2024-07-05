@@ -11,6 +11,7 @@ import {
   validateSingleDataByIdReq,
 } from "../../utilities/schemaValidators";
 import { deleteOrdinalInDb } from "../helpers/ordinals";
+import { OrdinalTipsGroups } from "../../entities/ordinal/OrdinalTipsGroups.entity";
 
 export const getAllCollections = async (req: Request, res: Response) => {
   const status = req.query?.status?.toString();
@@ -94,6 +95,23 @@ export const deleteCollection = async (req: Request, res: Response) => {
       .send(
         message(false, "The collection with the given id could not be found.")
       );
+
+  const tipGroupsRepository = dataSource.getRepository(OrdinalTipsGroups);
+
+  const ordinalTipGroups = await tipGroupsRepository.findOneBy({
+    ordinalCollection: { id },
+  });
+
+  if (!!ordinalTipGroups) {
+    return res
+      .status(400)
+      .send(
+        message(
+          false,
+          "The ordinal collection could not be deleted as it has previous tipping history."
+        )
+      );
+  }
 
   const ordinalsIdsInCollection = collection?.ordinals?.map(({ id }) => id);
 
@@ -193,8 +211,9 @@ export const getOrdinalsInCollectionByLightningAddress = async (
 
   const ordinals = await ordinalsRepository.find({
     where: {
-      lightningAddress,
+      // lightningAddress,
       ordinalCollections: { id: collectionId },
+      user: { lightningAddress },
     },
   });
   return res

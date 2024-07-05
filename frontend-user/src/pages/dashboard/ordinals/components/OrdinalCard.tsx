@@ -27,7 +27,11 @@ const OrdinalCard = ({
   const { data: content } = useQuery({
     queryKey: ["getOrdinalContent", ordinal.id],
     queryFn: async () => {
-      if (contentType === "Text" || contentType === "JSON") {
+      if (
+        contentType === "Text" ||
+        contentType === "JSON" ||
+        contentType === "Unknown"
+      ) {
         const response = await ordinalBaseApi.get(`/${ordinal?.id}`);
         if (response.ok) {
           return response?.data;
@@ -39,8 +43,16 @@ const OrdinalCard = ({
         return null;
       }
     },
-    enabled: contentType === "Text" || contentType === "JSON",
+    enabled:
+      contentType === "Text" ||
+      contentType === "JSON" ||
+      contentType === "Unknown",
   });
+
+  const formatUnkonwnContent = (value: unknown) => {
+    if (typeof value === "string") return value;
+    return JSON.stringify(value);
+  };
 
   return (
     <div className="relative ">
@@ -66,8 +78,8 @@ const OrdinalCard = ({
             </div>
           ) : (
             <div className="max-h-56">
-              <p className="custom-break-words !line-clamp-[8] px-2 py-6">
-                {JSON.stringify(content)}
+              <p className="custom-break-words !line-clamp-[8] whitespace-pre-wrap px-2 py-6">
+                {formatUnkonwnContent(content)}
               </p>
             </div>
           )}
