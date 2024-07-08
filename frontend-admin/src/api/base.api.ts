@@ -14,7 +14,7 @@ export const ordinalBaseApi = create({
 });
 
 export const backendTokenName = "x-auth-token";
-export const DEFAULT_API_DATA_SIZE: Readonly<number> = 2;
+export const DEFAULT_API_DATA_SIZE: Readonly<number> = 50;
 
 baseApi.addAsyncRequestTransform(async (request) => {
   const value = sessionStorage.getItem(authStoreName);

@@ -161,8 +161,8 @@ const OrdinalsCollectionPage = (): JSX.Element => {
         ordinalsByOrdinalsCollectionId?.pages?.forEach((value) => {
           const ordinals = value?.data?.ordinals;
           ordinals;
-          const filteredData = ordinals?.filter(({ lightningAddress }) =>
-            lightningAddress?.includes(debouncedLightningValue),
+          const filteredData = ordinals?.filter(({ user }) =>
+            user?.lightningAddress?.includes(debouncedLightningValue),
           );
 
           if (filteredData && filteredData?.length > 0) {

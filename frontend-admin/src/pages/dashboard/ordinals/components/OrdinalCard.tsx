@@ -117,18 +117,20 @@ const OrdinalCard = ({ ordinal, collectionId }: Props): JSX.Element => {
           </button>
         </footer>
         {/* {!!isFiltered && ( */}
-        {!!ordinal?.lightningAddress && (
+        {!!ordinal?.user?.lightningAddress && (
           <div className="pb-2 ">
             <hr className="block  border-appBlue120/50" />
 
             <div className="flex items-center  px-2 pt-2">
-              <p className="truncate text-xs">{ordinal?.lightningAddress}</p>
+              <p className="truncate text-xs">
+                {ordinal?.user?.lightningAddress}
+              </p>
 
               <button
                 type="button"
                 onClick={() =>
                   copyTextToClipboard(
-                    ordinal?.lightningAddress ?? "",
+                    ordinal?.user?.lightningAddress ?? "",
                     "Lightning address successfully copied to clipboard",
                   )
                 }
