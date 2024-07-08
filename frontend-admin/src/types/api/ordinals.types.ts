@@ -1,4 +1,4 @@
-import { CursorReq, GenericAPIResponse } from ".";
+import { CursorReq, GenericAPIResponse, NormalUserData } from ".";
 
 export interface OrdinalCollection {
   id: string;
@@ -63,9 +63,9 @@ export interface Ordinal {
   mimeType: string;
   possibleOrdinalContent: string;
   isAdmin: boolean;
-  lightningAddress: null | string;
   id: string;
   ordinalId: string;
+  user?: NormalUserData | null;
 }
 
 export interface GetOrdinalsByOrdinalsCollectionIdRes

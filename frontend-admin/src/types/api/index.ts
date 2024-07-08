@@ -17,3 +17,13 @@ export interface MetaData {
     cursor?: Cursor;
   };
 }
+
+export interface NormalUserData {
+  id: string;
+  nickName: string;
+  lightningAddress: string;
+  imageURL: null;
+  isVerified: boolean;
+  createdAt: string;
+  updatedAt: string;
+}

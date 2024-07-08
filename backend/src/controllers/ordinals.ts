@@ -23,6 +23,7 @@ import {
   validateSingleDataByIdReq,
 } from "../utilities/schemaValidators";
 import { deleteOrdinalInDb, saveOrdinalByAdminInDb } from "./helpers/ordinals";
+import { formatUserData } from "./user";
 
 export const getOrdinalsFromWalletAddress = async (
   req: Request,
@@ -157,7 +158,8 @@ export const getOrdinalsFromCollectionId = async (
     .getRepository(Ordinals)
     .createQueryBuilder(alias)
     .leftJoin(`${alias}.ordinalCollections`, "ordinalCollections")
-    .where(`ordinalCollections.id = :id`, { id });
+    .where(`ordinalCollections.id = :id`, { id })
+    .leftJoinAndSelect(`${alias}.user`, "user");
 
   const paginator = buildPaginator({
     entity: Ordinals,
@@ -193,11 +195,16 @@ export const getOrdinalsFromCollectionId = async (
     }
   }
 
+  const formattedOrdinals = ordianalWithData.map((data) => ({
+    ...data,
+    user: formatUserData(data?.user),
+  }));
+
   return res.status(200).send(
     message(
       true,
       "Ordinals retrieved successfully.",
-      { ordinalsCollection, ordinals: ordianalWithData },
+      { ordinalsCollection, ordinals: formattedOrdinals },
       {
         cursor,
       }
