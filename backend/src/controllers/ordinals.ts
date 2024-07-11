@@ -197,7 +197,7 @@ export const getOrdinalsFromCollectionId = async (
 
   const formattedOrdinals = ordianalWithData.map((data) => ({
     ...data,
-    user: formatUserData(data?.user),
+    ...(!!data?.user ? { user: formatUserData(data?.user) } : {}),
   }));
 
   return res.status(200).send(
