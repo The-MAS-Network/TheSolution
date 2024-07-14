@@ -12,6 +12,7 @@ const pageValues = [
   "Ordinals",
   "Wallet",
   "Disconnect Wallet",
+  "Rescan wallet",
   "Verify your Ordinal Wallet",
   "No ordinal found in this ordinal wallet.",
 ] as const;
@@ -49,6 +50,7 @@ const OrdinalsPage = (): JSX.Element => {
           />
         ) : !!walletStatus?.isVerified ? (
           <VerifiedOrdinalWalletSubPage
+            rescanWalletTitle={translatedValues?.["Rescan wallet"]}
             disconnectWalletTitle={translatedValues?.["Disconnect Wallet"]}
             errorMessage={
               translatedValues?.["No ordinal found in this ordinal wallet."]

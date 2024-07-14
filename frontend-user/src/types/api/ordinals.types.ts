@@ -34,7 +34,19 @@ export interface GetOrdinalsFromWalletAddress {
   results: SpecificInscriptionResponse[];
 }
 
+export interface ISimpleOrdinalData {
+  id: string;
+  ordinalId: string;
+  possibleOrdinalContent: string;
+  mimeType: string;
+  contentType: string;
+}
+
 export interface GetUserWalletOrdinalsRes extends GenericAPIResponse {
+  data: ISimpleOrdinalData[];
+}
+export interface GetBackendOrdinalsFromWalletAddress
+  extends GenericAPIResponse {
   data: GetOrdinalsFromWalletAddress;
 }
 

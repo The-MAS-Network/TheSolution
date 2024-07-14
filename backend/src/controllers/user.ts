@@ -2,7 +2,6 @@ import bcrypt from "bcrypt";
 import { Request, Response } from "express";
 
 import { sendSats } from "../api/btcPayServer.api";
-import { hiroSoBaseApi } from "../api/external.api";
 import dataSource from "../db/data-source";
 import {
   BtcPayServerPayments,
@@ -10,15 +9,11 @@ import {
 } from "../entities/BtcPayServerPayments.entity";
 import { Users } from "../entities/Users.entity";
 import { OrdinalWallets } from "../entities/ordinal/OrdinalWallets.entity";
-import { confirmWalletsPayment } from "./helpers/ordinals";
+import { Ordinals } from "../entities/ordinal/Ordinals.entity";
 import { generateUserAuthToken, getAuthUser } from "../middlewares/auth";
 import { message } from "../middlewares/utility";
 import { APP_HEADER_TOKEN } from "../startup/config";
 import { DualPaymentsParams } from "../types";
-import {
-  GetOrdinalError,
-  GetOrdinalsFromWalletAddress,
-} from "../types/ordinals.types";
 import { omitValuesFromObj } from "../utilities";
 import getAppConfig from "../utilities/appConfig";
 import { calculateTimeDifference } from "../utilities/dateTimeHelpers";
@@ -32,6 +27,7 @@ import {
   validateUser,
   validateUserLightningAddress,
 } from "../utilities/schemaValidators";
+import { confirmWalletsPayment, takeWalletSnapShot } from "./helpers/ordinals";
 
 export const login = async (req: Request, res: Response) => {
   // VALIDATE REQUEST
@@ -544,29 +540,41 @@ export const getUserOrdinals = async (req: Request, res: Response) => {
           "User with the given id address does not have a verified ordinal wallet."
         )
       );
+  const ordinalsRepository = dataSource.getRepository(Ordinals);
 
-  const response = await hiroSoBaseApi.get<
-    GetOrdinalsFromWalletAddress,
-    GetOrdinalError
-  >(`/inscriptions?address=${user?.ordinalWallet?.address}`);
+  const userOrdinals = await ordinalsRepository.find({
+    where: { user: { id: user?.id } },
+  });
 
-  if (response.ok) {
-    return res
-      .status(200)
-      .send(
-        message(true, "Wallet ordinals retrieved successfully.", response?.data)
-      );
-  } else {
-    return res
-      .status(503)
-      .send(
-        message(
-          false,
-          response?.data?.error ??
-            "An error occured when getting ordinals with the given id."
-        )
-      );
-  }
+  return res
+    .status(200)
+    .send(
+      message(true, "Wallet ordinals retrieved successfully.", userOrdinals)
+    );
+
+  // const response = await hiroSoBaseApi.get<
+  //   GetOrdinalsFromWalletAddress,
+  //   GetOrdinalError
+  // >(`/inscriptions?address=${user?.ordinalWallet?.address}`);
+
+  // if (response.ok) {
+  //   res
+  //   .status(200)
+  //   .send(
+  //     message(true, "Wallet ordinals retrieved successfully.", response?.data)
+  //   );
+  //   return
+  // } else {
+  //   return res
+  //     .status(503)
+  //     .send(
+  //       message(
+  //         false,
+  //         response?.data?.error ??
+  //           "An error occured when getting ordinals with the given id."
+  //       )
+  //     );
+  // }
 };
 
 export const disconnectOrdinalWallet = async (req: Request, res: Response) => {
@@ -655,6 +663,63 @@ export const verifyOrdinalTransaction = async (req: Request, res: Response) => {
     .send(
       message(true, "Profile retrieved successfully.", formatUserData(user))
     );
+};
+
+export const rescanUserWallet = async (req: Request, res: Response) => {
+  // VALIDATE REQUEST
+
+  const decoded = getAuthUser(req, res);
+
+  if (!decoded?.id)
+    return res.status(400).send(message(false, "Invalid token."));
+
+  // CHECK IF USER EXISTS ALREADY
+  const userRepository = dataSource.getRepository(Users);
+
+  const user = await userRepository.findOne({
+    where: { id: decoded?.id },
+    relations: { ordinalWallet: true },
+  });
+
+  if (!user)
+    return res
+      .status(400)
+      .send(message(false, "User with the given id address does not exist."));
+
+  if (!user?.ordinalWallet?.address)
+    return res
+      .status(400)
+      .send(
+        message(
+          false,
+          "User with the given id address does not have a verified ordinal wallet."
+        )
+      );
+
+  const response = await takeWalletSnapShot({
+    lightningAddress: user?.lightningAddress,
+    walletAddress: user?.ordinalWallet?.address,
+  });
+  if (response?.status) {
+    // const ordinalsRepository = dataSource.getRepository(Ordinals);
+
+    // const userOrdinals = await ordinalsRepository.find({
+    //   where: { user: { id: user?.id } },
+    // });
+
+    return res
+      .status(200)
+      .send(message(true, "User wallet rescanned successfully."));
+  } else {
+    return res
+      .status(503)
+      .send(
+        message(
+          false,
+          response?.message ?? "An error occured while rescanning user wallet."
+        )
+      );
+  }
 };
 
 export async function checkIfLightningAddressIsOnline(address: string) {

@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import { GenericAPIResponse, MetaData } from "../types";
+import sendExternalMessage from "../utilities/sendExternalMessage";
 
 export const asyncMiddleware = (
   handler: (
@@ -11,6 +12,7 @@ export const asyncMiddleware = (
     try {
       await handler(req, res);
     } catch (error) {
+      sendExternalMessage(`${req?.url} - ${error}`);
       next(error);
     }
   };

@@ -54,7 +54,8 @@ function getAppConfig() {
 
     app_admin_email: process.env?.APP_ADMIN_EMAIL ?? "",
 
-    app_macroon_hex: process.env?.APP_MACROON_HEX,
+    app_macroon_hex: process.env?.APP_MACROON_HEX ?? "",
+    appDiscordWebhookURL: process.env?.APP_DISCORD_WEBHOOK_URL ?? "",
   };
 }
 
