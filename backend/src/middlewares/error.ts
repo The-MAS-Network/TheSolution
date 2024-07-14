@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 
-import { GenericAPIResponse } from "../types";
 import { winstonLogger } from "../startup/logging";
+import { GenericAPIResponse } from "../types";
 
 const error = (err: any, req: Request, res: Response, next: NextFunction) => {
   // LOG THE EXCEPTION

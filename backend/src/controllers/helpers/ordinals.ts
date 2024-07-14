@@ -1,24 +1,26 @@
 import { Repository } from "typeorm";
 import {
-  bitcoinExplorerBaseAPI,
+  btcDotComBaseApi,
   getOrdinalsFromWallet,
   ordiscanBaseApi,
 } from "../../api/external.api";
 import dataSource from "../../db/data-source";
+import { Users } from "../../entities/Users.entity";
 import { OrdinalWallets } from "../../entities/ordinal/OrdinalWallets.entity";
 import { Ordinals } from "../../entities/ordinal/Ordinals.entity";
 import { message } from "../../middlewares/utility";
-import { SpecificInscriptionResponse } from "../../types/external.api.types";
+import {
+  BTC_COM_SINGLE_TRANSACTION,
+  BTC_com_WalletDataResponse,
+  SpecificInscriptionResponse,
+} from "../../types/external.api.types";
 import {
   ConfirmBothWalletsProps,
-  GetBlockExplorerTransactionDetailsRes,
-  GetBlockExplorerWalletDataRes,
   SaveOrdinalByUserInDb,
   SaveOrdinalInDbProps,
 } from "../../types/ordinals.types";
-import { handleApiErrors } from "../../utilities/handleErrors";
-import { Users } from "../../entities/Users.entity";
 import { calculateDateTimeDifference } from "../../utilities";
+import { handleApiErrors } from "../../utilities/handleErrors";
 
 const useHistory: Date[] = [];
 
@@ -69,24 +71,24 @@ export async function confirmWalletsPayment(
     return message;
   } else {
     const walletDetailsResponse =
-      await bitcoinExplorerBaseAPI.get<GetBlockExplorerWalletDataRes>(
-        `/address/${wallet.onChainWallet}`
+      await btcDotComBaseApi.get<BTC_com_WalletDataResponse>(
+        `/address/${wallet.onChainWallet}/unspent`
       );
 
     if (walletDetailsResponse.ok) {
-      const transactionIDS = walletDetailsResponse?.data?.txHistory?.txids;
+      const transactionIDS = walletDetailsResponse?.data?.data.list;
 
       if (!!transactionIDS && transactionIDS.length > 0) {
         const message = await confirmBothWallets({
           ordinalWalletsRepository,
           wallet,
-          transactionID: transactionIDS[0],
+          transactionID: transactionIDS?.[0]?.tx_hash,
         });
         return message;
       } else {
         return {
           status: false,
-          message: `No transaction ID found yet for the given onchain wallet. ${transactionIDS}`,
+          message: `No transaction ID found yet for the given onchain wallet.`,
         };
       }
     } else {
@@ -106,15 +108,15 @@ async function confirmBothWallets({
   transactionID,
 }: ConfirmBothWalletsProps): Promise<{ message: string; status: boolean }> {
   const transactionDetailRes =
-    await bitcoinExplorerBaseAPI.get<GetBlockExplorerTransactionDetailsRes>(
+    await btcDotComBaseApi.get<BTC_COM_SINGLE_TRANSACTION>(
       `/tx/${transactionID}`
     );
 
   if (transactionDetailRes?.ok && transactionDetailRes?.data) {
     const firstAddress =
-      transactionDetailRes?.data?.vout?.[0]?.scriptPubKey?.address;
+      transactionDetailRes?.data?.data?.outputs?.[0]?.addresses?.[0];
     const secondAddress =
-      transactionDetailRes?.data?.vout?.[1]?.scriptPubKey?.address;
+      transactionDetailRes?.data?.data?.outputs?.[1]?.addresses?.[0];
 
     const bothWalletAdrressisValid =
       (firstAddress == wallet?.onChainWallet &&
@@ -129,7 +131,7 @@ async function confirmBothWallets({
         await ordinalWalletsRepository.save(wallet);
       }
 
-      if (transactionDetailRes?.data?.confirmations >= 1) {
+      if (transactionDetailRes?.data?.data?.confirmations >= 1) {
         // TAKE SNAP SHOT OF THE USER ORDINALS IN THE ORDINAL WALLET
         takeWalletSnapShot({
           lightningAddress: wallet?.user?.lightningAddress,
@@ -159,7 +161,7 @@ async function confirmBothWallets({
           status: false,
           // FRONTEND IS MAKING STRICT USE OF THE STARTING WORDS OF THIS MESSAGE. IN THE CASE OF ANY CHANGES FIND IT ON THE USER FRONTEND AND CHANGE IT TOO.
           message: `Transaction details confirmation is less than 1. Current confirmation is ${
-            transactionDetailRes?.data?.confirmations ?? 0
+            transactionDetailRes?.data?.data?.confirmations ?? 0
           }`,
         };
       }
@@ -337,7 +339,7 @@ async function getContentValue(props: GetContentValueProps) {
   }
 }
 
-export async function saveOrdinalByUserInDb(props: SaveOrdinalByUserInDb) {
+async function saveOrdinalByUserInDb(props: SaveOrdinalByUserInDb) {
   const {
     ordinalId,
     lightningAddress,
@@ -350,15 +352,21 @@ export async function saveOrdinalByUserInDb(props: SaveOrdinalByUserInDb) {
 
   const ordinalInDB = await ordinalsRepository.findOne({
     where: { ordinalId },
+    relations: { user: true },
   });
 
   const userRepository = dataSource.getRepository(Users);
   const user = await userRepository.findOneBy({ lightningAddress });
 
   if (!!ordinalInDB) {
-    if (!!user) ordinalInDB.user = user;
-    // ordinalInDB.lightningAddress = lightningAddress;
-    return await ordinalsRepository.save(ordinalInDB);
+    if (!!user) {
+      if (user?.lightningAddress !== ordinalInDB?.user?.lightningAddress) {
+        ordinalInDB.user = user;
+        await ordinalsRepository.save(ordinalInDB);
+        return;
+      }
+    }
+    return;
   } else {
     const ordinal = ordinalsRepository.create({
       ...(!!user ? { user } : {}),
@@ -383,7 +391,7 @@ interface TakeWalletSnapShotProps {
   offset?: number;
 }
 
-async function takeWalletSnapShot(props: TakeWalletSnapShotProps) {
+export async function takeWalletSnapShot(props: TakeWalletSnapShotProps) {
   const { lightningAddress, walletAddress } = props;
   const response = await getOrdinalsFromWallet({
     address: walletAddress,

@@ -1,38 +1,38 @@
 import { Icon } from "@iconify/react/dist/iconify.js";
 
+import { ordinalBaseApi } from "@/api/base.api";
+import AppIframe from "@/components/AppIframe";
+import { ISimpleOrdinalData } from "@/types/api/ordinals.types";
 import {
   CheckOrdinalContentType,
   copyTextToClipboard,
   generateOrdinalContentLink,
   generateOrdinalShareLink,
 } from "@/utilities";
-import AppIframe from "@/components/AppIframe";
-import { SpecificInscriptionResponse } from "@/types/api/ordinals.types";
-import { useQuery } from "@tanstack/react-query";
 import { handleApiErrors } from "@/utilities/handleErrors";
-import { ordinalBaseApi } from "@/api/base.api";
+import { useQuery } from "@tanstack/react-query";
 
 const OrdinalCard = ({
   ordinal,
 }: {
-  ordinal: SpecificInscriptionResponse;
+  ordinal: ISimpleOrdinalData;
 }): JSX.Element => {
-  const text = generateOrdinalShareLink(ordinal.id?.toString());
+  const text = generateOrdinalShareLink(ordinal?.ordinalId?.toString());
 
   const contentType = CheckOrdinalContentType({
-    content_type: ordinal.content_type,
-    mime_type: ordinal.mime_type,
+    content_type: ordinal.contentType,
+    mime_type: ordinal.mimeType,
   });
 
   const { data: content } = useQuery({
-    queryKey: ["getOrdinalContent", ordinal.id],
+    queryKey: ["getOrdinalContent", ordinal.ordinalId],
     queryFn: async () => {
       if (
         contentType === "Text" ||
         contentType === "JSON" ||
         contentType === "Unknown"
       ) {
-        const response = await ordinalBaseApi.get(`/${ordinal?.id}`);
+        const response = await ordinalBaseApi.get(`/${ordinal?.ordinalId}`);
         if (response.ok) {
           return response?.data;
         } else {
@@ -60,13 +60,13 @@ const OrdinalCard = ({
         <div className="custom-break-words flex min-h-32 flex-1 items-center justify-center overflow-auto rounded-b-xl bg-appBlue160   text-center">
           {contentType === "HTML" ? (
             <div className="max-h-56">
-              <AppIframe src={generateOrdinalContentLink(ordinal.id)} />
+              <AppIframe src={generateOrdinalContentLink(ordinal?.ordinalId)} />
             </div>
           ) : contentType === "Image" ? (
             <div className="max-h-56">
               <img
                 draggable={false}
-                src={generateOrdinalContentLink(ordinal.id)}
+                src={generateOrdinalContentLink(ordinal.ordinalId)}
                 className="w-full"
               />
             </div>

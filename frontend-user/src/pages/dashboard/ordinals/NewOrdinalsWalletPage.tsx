@@ -159,7 +159,16 @@ const NewOrdinalsWalletPage = (): JSX.Element => {
 
             <ul className="grid grid-cols-2 gap-x-5 gap-y-8 pb-20 pt-6">
               {data?.results?.map((data, index) => (
-                <OrdinalCard key={index} ordinal={data} />
+                <OrdinalCard
+                  key={index}
+                  ordinal={{
+                    contentType: data?.content_type,
+                    id: "",
+                    ordinalId: data?.id,
+                    mimeType: data?.mime_type,
+                    possibleOrdinalContent: data?.value,
+                  }}
+                />
               ))}
             </ul>
 

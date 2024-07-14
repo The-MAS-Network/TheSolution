@@ -6,6 +6,7 @@ import dataSource from "./db/data-source";
 import logging from "./startup/logging";
 import startup from "./startup/routes";
 import getAppConfig from "./utilities/appConfig";
+import sendExternalMessage from "./utilities/sendExternalMessage";
 
 const app = express();
 
@@ -15,7 +16,7 @@ const main = async () => {
   try {
     await dataSource.initialize();
     console.log("Connected to Mysql");
-
+    sendExternalMessage("Connected to the server");
     logging();
     startup(app);
     app.listen(port, () => {

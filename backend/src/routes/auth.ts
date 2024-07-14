@@ -14,6 +14,7 @@ import {
   disconnectOrdinalWallet,
   verifyOrdinalTransaction,
   deleteAccount,
+  rescanUserWallet,
 } from "../controllers/user";
 import { auth } from "../middlewares/auth";
 
@@ -32,6 +33,8 @@ router.post(
 router.get("/profile", auth, asyncMiddleware(getProfile));
 
 router.get("/profile/ordinals", auth, asyncMiddleware(getUserOrdinals));
+
+router.get("/profile/rescan-wallet", auth, asyncMiddleware(rescanUserWallet));
 
 router.patch(
   "/disconnect-wallet",

@@ -73,6 +73,10 @@ export const getUserWalletOrdinals = () =>
   baseApi.get<GetUserWalletOrdinalsRes, GenericAPIResponse>(
     "/auth/profile/ordinals",
   );
+export const rescanUserWallet = () =>
+  baseApi.get<GenericAPIResponse, GenericAPIResponse>(
+    "/auth/profile/rescan-wallet",
+  );
 
 export const generateOnChainWallet = ({ address }: { address: string }) =>
   baseApi.post<RegisterResponse, GenericAPIResponse>("/payment/onchain", {

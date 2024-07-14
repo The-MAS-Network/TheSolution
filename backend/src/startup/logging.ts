@@ -1,4 +1,5 @@
 import { createLogger, format, transports } from "winston";
+import sendExternalMessage from "../utilities/sendExternalMessage";
 
 const { combine, timestamp, prettyPrint } = format;
 export const winstonLogger = (filename = "logfile.log") => {
@@ -13,12 +14,14 @@ export const winstonLogger = (filename = "logfile.log") => {
 export default function () {
   process.on("uncaughtException", (ex) => {
     winstonLogger("uncaughtException.log").error(ex);
+    sendExternalMessage(JSON.stringify(ex));
     console.log(ex);
     process.exit(1);
   });
 
   process.on("unhandledRejection", (ex) => {
     winstonLogger("unhandledRejection.log").error(ex);
+    sendExternalMessage(JSON.stringify(ex));
     console.log(ex);
     process.exit(1);
   });

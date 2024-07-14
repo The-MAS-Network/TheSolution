@@ -23,8 +23,12 @@ export const getOrdinalsFromWallet = (
   );
 };
 
-export const bitcoinExplorerBaseAPI = create({
-  baseURL: "https://bitcoinexplorer.org/api",
+// export const bitcoinExplorerBaseAPI = create({
+//   baseURL: "https://bitcoinexplorer.org/api",
+// });
+
+export const btcDotComBaseApi = create({
+  baseURL: "https://chain.api.btc.com/v3",
 });
 
 export const ordiscanBaseApi = create({
