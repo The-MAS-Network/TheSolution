@@ -32,48 +32,46 @@ const LeaderboardData = ({
         <ul>
           {data?.pages?.map((value, key) => (
             <Fragment key={key}>
-              {value?.data?.map(
-                ({ amount, imageURL, lightningAddress }, index) => (
-                  <li
-                    className="flex items-center border-b border-appDarkBlue800 py-2 last:border-b-0"
-                    key={index}
+              {value?.data?.map(({ amount, user, lightningAddress }, index) => (
+                <li
+                  className="flex items-center border-b border-appDarkBlue800 py-2 last:border-b-0"
+                  key={index}
+                >
+                  <data
+                    className={`leaderboard-number-white-gradient flex aspect-square w-full min-w-7 max-w-max items-center justify-center rounded-full p-1  text-sm font-semibold text-appDarkBlue100 ${index < 3 ? "leaderboard-number-yellow-gradient" : "leaderboard-number-white-gradient"}`}
+                    value={1}
                   >
-                    <data
-                      className={`leaderboard-number-white-gradient flex aspect-square w-full min-w-7 max-w-max items-center justify-center rounded-full p-1  text-sm font-semibold text-appDarkBlue100 ${index < 3 ? "leaderboard-number-yellow-gradient" : "leaderboard-number-white-gradient"}`}
-                      value={1}
-                    >
-                      {index + 1}
-                    </data>
+                    {index + 1}
+                  </data>
 
-                    <figure className="leaderboard-profie-gradient ml-2 overflow-hidden rounded-full p-1">
-                      <img
-                        className=" size-12 rounded-full bg-appDarkBlue700  object-contain"
-                        src={getProfileImage(imageURL ?? "")}
-                        alt="profile picure"
-                      />
-                    </figure>
+                  <figure className="leaderboard-profie-gradient ml-2 overflow-hidden rounded-full p-1">
+                    <img
+                      className=" size-12 rounded-full bg-appDarkBlue700  object-contain"
+                      src={getProfileImage(user?.imageURL ?? "")}
+                      alt="profile picure"
+                    />
+                  </figure>
 
-                    <p className="flex-1 truncate px-3 text-sm font-normal text-white">
-                      {lightningAddress}
-                    </p>
+                  <p className="flex-1 truncate px-3 text-sm font-normal text-white">
+                    {lightningAddress}
+                  </p>
 
-                    <dl className="flex flex-col items-end">
-                      <dt className="text-sm font-medium text-appYellow110">
-                        SATs
-                      </dt>
-                      <dd className="flex items-center">
-                        <data
-                          className="text-sm font-bold  text-white sm:text-base"
-                          value={amount}
-                        >
-                          {amount?.toLocaleString()}
-                        </data>
-                        <EmojioneV1LightningMood className="ml-1 text-base" />
-                      </dd>
-                    </dl>
-                  </li>
-                ),
-              )}
+                  <dl className="flex flex-col items-end">
+                    <dt className="text-sm font-medium text-appYellow110">
+                      SATs
+                    </dt>
+                    <dd className="flex items-center">
+                      <data
+                        className="text-sm font-bold  text-white sm:text-base"
+                        value={amount}
+                      >
+                        {amount?.toLocaleString()}
+                      </data>
+                      <EmojioneV1LightningMood className="ml-1 text-base" />
+                    </dd>
+                  </dl>
+                </li>
+              ))}
             </Fragment>
           ))}
         </ul>
