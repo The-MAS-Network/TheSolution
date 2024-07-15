@@ -5,8 +5,9 @@ export interface GetLeaderboardRes extends GenericAPIResponse {
     id: string;
     amount: number;
     lightningAddress: string;
-    imageURL: string | null;
-    createdAt: string;
+    user?: {
+      imageURL: string;
+    };
   }[];
 }
 
