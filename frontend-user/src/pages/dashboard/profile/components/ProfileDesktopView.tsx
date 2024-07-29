@@ -15,7 +15,7 @@ interface ITranslate {
 }
 
 const values: ITranslate = {
-  profile: "PROFILE",
+  profile: "Profile",
 };
 
 const ProfileDesktopView = (): JSX.Element => {
@@ -39,7 +39,7 @@ const ProfileDesktopView = (): JSX.Element => {
         </p>
         <Link
           to={routes.EDIT_PROFILE_PAGE}
-          className="absolute right-0 rounded-xl bg-appBlue900 p-3 transition-all duration-300 hover:text-appYellow100"
+          className="absolute right-0 rounded-xl bg-appBlue100 p-3 transition-all duration-300 hover:text-appYellow100"
         >
           <Icon className="text-xl md:text-2xl lg:text-3xl" icon="uil:edit" />
         </Link>

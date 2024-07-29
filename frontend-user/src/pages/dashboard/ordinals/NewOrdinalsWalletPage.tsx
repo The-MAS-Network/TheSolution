@@ -22,11 +22,11 @@ import { authStore } from "@/stores/auth.store";
 import { useVisitIntendedRoute } from "@/utilities/visitIntendedRoute";
 
 const pageValues = [
-  "Enter your ordinal’s wallet address",
+  "Enter your Ordinals Wallet Address",
   "My Ordinals Wallet",
   "PASTE",
   "CLAIM WALLET",
-  "By clicking this box, you agree that paying a one-time fee from your Ordinal Wallet to help verify ownership and support the platform. You acknowledge that the wallet verification may be required again if another user claims ownership of the same wallet address using this method.",
+  "By clicking this box, you agree to paying a one-time fee from your Ordinal Wallet to help verify ownership and support the platform. You acknowledge that the wallet verification may be required again if another user claims ownership of the same wallet address using this method.",
   "Owner of",
   "Inscriptions",
 ] as const;
@@ -138,14 +138,14 @@ const NewOrdinalsWalletPage = (): JSX.Element => {
           <div className="pb-3">
             <DashboardHeader
               onClick={handleBackClick}
-              title={translatedValues?.["My Ordinals Wallet"]}
+              title={translatedValues?.["Enter your Ordinals Wallet Address"]}
             />
           </div>
           <AppSearchInput
             onSearchClick={handleSearchClick}
             value={searchValue}
             onChange={(value) => setSearchValue(value?.currentTarget?.value)}
-            placeholder="bc1pe2jk922ph9fhuf....."
+            placeholder="i.e bc1pe2jk922ph9fhuf....."
           />
         </div>
 
@@ -184,7 +184,7 @@ const NewOrdinalsWalletPage = (): JSX.Element => {
               <p className="text-left text-sm font-normal text-black sm:text-base">
                 {
                   translatedValues?.[
-                    "By clicking this box, you agree that paying a one-time fee from your Ordinal Wallet to help verify ownership and support the platform. You acknowledge that the wallet verification may be required again if another user claims ownership of the same wallet address using this method."
+                    "By clicking this box, you agree to paying a one-time fee from your Ordinal Wallet to help verify ownership and support the platform. You acknowledge that the wallet verification may be required again if another user claims ownership of the same wallet address using this method."
                   ]
                 }
               </p>
@@ -204,9 +204,9 @@ const NewOrdinalsWalletPage = (): JSX.Element => {
           </>
         ) : (
           <>
-            <p className="my-14 max-w-[15rem] py-10  text-base font-medium text-white md:text-lg lg:text-xl">
-              {translatedValues?.["Enter your ordinal’s wallet address"]}
-            </p>
+            {/* <p className="my-14 max-w-[15rem] py-10  text-base font-medium text-white md:text-lg lg:text-xl">
+              {translatedValues?.["Enter your Ordinals Wallet Address"]}
+            </p> */}
 
             <button
               type="button"

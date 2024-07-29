@@ -54,7 +54,7 @@ const ErrorMessage = ({ message }: Props): JSX.Element | null => {
   };
 
   return (
-    <p className="mt-1 p-1 font-baloo2 text-sm font-medium lowercase tracking-wider text-appYellow100 first-letter:uppercase">
+    <p className="mt-1 p-1 font-baloo2 text-sm font-medium tracking-wider text-appYellow100 first-letter:uppercase">
       {finalMessage?.split('"')?.join("")}
     </p>
   );

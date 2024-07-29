@@ -26,7 +26,7 @@ const AppInput = ({
         {leftIcon}
         <input
           className="w-full  bg-transparent py-4 text-white outline-0 placeholder:text-appGray200"
-          placeholder="Enter your lightning address"
+          placeholder="Enter your Lightning Address"
           {...hookFormProps}
           {...otherProps}
         />

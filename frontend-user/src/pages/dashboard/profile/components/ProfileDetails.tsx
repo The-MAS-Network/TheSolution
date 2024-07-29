@@ -14,9 +14,9 @@ import { EmojioneV1LightningMood } from "@/components/icons";
 const pageValues = [
   "Lightning Address",
   "Nickname",
-  "Log out",
+  "LOG OUT",
   "Verified",
-  "Verify Account Now",
+  "VERIFY ACCOUNT NOW",
   "Language",
   "DELETE ACCOUNT",
   "left to verify your account  before it get’s deleted",
@@ -54,10 +54,10 @@ const ProfileDetails = (): JSX.Element => {
 
   return (
     <>
-      <p className="pb-1 pt-5 text-left text-sm font-bold text-appGray400 sm:text-center sm:text-base">
+      {/* <p className="pb-1 pt-5 text-left text-sm font-bold text-appGray400 sm:text-center sm:text-base">
         {translatedValues.Nickname}
-      </p>
-      <p className="text-left text-base font-bold text-white sm:text-center md:text-lg lg:text-xl">
+      </p> */}
+      <p className="pb-1 pt-5 text-left text-base font-bold text-white sm:text-center md:text-lg lg:text-xl">
         {loginResponse?.data?.nickName}
       </p>
 
@@ -91,7 +91,7 @@ const ProfileDetails = (): JSX.Element => {
               onClick={handleVerification}
               className="mx-auto mt-5 rounded-xl bg-appBlue400 px-3 py-2 text-sm font-medium text-white transition-all duration-300 hover:scale-110 active:scale-90"
             >
-              {translatedValues["Verify Account Now"]}
+              {translatedValues["VERIFY ACCOUNT NOW"]}
             </button>
           </div>
         )}
@@ -103,7 +103,7 @@ const ProfileDetails = (): JSX.Element => {
 
         <Link
           to={routes.DELETE_ACCOUNT_PAGE}
-          className="mt-7 flex w-full items-center justify-between rounded-xl bg-white px-3 py-4 text-sm font-medium text-red-500 transition-all duration-300 hover:scale-105 hover:text-red-600 active:scale-95 sm:text-base"
+          className="mt-7 flex w-full items-center justify-between rounded-xl bg-white px-3 py-4 text-sm font-bold text-red-500 transition-all duration-300 hover:scale-105 hover:text-red-600 active:scale-95 sm:text-base"
         >
           <span>{translatedValues["DELETE ACCOUNT"]}</span>
           <Icon className="text-xl sm:text-2xl" icon="uiw:user-delete" />
@@ -116,7 +116,7 @@ const ProfileDetails = (): JSX.Element => {
           className="flex  items-center gap-x-3 py-3 text-base font-semibold transition-all duration-300 hover:text-appYellow100 md:text-lg lg:text-xl"
           type="button"
         >
-          <span>{translatedValues["Log out"]}</span>
+          <span>{translatedValues["LOG OUT"]}</span>
           <Icon
             className="text-lg md:text-xl lg:text-2xl"
             icon="line-md:log-out"

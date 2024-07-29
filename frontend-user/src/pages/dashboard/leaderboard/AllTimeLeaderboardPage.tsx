@@ -6,7 +6,7 @@ import { useInfiniteQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import LeaderboardData from "./components/LeaderboardData";
 
-const pageValues = ["ALL TIME TIPS", "No all time tip available."] as const;
+const pageValues = ["ALL-TIME TIPS", "No all time tip available."] as const;
 
 type PageValuesType = {
   [k in (typeof pageValues)[number]]: string;
@@ -43,7 +43,7 @@ const AllTimeLeaderboardPage = (): JSX.Element => {
         className=" h-full max-h-[73vh] overflow-y-auto p-4 md:p-5 lg:p-6"
       >
         <LeaderboardData
-          title={translatedValues?.["ALL TIME TIPS"]}
+          title={translatedValues?.["ALL-TIME TIPS"]}
           data={data}
           emptyDataMessage={translatedValues?.["No all time tip available."]}
         />

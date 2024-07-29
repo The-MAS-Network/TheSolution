@@ -3,7 +3,7 @@ import routes from "@/navigation/routes";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import DashboardHeader from "../components/DashboardHeader";
 
-const pageValues = ["Weekly", "All Time", "Leaderboard"] as const;
+const pageValues = ["Weekly", "All-Time", "Leaderboard"] as const;
 
 type PageValuesType = {
   [k in (typeof pageValues)[number]]: string;
@@ -23,7 +23,7 @@ const LeaderboardPage = (): JSX.Element => {
       route: routes.LEADERBOARD_PAGE,
     },
     {
-      title: translatedValues?.["All Time"],
+      title: translatedValues?.["All-Time"],
       route: routes.LEADERBOARD_ALL_TIME_PAGE,
     },
   ];
@@ -38,7 +38,7 @@ const LeaderboardPage = (): JSX.Element => {
         <nav className="my-5 flex w-full items-center gap-2">
           {navs.map(({ route, title }, key) => (
             <Link
-              className={`app-button-secondary  text-center hover:!scale-100 ${currentPath === route ? "!bg-appYellow900" : ""}`}
+              className={`app-button-secondary  text-center hover:!scale-100 ${currentPath === route ? "!bg-appYellow900 !text-black" : ""}`}
               to={route}
               key={key}
               replace

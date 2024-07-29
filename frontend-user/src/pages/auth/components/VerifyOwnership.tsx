@@ -14,12 +14,12 @@ interface Props {
 }
 
 const pageValues = [
-  "To reset your password we need to verify ownership of your Lightning Address.",
+  "To reset your password, we need to verify ownership of your Lightning Address.",
   "To verify your account we need to verify ownership of your Lightning Address.",
-  "Scan invoice",
+  "Scan Invoice",
   "Or",
   "Copy",
-  "Already Sent SATs",
+  "ALREADY SENT SATs",
 ] as const;
 
 type PageValuesType = {
@@ -46,7 +46,7 @@ const VerifyOwnership = ({
       <h1 className="mb-16 mt-12 text-left text-lg font-medium text-white sm:mb-8 sm:mt-6 sm:text-left">
         {purpose === "forgot_password"
           ? translatedValues?.[
-              "To reset your password we need to verify ownership of your Lightning Address."
+              "To reset your password, we need to verify ownership of your Lightning Address."
             ]
           : translatedValues[
               "To verify your account we need to verify ownership of your Lightning Address."
@@ -61,7 +61,7 @@ const VerifyOwnership = ({
       </section>
 
       <section className="mb-5 flex flex-col items-center justify-center text-sm font-bold sm:text-base">
-        <p>{translatedValues?.["Scan invoice"]}</p>
+        <p>{translatedValues?.["Scan Invoice"]}</p>
         <p className=" my-5 sm:my-1">{translatedValues?.Or}</p>
         <button
           onClick={() =>
@@ -83,9 +83,10 @@ const VerifyOwnership = ({
         onClick={onVerify}
         type="button"
         disabled={isLoading}
-        className="app-button-primary  flex items-center justify-center gap-x-2 !bg-transparent !text-appYellow100 !shadow-none !duration-200 hover:!bg-appBlue400 hover:!text-white hover:!shadow-appButtonInnerShadow"
+        // className="app-button-primary  flex items-center justify-center gap-x-2 !bg-transparent !text-appYellow100 !shadow-none !duration-200 hover:!bg-appBlue400 hover:!text-white hover:!shadow-appButtonInnerShadow"
+        className="app-button-primary flex items-center justify-center gap-x-2"
       >
-        <span>{translatedValues?.["Already Sent SATs"]} </span>
+        <span>{translatedValues?.["ALREADY SENT SATs"]} </span>
         {isLoading && <SpinnerIcon className="animate-spin" />}
       </button>
     </>

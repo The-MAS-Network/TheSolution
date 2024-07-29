@@ -401,7 +401,8 @@ export const verifyDualAmounts = async (req: Request, res: Response) => {
       return res.status(400).send(
         message(
           false,
-          `The given first payout amount of ${firstAmount} is incorrect.`,
+          // `The given first payout amount of ${firstAmount} is incorrect.`,
+          `The payout combination is incorrect.`,
           {
             trialCount: trialCountRes?.trialCount,
           }
@@ -413,7 +414,8 @@ export const verifyDualAmounts = async (req: Request, res: Response) => {
       return res.status(400).send(
         message(
           false,
-          `The given second payout amount of ${secondAmount} is incorrect.`,
+          // `The given second payout amount of ${secondAmount} is incorrect.`,
+          `The payout combination is incorrect.`,
           {
             trialCount: trialCountRes?.trialCount,
           }
@@ -424,7 +426,8 @@ export const verifyDualAmounts = async (req: Request, res: Response) => {
     return res.status(400).send(
       message(
         false,
-        `The given payout amounts of ${firstAmount} and ${secondAmount} is incorrect.`,
+        // `The given payout amounts of ${firstAmount} and ${secondAmount} is incorrect.`,
+        `The payout combination is incorrect.`,
         {
           trialCount: trialCountRes?.trialCount,
         }

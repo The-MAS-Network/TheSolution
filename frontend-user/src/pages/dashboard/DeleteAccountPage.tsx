@@ -16,10 +16,11 @@ import { useStore } from "zustand";
 
 const pageValues = [
   "DELETE ACCOUNT",
-  "Deleting your account will remove all of your information from our database. This cannot be undone.  Enter password to Delete Account",
-  "No, keep Account",
+  "Deleting your account will remove all of your information from our database. This cannot be undone.",
+  "NO, KEEP ACCOUNT",
   "Password",
-  "Yes, Delete Account",
+  "YES, DELETE ACCOUNT",
+  "Enter your password"
 ] as const;
 
 type PageValuesType = {
@@ -83,10 +84,10 @@ const DeleteAccountPage = (): JSX.Element => {
           <h1 className="mb-2 mt-7  text-lg font-semibold sm:text-xl">
             {translatedValues?.["DELETE ACCOUNT"]}
           </h1>
-          <h2 className="text-center text-sm font-normal sm:text-base">
+          <h2 className="text-left text-sm font-normal sm:text-base">
             {
               translatedValues?.[
-                "Deleting your account will remove all of your information from our database. This cannot be undone.  Enter password to Delete Account"
+                "Deleting your account will remove all of your information from our database. This cannot be undone."
               ]
             }
           </h2>
@@ -94,7 +95,7 @@ const DeleteAccountPage = (): JSX.Element => {
           <div className="mt-8 w-full">
             <AppInput
               id="password"
-              placeholder={translatedValues.Password}
+              placeholder={translatedValues?.["Enter your password"]}
               errorMessage={errors?.password?.message ?? null}
               disabled={isLoading}
               hookFormProps={{ ...register("password") }}
@@ -125,20 +126,20 @@ const DeleteAccountPage = (): JSX.Element => {
             <button
               onClick={() => navigate(-1)}
               disabled={isLoading}
-              className="flex-1 rounded-full border border-white p-3 font-baloo2 text-sm transition-all duration-300 hover:bg-white hover:text-appBlue800 disabled:cursor-not-allowed disabled:opacity-50 sm:text-base"
+              className="flex-1 rounded-full border border-white p-3 font-baloo2 text-sm transition-all duration-300 hover:bg-white hover:text-appBlue800 disabled:cursor-not-allowed disabled:opacity-50 sm:text-base font-bold"
               type="button"
             >
-              {translatedValues?.["No, keep Account"]}
+              {translatedValues?.["NO, KEEP ACCOUNT"]}
             </button>
             <button
               disabled={isLoading}
-              className="flex flex-1 items-center justify-center rounded-full border border-appRed600 p-3 font-baloo2 text-sm text-appRed600 transition-all duration-300 hover:bg-appRed600 hover:text-white disabled:cursor-not-allowed disabled:opacity-50 sm:text-base"
+              className="flex flex-1 items-center justify-center rounded-full border border-appRed600 p-3 font-baloo2 text-sm text-appRed600 transition-all duration-300 hover:bg-appRed600 hover:text-white disabled:cursor-not-allowed disabled:opacity-50 sm:text-base font-bold"
               type="submit"
             >
               {isLoading ? (
                 <SpinnerIcon className="animate-spin" />
               ) : (
-                translatedValues?.["Yes, Delete Account"]
+                translatedValues?.["YES, DELETE ACCOUNT"]
               )}
             </button>
           </footer>

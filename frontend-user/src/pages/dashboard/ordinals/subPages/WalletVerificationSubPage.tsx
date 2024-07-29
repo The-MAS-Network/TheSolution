@@ -16,14 +16,14 @@ const paymentDollarAmount = "";
 const pageValues = [
   "Wallet Verification",
   "SCAN QR CODE WITH ANOTHER DEVICE",
-  "Payment Details:",
+  "Copy Unique Payment Address:",
   "Amount to Pay:",
-  "Payment Unique address:",
+  // "Payment Unique Address:",
   "Copy",
-  "Waiting for payment to be broadcasted",
+  "Waiting for payment to receive one confirmation",
   "Expires in",
-  "Wallet Verification for ordinal address:",
-  "Disconnect Wallet",
+  "Only pay one-time verification fee from this Wallet Address:",
+  "DISCONNECT WALLET",
   paymentAmount,
 ] as const;
 
@@ -67,13 +67,13 @@ const WalletVerificationSubPage = (): JSX.Element => {
           onClick={handleDisconnectWallet}
           className="rounded-xl  bg-appBlue800 p-3 text-sm transition-all duration-300 hover:bg-appYellow500/90 hover:text-appYellow700 sm:text-base"
         >
-          {translatedValues?.["Disconnect Wallet"]}
+          {translatedValues?.["DISCONNECT WALLET"]}
         </button>
       </header>
 
       <div className="mb-7 w-full rounded-2xl bg-appBlue160 p-4">
-        <p className="mb-1 text-base font-medium">
-          {translatedValues?.["Wallet Verification for ordinal address:"]}
+        <p className="text-base font-bold sm:text-lg">
+          {translatedValues?.["Only pay one-time verification fee from this Wallet Address:"]}
         </p>
 
         <p className="custom-break-words flex-1   text-base font-semibold text-appYellow300">
@@ -83,11 +83,11 @@ const WalletVerificationSubPage = (): JSX.Element => {
 
       <div className="w-full rounded-2xl bg-appBlue160 p-4">
         <h1 className="text-base font-bold sm:text-lg">
-          {translatedValues["Payment Details:"]}
+          {translatedValues["Copy Unique Payment Address:"]}
         </h1>
-        <h2 className="mb-1 mt-4 text-sm font-normal">
-          {translatedValues?.["Payment Unique address:"]}
-        </h2>
+        {/* <h2 className="mb-1 mt-4 text-sm font-normal">
+          {translatedValues?.["Payment Unique Address:"]}
+        </h2> */}
 
         <ul className="flex items-center justify-between gap-10">
           <p className="custom-break-words flex-1  text-base font-semibold text-appYellow300">
@@ -113,14 +113,16 @@ const WalletVerificationSubPage = (): JSX.Element => {
           </button>
         </ul>
 
-        <div className="flex flex-wrap items-center justify-between gap-10 pb-5 pt-10">
-          <h2 className=" text-sm font-normal">
+        <div className="flex flex-wrap items-center justify-between gap-0 pb-5 pt-10">
+          <h2 className="text-base font-bold sm:text-lg">
             {translatedValues?.["Amount to Pay:"]} {"  "} {paymentDollarAmount}
           </h2>
 
-          <p className="truncate  text-base font-semibold text-appYellow300 md:text-lg lg:text-xl">
-            {translatedValues?.["Any amount"]}
-          </p>
+          <div className="w-full">
+            <p className="truncate text-base font-semibold text-appYellow300 md:text-lg lg:text-xl">
+              {translatedValues?.["Any amount"]}
+            </p>
+          </div>
         </div>
 
         {/* <ul className="mt-4 flex items-center justify-between gap-3">
@@ -169,7 +171,7 @@ const WalletVerificationSubPage = (): JSX.Element => {
         />
 
         <p className="mb-7 mt-1 text-appLight200">
-          {translatedValues?.["Waiting for payment to be broadcasted"]}
+          {translatedValues?.["Waiting for payment to receive one confirmation"]}
         </p>
       </div>
       <button

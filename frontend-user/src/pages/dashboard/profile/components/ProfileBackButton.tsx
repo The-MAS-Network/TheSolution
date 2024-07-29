@@ -8,7 +8,7 @@ interface ITranslate {
 }
 
 const values: ITranslate = {
-  goBack: "Go Back",
+  goBack: "Back",
 };
 
 const ProfileBackButton = (): JSX.Element => {

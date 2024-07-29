@@ -11,9 +11,9 @@ import AppLoader from "@/components/AppLoader";
 const pageValues = [
   "Ordinals",
   "Wallet",
-  "Disconnect Wallet",
-  "Rescan wallet",
-  "Verify your Ordinal Wallet",
+  "DISCONNECT WALLET",
+  "RESCAN WALLET",
+  "VERIFY YOUR ORDINALS WALLET",
   "No ordinal found in this ordinal wallet.",
 ] as const;
 
@@ -46,12 +46,12 @@ const OrdinalsPage = (): JSX.Element => {
           <NoOrdinalWalletSubPage
             ordinal={translatedValues?.Ordinals}
             wallet={translatedValues?.Wallet}
-            verify={translatedValues?.["Verify your Ordinal Wallet"]}
+            verify={translatedValues?.["VERIFY YOUR ORDINALS WALLET"]}
           />
         ) : !!walletStatus?.isVerified ? (
           <VerifiedOrdinalWalletSubPage
-            rescanWalletTitle={translatedValues?.["Rescan wallet"]}
-            disconnectWalletTitle={translatedValues?.["Disconnect Wallet"]}
+            rescanWalletTitle={translatedValues?.["RESCAN WALLET"]}
+            disconnectWalletTitle={translatedValues?.["DISCONNECT WALLET"]}
             errorMessage={
               translatedValues?.["No ordinal found in this ordinal wallet."]
             }

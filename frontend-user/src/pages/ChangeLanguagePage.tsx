@@ -34,7 +34,7 @@ const values: ITranslate = {
   whatIsYour: "What is your",
   language: "language?",
   selectALanguage: "Select a language to get started.",
-  confirm: "Confirm",
+  confirm: "CONFIRM",
   ...mergedObject,
 };
 

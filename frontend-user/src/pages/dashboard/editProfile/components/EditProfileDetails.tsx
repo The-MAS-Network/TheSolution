@@ -95,7 +95,7 @@ const EditProfileDetails = (): JSX.Element => {
               modalChildComponent: <ChangeAvatarModal />,
             })
           }
-          className="mx-auto w-full max-w-[12.25rem] rounded-2xl bg-appGreen300 p-2 shadow-appButtonInnerShadow"
+          className="mx-auto w-full max-w-[12.25rem] rounded-2xl bg-appGreen300 p-2 shadow-appButtonInnerShadow font-bold"
         >
           {translatedValues.changeAvatar}
         </button>
@@ -111,7 +111,7 @@ const EditProfileDetails = (): JSX.Element => {
             {...register("nickname")}
             type="text"
             className="w-full rounded-2xl bg-white p-4 text-base text-appBlue100 outline-0"
-            placeholder="Enter your nickname"
+            placeholder="Enter your Nickname"
           />
           <ErrorMessage message={errors?.nickname?.message} />
         </div>

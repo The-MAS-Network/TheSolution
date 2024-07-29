@@ -11,7 +11,7 @@ interface ITranslate {
 }
 
 const values: ITranslate = {
-  editProfile: "EDIT PROFILE",
+  editProfile: "Edit Profile",
 };
 
 const EditProfileDesktopView = (): JSX.Element => {

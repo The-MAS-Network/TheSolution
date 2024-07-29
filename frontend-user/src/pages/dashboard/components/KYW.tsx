@@ -43,7 +43,37 @@ const KYW = (): JSX.Element => {
   };
 
   return (
-    <div className="relative flex flex-col items-center justify-center rounded-3xl bg-appRed500 px-10 py-5 font-lato font-normal text-white">
+    // <div className="relative flex flex-col items-center justify-center rounded-3xl bg-appRed500 px-10 py-5 font-lato font-normal text-white">
+    //   <KYWIcon />
+
+    //   <Icon
+    //     onClick={() => closeActiveModal()}
+    //     icon="zondicons:close-outline"
+    //     className="absolute right-5 top-5 cursor-pointer text-3xl transition-all duration-300 hover:text-appYellow100"
+    //   />
+    //   <h2 className="text-2xl font-bold md:text-3xl lg:text-4xl">
+    //     {translatedValues?.KYW}
+    //   </h2>
+    //   <h3 className="text-sm sm:text-base">
+    //     {translatedValues?.["Know Your Wallet"]}
+    //   </h3>
+    //   <h4 className="font-baloo2 text-base font-bold sm:text-lg">
+    //     {translatedValues?.["YOUR ACCOUNT IS UNVERIFIED"]}
+    //   </h4>
+    //   <h5 className="max-w-72 text-center font-baloo2 text-sm font-normal sm:text-base">
+    //     {translatedValues?.["Verify your Lightning Address to unlock access"]}
+    //   </h5>
+
+    //   <button
+    //     type="button"
+    //     onClick={handleVerification}
+    //     className="mt-4 w-full rounded-xl bg-appYellow500 px-6 py-3 font-baloo2 text-base text-white transition-all duration-300 hover:scale-105 active:scale-95"
+    //   >
+    //     {translatedValues?.["VERIFY ACCOUNT"]}
+    //   </button>
+    // </div>
+
+    <div className="relative flex flex-col items-center justify-center rounded-3xl bg-green-500 px-10 py-5 font-lato font-normal text-white">
       <KYWIcon />
 
       <Icon
@@ -55,11 +85,12 @@ const KYW = (): JSX.Element => {
         {translatedValues?.KYW}
       </h2>
       <h3 className="text-sm sm:text-base">
-        {translatedValues?.["Know Your Wallet"]}
+        “{translatedValues?.["Know Your Wallet"]}”
       </h3>
       <h4 className="font-baloo2 text-base font-bold sm:text-lg">
         {translatedValues?.["YOUR ACCOUNT IS UNVERIFIED"]}
       </h4>
+      <br />
       <h5 className="max-w-72 text-center font-baloo2 text-sm font-normal sm:text-base">
         {translatedValues?.["Verify your Lightning Address to unlock access"]}
       </h5>
@@ -67,11 +98,12 @@ const KYW = (): JSX.Element => {
       <button
         type="button"
         onClick={handleVerification}
-        className="mt-4 w-full rounded-xl bg-appYellow500 px-6 py-3 font-baloo2 text-base text-white transition-all duration-300 hover:scale-105 active:scale-95"
+        className="mt-4 w-full rounded-xl bg-appYellow500 px-6 py-3 font-baloo2 text-base text-black font-bold transition-all duration-300 hover:scale-105 active:scale-95"
       >
         {translatedValues?.["VERIFY ACCOUNT"]}
       </button>
     </div>
+
   );
 };
 

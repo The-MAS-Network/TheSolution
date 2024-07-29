@@ -26,3 +26,4 @@ const LeaderBoardIcon = (props: SVGProps<SVGSVGElement>): JSX.Element => {
 };
 
 export default LeaderBoardIcon;
+

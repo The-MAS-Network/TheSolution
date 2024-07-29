@@ -67,20 +67,27 @@ const VerifiedOrdinalWalletSubPage = ({
   return (
     <>
       <header>
-        <AppBackButton />
+        {/* <AppBackButton />
+        <span className="ml-4 text-xl font-bold">Ordinals</span> */}
+
+        <div className="relative flex items-center justify-between py-5">
+          <AppBackButton />
+
+          <p className="flex-1 text-center font-baloo2 text-base font-bold md:text-lg lg:text-xl">Ordinals</p>
+        </div>
 
         <div className="mt-5 flex flex-wrap items-center justify-between gap-9">
           <button
             type="button"
             onClick={handleDisconnectWallet}
-            className="rounded-xl bg-appBlue800 p-3 text-sm transition-all duration-300 hover:bg-appYellow500/90 hover:text-appYellow700 sm:text-base"
+            className="rounded-xl font-bold bg-appBlue800 p-3 text-sm transition-all duration-300 hover:bg-appYellow500/90 hover:text-appYellow700 sm:text-base"
           >
             {disconnectWalletTitle}
           </button>
           <button
             type="button"
             onClick={handleRescan}
-            className="rounded-xl bg-white p-3 text-sm text-appDarkBlue100 transition-all duration-300 hover:bg-appYellow500/90 hover:text-appYellow700 sm:text-base"
+            className="rounded-xl font-bold bg-white p-3 text-sm text-appDarkBlue100 transition-all duration-300 hover:bg-appYellow500/90 hover:text-appYellow700 sm:text-base"
           >
             {rescanWalletTitle}
           </button>

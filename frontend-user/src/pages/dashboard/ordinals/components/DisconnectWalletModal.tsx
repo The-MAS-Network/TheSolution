@@ -47,8 +47,9 @@ const DisconnectWalletModal = (): JSX.Element => {
       <h1 className="text-center">
         Are you sure you want to <br />{" "}
         <span className="text-appYellow300">DISCONNECT</span>
+        <span className="text-white">?</span>
       </h1>
-      <h2 className="my-1 text-center">Wallet Address:</h2>
+      <h2 className="my-1 text-left">Wallet Address:</h2>
       <dl className="flex items-center justify-between gap-1">
         <dd className="line-clamp-1 block flex-1 truncate pr-2 text-sm">
           {getUserData()?.ordinalWallet?.address}
@@ -83,7 +84,7 @@ const DisconnectWalletModal = (): JSX.Element => {
           disabled={isLoading}
           className="flex-1 rounded-full border border-white p-3 text-sm font-medium text-white transition-all duration-300 hover:bg-white hover:text-appBlue800 disabled:cursor-not-allowed disabled:opacity-50 sm:text-base"
         >
-          No, Cancel
+          NO, CANCEL
         </button>
         <button
           disabled={isLoading}
@@ -91,7 +92,7 @@ const DisconnectWalletModal = (): JSX.Element => {
           type="button"
           className="flex flex-1 items-center justify-center gap-2 rounded-full border border-appRed100 p-3 text-sm font-medium text-appRed100 transition-all duration-300 hover:border-appRed300 hover:bg-appRed300 hover:text-white disabled:cursor-not-allowed disabled:opacity-50 sm:text-base"
         >
-          <span>Yes, delete</span>
+          <span>YES, DELETE</span>
           {isLoading && <SpinnerIcon className="animate-spin" />}
         </button>
       </footer>

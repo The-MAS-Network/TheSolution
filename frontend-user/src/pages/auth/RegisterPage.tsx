@@ -30,7 +30,7 @@ interface ITranslate {
 const values: ITranslate = {
   getStartedByEnteringYourLightningAddress:
     "Get started by entering your Lightning Address",
-  enterYourLightningAddress: "Enter your lightning address",
+  enterYourLightningAddress: "Enter your Lightning Address",
   password: "Password",
   confirmPassword: "Confirm Password",
   continue: "CONTINUE",
@@ -43,7 +43,7 @@ interface RegisterSchema {
 }
 
 const registerSchema = Joi.object<RegisterSchema>({
-  confirmPassword: joiPasswordValidation,
+  confirmPassword: joiPasswordValidation.label("Confirm Password"),
   password: joiPasswordValidation,
   lightningAddress: joiLightningSchema,
 });

@@ -17,7 +17,9 @@ import { useStore } from "zustand";
 
 const pageValues = [
   "We need to verify ownership of your Lightning Address:",
-  "In order to verify ownership we need you to send us 1000 SATS, which will be sent back to your Lightning Address:",
+  "In order to verify ownership, we need you to send us ",
+  "1000 SATs,",
+  " which will be sent back to your Lightning Address:",
   "in two different amounts. This helps validate a user’s account.",
   "CLICK HERE TO GENERATE INVOICE",
   "By checking this box, you agree to our terms and conditions",
@@ -93,10 +95,11 @@ const ResetPasswordInstructionsPage = (): JSX.Element => {
     <div className="flex min-h-screen flex-col gap-y-5 bg-appDarkBlue100 font-baloo2 text-white sm:justify-center">
       <main className="mx-auto w-full max-w-[30rem] rounded-lg px-5 py-14 sm:bg-appBlue110 sm:py-10">
         <AppBackButton isPrevious />
+        
         <h1 className="mb-3 mt-14 text-center text-lg font-bold text-white">
           {
             translatedValues[
-              "We need to verify ownership of your Lightning Address:"
+            "We need to verify ownership of your Lightning Address:"
             ]
           }
         </h1>
@@ -105,10 +108,35 @@ const ResetPasswordInstructionsPage = (): JSX.Element => {
           {state?.lightningAddress}
         </h2>
 
-        <p className=" text-left text-base font-normal text-white">
+        <p className="text-left text-base font-normal text-white">
           {
             translatedValues[
-              "In order to verify ownership we need you to send us 1000 SATS, which will be sent back to your Lightning Address:"
+            "In order to verify ownership, we need you to send us "
+            ]
+          }
+          <span className="font-bold text-appYellow300">
+            1000 SATs,
+          </span>
+          {
+            translatedValues[
+            " which will be sent back to your Lightning Address:"
+            ]
+          }{" "}
+          <span className="font-medium text-appYellow300">
+            {state?.lightningAddress}
+          </span>{" "}
+          {
+            translatedValues[
+            "in two different amounts. This helps validate a user’s account."
+            ]
+          }
+        </p>
+
+
+        {/* <p className=" text-left text-base font-normal text-white">
+          {
+            translatedValues[
+              "In order to verify ownership we need you to send us 1000 SATs, which will be sent back to your Lightning Address:"
             ]
           }{" "}
           <span className="font-medium text-appYellow300">
@@ -119,7 +147,7 @@ const ResetPasswordInstructionsPage = (): JSX.Element => {
               "in two different amounts. This helps validate a user’s account."
             ]
           }
-        </p>
+        </p> */}
 
         <div className="mb-8 mt-9 flex items-center gap-3 text-sm font-normal sm:text-base">
           <button type="button" onClick={() => setIsChecked((value) => !value)}>
@@ -130,7 +158,7 @@ const ResetPasswordInstructionsPage = (): JSX.Element => {
           <p className="text-start">
             {
               translatedValues[
-                "By checking this box, you agree to our terms and conditions"
+              "By checking this box, you agree to our terms and conditions"
               ]
             }
           </p>

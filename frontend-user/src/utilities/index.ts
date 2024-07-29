@@ -32,11 +32,11 @@ export const joiLightningSchema = Joi.string()
     minDomainSegments: 2,
     tlds: false,
   })
-  .required()
+  .required().label("Lightning Address")
   .min(3)
   .max(250)
   .messages({
-    "string.email": "Lightning address is invalid.",
+    "string.email": "Lightning Address is invalid.",
   });
 
 export const generateOrdinalContentLink = (id: string) =>

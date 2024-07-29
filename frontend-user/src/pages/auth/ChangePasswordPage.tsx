@@ -29,7 +29,7 @@ const schema = Joi.object<Schema>({
 
 const pageValues = [
   "Must be at least 8 characters with an uppercase, lowercase and number",
-  "Change password",
+  "Change Password",
   "New Password",
   "Confirm Password",
   "SAVE",
@@ -102,7 +102,7 @@ const ChangePasswordPage = (): JSX.Element => {
     <div className="min-h-screen  items-center justify-center bg-appDarkBlue100 md:flex">
       <main className="app-container flex min-h-screen flex-col pt-24 text-white md:min-h-max md:pt-0 ">
         <h1 className="mb-8 text-2xl font-semibold md:text-3xl lg:text-4xl">
-          {translatedValues?.["Change password"]}
+          {translatedValues?.["Change Password"]}
         </h1>
         <form
           className="flex flex-1  flex-col justify-between md:block "

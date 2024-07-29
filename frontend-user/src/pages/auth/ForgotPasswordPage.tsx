@@ -28,9 +28,9 @@ interface ITranslate {
 const values: ITranslate = {
   enterYourLightningAddress: "Enter your Lightning Address",
   enterYourLghtningAddressBelowToGetStarted:
-    "Enter your lightning address below to get started.",
-  forgotPassword: "Forget Password ?",
-  submit: "Submit",
+    "Enter your Lightning Address below to get started.",
+  forgotPassword: "Forget Password?",
+  submit: "SUBMIT",
 };
 
 const schema = Joi.object<ForgotPasswordRequest>({

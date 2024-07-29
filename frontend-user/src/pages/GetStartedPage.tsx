@@ -6,7 +6,7 @@ import routes from "@/navigation/routes";
 import GetStartedChip from "@/assets/images/get-started-chip.svg";
 import GetStartedMedia from "@/assets/images/get-started-media.svg";
 
-const pageValues = ["The Solution", "Log In", "Sign up"] as const;
+const pageValues = ["The Solution", "LOG IN", "SIGN UP"] as const;
 
 type PageValuesType = {
   [k in (typeof pageValues)[number]]: string;
@@ -35,7 +35,7 @@ const GetStartedPage = (): JSX.Element => {
 
       <main className="app-container relative z-20 flex min-h-screen flex-col justify-end">
         {/* <h1 className="text-center font-baloo2 text-xl font-bold text-white md:text-2xl lg:text-3xl"> */}
-        <h1 className="text-center font-baloo2 text-2xl font-bold text-white sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
+        <h1 className="text-center font-baloo2 text-5xl font-bold text-white sm:text-4xl md:text-4xl lg:text-5xl xl:text-6xl">
           {translatedValues["The Solution"]}
         </h1>
 
@@ -45,13 +45,13 @@ const GetStartedPage = (): JSX.Element => {
             to={routes.LOGIN_PAGE}
             className="block w-full rounded-xl bg-appDarkBlue100 py-4 text-center font-bold text-white shadow-appButtonInnerShadow transition-all duration-300 hover:scale-110 active:scale-100"
           >
-            {translatedValues["Log In"]}
+            {translatedValues["LOG IN"]}
           </Link>
           <Link
             to={routes.REGISTER_PAGE}
             className="block w-full rounded-xl border-[2px] border-white py-4 text-center font-bold text-white transition-all  duration-300 hover:scale-110 active:scale-100"
           >
-            {translatedValues["Sign up"]}
+            {translatedValues["SIGN UP"]}
           </Link>
         </div>
       </main>

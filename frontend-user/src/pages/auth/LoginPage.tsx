@@ -42,7 +42,7 @@ const values: ITranslate = {
   rememberMe: "Remember me",
   signIn: "SIGN IN",
   dontHaveAnAccountYet: "Don’t have an account yet?",
-  signUp: "Sign Up",
+  signUp: "SIGN UP",
 };
 
 const loginSchema = Joi.object<LoginRequest>({

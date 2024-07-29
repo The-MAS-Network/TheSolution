@@ -21,6 +21,7 @@ interface ITranslate {
   nickname: string;
   thisIsWhatOtherCommunityMemberSee: string;
   continue: string;
+  enterYourNickname: string;
 }
 
 const values: ITranslate = {
@@ -28,6 +29,7 @@ const values: ITranslate = {
   nickname: "Nickname?",
   thisIsWhatOtherCommunityMemberSee: "This is what other community member see.",
   continue: "CONTINUE",
+  enterYourNickname: "Enter your Nickname",
 };
 
 const schema = Joi.object<NickNameRequest>({
@@ -91,7 +93,7 @@ const NicknamePage = (): JSX.Element => {
 
         <h1 className="text-2xl font-semibold md:text-3xl lg:text-4xl">
           {translatedValues.whatIsYour} {" "}
-          <span className="lowercase">{translatedValues.nickname}</span>
+          <span>{translatedValues.nickname}</span>
         </h1>
 
         <p className="pb-6 pt-3 text-sm font-normal sm:text-base">
@@ -101,7 +103,7 @@ const NicknamePage = (): JSX.Element => {
         <form onSubmit={onSubmit} className="flex flex-1 flex-col gap-y-2">
           <AppInput
             id="nickname"
-            placeholder={translatedValues.nickname}
+            placeholder={translatedValues.enterYourNickname}
             errorMessage={errors?.nickname?.message ?? null}
             disabled={isLoading}
             hookFormProps={{ ...register("nickname") }}
