@@ -125,9 +125,9 @@ const OrdinalsCollectionList = ({
     }
 
     setActiveModal({
-      modalType: "Type one",
+      modalType: "EMPTY_MODAL",
       shouldBackgroundClose: true,
-      modalOneComponent: (
+      emptyModalComponent: (
         <TipCommunityModal
           userLightningAddress={userLightningAddress}
           collectionId={collectionDetails?.id ?? ""}
@@ -169,7 +169,7 @@ const OrdinalsCollectionList = ({
       )}
 
       {collectionDetails?.isActive === false ? (
-        <div className="fixed bottom-0  mx-auto w-[90%] max-w-[25rem] bg-appBlue100 pb-4 pt-2 ">
+        <div className="bg-appBlue100 fixed  bottom-0 mx-auto w-[90%] max-w-[25rem] pb-4 pt-2 ">
           <button
             onClick={handleEdit}
             disabled={isLoading}
@@ -181,7 +181,7 @@ const OrdinalsCollectionList = ({
           </button>
         </div>
       ) : (
-        <div className="fixed bottom-0  mx-auto w-[90%] max-w-[25rem] bg-appBlue100 pb-4 pt-2 ">
+        <div className="bg-appBlue100 fixed  bottom-0 mx-auto w-[90%] max-w-[25rem] pb-4 pt-2 ">
           <button
             onClick={handleTip}
             type="button"

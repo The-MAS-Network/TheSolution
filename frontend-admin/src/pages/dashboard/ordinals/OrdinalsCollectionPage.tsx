@@ -3,6 +3,7 @@ import {
   getOrdinalsByOrdinalsCollectionIdKey,
   getOrdinalsInCollectionByLightningAddress,
   getSingleOrdinalDataKey,
+  rescanOrdinalsInCollection,
 } from "@/api/ordinals.api";
 import AppErrorComponent from "@/components/AppErrorComponent";
 import AppLoader from "@/components/AppLoader";
@@ -36,6 +37,12 @@ import EmptySearchComponent from "./components/EmptySearchComponent";
 import NewOrdinalList from "./components/NewOrdinalList";
 import OrdinalsCollectionList from "./components/OrdinalsCollectionList";
 import QuickActions from "./components/QuickActions";
+import GenericRowPopover, {
+  GenericRowPopoverActionProps,
+} from "@/components/GenericRowPopover";
+import { Icon } from "@iconify/react/dist/iconify.js";
+import { handleApiErrors } from "@/utilities/handleErrors";
+import CollectionStatsModal from "./modals/CollectionStatsModal";
 
 const pageValues = [
   "Inscription, address, ID",
@@ -75,6 +82,8 @@ const OrdinalsCollectionPage = (): JSX.Element => {
     activeQuickAction,
     isQuickActionEdit,
     setActiveModal,
+    setIsAppModalLoading,
+    closeActiveModal,
     addordinalIdInCollection,
     clearOrdinalIdsInCollection,
   } = useStore(appStateStore);
@@ -200,9 +209,9 @@ const OrdinalsCollectionPage = (): JSX.Element => {
     if (!collectionDetails)
       return appToast.Warning("Invalid ordinals collection details");
     setActiveModal({
-      modalType: "Type one",
+      modalType: "EMPTY_MODAL",
       shouldBackgroundClose: true,
-      modalOneComponent: (
+      emptyModalComponent: (
         <DeleteCollectionCard collection={collectionDetails} />
       ),
     });
@@ -265,6 +274,58 @@ const OrdinalsCollectionPage = (): JSX.Element => {
     };
   };
 
+  const handleRescan = async () => {
+    setIsAppModalLoading(true);
+    const response = await rescanOrdinalsInCollection(paramID ?? "");
+    setIsAppModalLoading(false);
+    if (response?.ok) {
+      queryClient.invalidateQueries({
+        queryKey: [getOrdinalsByOrdinalsCollectionIdKey],
+      });
+      closeActiveModal();
+      appToast.Success(
+        response?.data?.message ??
+          "Ordinals in ordinal collection scanned successfully.",
+      );
+    } else handleApiErrors(response);
+  };
+
+  const onRescan = () => {
+    setActiveModal({
+      modalType: "PROMPT_MODAL",
+      promptModal: {
+        type: "INFO",
+        title: "Recan ordinals?",
+        description:
+          "You are about to recan all ordinals in this collection, are you sure you want to continue?",
+        noButtonTitle: "No, Cancel",
+        yesButtonTitle: "Yes, I’m Sure",
+        onYesButtonClick: handleRescan,
+      },
+    });
+  };
+
+  const handleStatsView = () => {
+    setActiveModal({
+      modalType: "EMPTY_MODAL",
+      shouldBackgroundClose: true,
+      emptyModalComponent: <CollectionStatsModal />,
+    });
+  };
+
+  const actions: GenericRowPopoverActionProps[] = [
+    {
+      icon: <></>,
+      title: "Rescan Collection",
+      onClick: onRescan,
+    },
+    {
+      icon: <></>,
+      title: "Statistics",
+      onClick: handleStatsView,
+    },
+  ];
+
   return (
     <main onClick={handleBodyClick} className="app-page">
       <section
@@ -276,7 +337,16 @@ const OrdinalsCollectionPage = (): JSX.Element => {
             rightIcon={
               collectionDetails?.isActive === false ? (
                 <QuickActions options={options} />
-              ) : undefined
+              ) : (
+                <>
+                  <GenericRowPopover actions={actions}>
+                    <Icon
+                      className="text-xl sm:text-2xl"
+                      icon="mi:options-vertical"
+                    />
+                  </GenericRowPopover>
+                </>
+              )
             }
             title={`${!!collectionIndex ? `Collection ${collectionIndex}` : !ordinalsByOrdinalsCollectionId ? "Collection not found." : ordinalsByOrdinalsCollectionId?.pages?.length < 1 ? "Collection" : "Collection " + collectionDetails?.numericId}`}
           />

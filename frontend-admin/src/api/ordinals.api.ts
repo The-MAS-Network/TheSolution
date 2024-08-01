@@ -56,7 +56,10 @@ export const createOrdinalCollection = () =>
   );
 
 export const toggleOrdinalCollectionStatus = (id: string) =>
-  baseApi.patch<GenericAPIResponse>(`/ordinal-collections/${id}`);
+  baseApi.patch<GenericAPIResponse>(`/ordinal-collections/status/${id}`);
+
+export const rescanOrdinalsInCollection = (id: string) =>
+  baseApi.patch<GenericAPIResponse>(`/ordinal-collections/rescan/${id}`);
 
 export const getOrdinalsInCollectionByLightningAddress = async ({
   collectionId,

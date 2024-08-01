@@ -36,9 +36,9 @@ const OrdinalCollectionCard = ({ collection }: Props): JSX.Element => {
 
   const handleDelete = () => {
     setActiveModal({
-      modalType: "Type one",
+      modalType: "EMPTY_MODAL",
       shouldBackgroundClose: true,
-      modalOneComponent: <DeleteCollectionCard collection={collection} />,
+      emptyModalComponent: <DeleteCollectionCard collection={collection} />,
     });
   };
 
@@ -46,9 +46,9 @@ const OrdinalCollectionCard = ({ collection }: Props): JSX.Element => {
 
   const handleStatusToggle = () => {
     setActiveModal({
-      modalType: "Type one",
+      modalType: "EMPTY_MODAL",
       shouldBackgroundClose: true,
-      modalOneComponent: (
+      emptyModalComponent: (
         <DeactivateOrdinalCollectionCard ordinalCollection={collection} />
       ),
     });
@@ -82,17 +82,17 @@ const OrdinalCollectionCard = ({ collection }: Props): JSX.Element => {
             <span
               onBlur={handleBlur}
               onClick={() => setVisibility((value) => !value)}
-              className={`-z-[1] cursor-pointer text-3xl transition-all duration-300 hover:text-appBlue120`}
+              className={`hover:text-appBlue120 -z-[1] cursor-pointer text-3xl transition-all duration-300`}
             >
               <Icon icon="mi:options-vertical" />
             </span>
 
             <ul
-              className={`absolute -left-[450%] top-[70%] z-[3] flex w-max flex-col gap-3 rounded-xl bg-appDarkBlue100   transition-all  ${isVisible ? "scale-100" : "scale-0"}`}
+              className={`bg-appDarkBlue100 absolute -left-[450%] top-[70%] z-[3] flex w-max flex-col gap-3 rounded-xl   transition-all  ${isVisible ? "scale-100" : "scale-0"}`}
             >
               <li
                 onClick={handleStatusToggle}
-                className="flex  cursor-pointer items-center gap-2 p-4 text-sm font-normal  transition-all duration-300 hover:text-appYellow100 sm:text-base"
+                className="hover:text-appYellow100  flex cursor-pointer items-center gap-2 p-4 text-sm  font-normal transition-all duration-300 sm:text-base"
               >
                 {translatedValues?.["Change to Inactive"]}
               </li>
@@ -101,7 +101,7 @@ const OrdinalCollectionCard = ({ collection }: Props): JSX.Element => {
         ) : (
           <Icon
             onClick={handleDelete}
-            className="cursor-pointer  text-3xl transition-all duration-300 hover:text-appYellow100"
+            className="hover:text-appYellow100  cursor-pointer text-3xl transition-all duration-300"
             icon="mi:options-vertical"
           />
         )}

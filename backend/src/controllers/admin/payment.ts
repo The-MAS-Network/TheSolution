@@ -279,7 +279,7 @@ export const tipCommunity = async (req: Request, res: Response) => {
     relations: { user: true },
   });
   const filteredOrdinals = ordinals?.filter(
-    ({ user }) => user?.lightningAddress?.length > 2
+    ({ user }) => !!user && user?.lightningAddress?.length > 2
   );
 
   if (filteredOrdinals?.length < 1) {
@@ -367,7 +367,7 @@ export const tipCommunity = async (req: Request, res: Response) => {
     isAwait: boolean;
   }) => {
     const response = await handleLNURLPayment({
-      address: ordinal?.user?.lightningAddress,
+      address: ordinal?.user?.lightningAddress ?? "",
       amountInSat: individualAmount,
     });
     const responseData = response?.data as PayResult;
@@ -394,11 +394,13 @@ export const tipCommunity = async (req: Request, res: Response) => {
         userLeaderboard.totalTip = userLeaderboard.totalTip + individualAmount;
         await leaderboardRepository.save(userLeaderboard);
       } else {
-        const newLeaderboardUser = leaderboardRepository.create({
-          user: ordinal?.user,
-          totalTip: individualAmount,
-        });
-        await leaderboardRepository.save(newLeaderboardUser);
+        if (ordinal?.user) {
+          const newLeaderboardUser = leaderboardRepository.create({
+            user: ordinal?.user,
+            totalTip: individualAmount,
+          });
+          await leaderboardRepository.save(newLeaderboardUser);
+        }
       }
 
       if (!isAwait) {
