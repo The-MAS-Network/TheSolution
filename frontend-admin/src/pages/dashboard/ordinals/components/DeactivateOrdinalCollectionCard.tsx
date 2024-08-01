@@ -91,7 +91,7 @@ const DeactivateOrdinalCollectionCard = ({
         <button
           disabled={isLoading}
           onClick={closeActiveModal}
-          className="flex items-center justify-center gap-2 font-bold rounded-full border border-white px-4 py-2 text-base font-medium text-white transition-all duration-300  hover:border-appDarkBlue100 hover:bg-white hover:text-appDarkBlue100 disabled:hidden sm:text-lg"
+          className="flex items-center justify-center gap-2 rounded-full border border-white px-4 py-2 text-base font-medium text-white transition-all duration-300  hover:border-appDarkBlue100 hover:bg-white hover:text-appDarkBlue100 disabled:hidden sm:text-lg"
           type="button"
         >
           {translatedValues?.["NO, CANCEL"]}
@@ -99,7 +99,7 @@ const DeactivateOrdinalCollectionCard = ({
         <button
           disabled={isLoading}
           onClick={handleEdit}
-          className="flex items-center justify-center font-bold  gap-2 rounded-full border border-appRed100 px-4 py-2 text-base font-medium text-appRed100 transition-all duration-300 hover:border-red-500  hover:bg-red-500 hover:text-white disabled:cursor-not-allowed disabled:opacity-50 sm:text-lg"
+          className="flex items-center justify-center gap-2 rounded-full border border-appRed100 px-4 py-2 text-base font-medium text-appRed100 transition-all duration-300 hover:border-red-500  hover:bg-red-500 hover:text-white disabled:cursor-not-allowed disabled:opacity-50 sm:text-lg"
           type="button"
         >
           {translatedValues?.["YES, CONFIRM"]}{" "}

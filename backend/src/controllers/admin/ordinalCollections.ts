@@ -4,7 +4,7 @@ import dataSource from "../../db/data-source";
 import { OrdinalCollections } from "../../entities/ordinal/OrdinalCollections.entity";
 import { Ordinals } from "../../entities/ordinal/Ordinals.entity";
 import { message } from "../../middlewares/utility";
-import { getMinAndMax } from "../../utilities";
+import { getMinAndMax, removeHashAndComma } from "../../utilities";
 import {
   getOrdinalInCollectionByLightningAddressReq,
   validateGetCollectionsReq,
@@ -12,6 +12,13 @@ import {
 } from "../../utilities/schemaValidators";
 import { deleteOrdinalInDb } from "../helpers/ordinals";
 import { OrdinalTipsGroups } from "../../entities/ordinal/OrdinalTipsGroups.entity";
+import {
+  InscriptionErrorResponse,
+  SpecificInscriptionResponse,
+} from "../../types/external.api.types";
+import { hiroSoBaseApi } from "../../api/external.api";
+import sendExternalMessage from "../../utilities/sendExternalMessage";
+import { Users } from "../../entities/Users.entity";
 
 export const getAllCollections = async (req: Request, res: Response) => {
   const status = req.query?.status?.toString();
@@ -164,6 +171,104 @@ export const toggleOrdinalCollectionStatus = async (
         } successfully.`
       )
     );
+};
+
+export const rescanOrdinalsInCollection = async (
+  req: Request,
+  res: Response
+) => {
+  const id = req?.params?.id;
+  // VALIDATE REQUEST
+  const { error } = validateSingleDataByIdReq({ id });
+
+  if (error)
+    return res.status(400).send(message(false, error.details[0].message));
+
+  if (!id) return res.status(400).send(message(false, "Inavlid Id"));
+
+  const collectionsRepository = dataSource.getRepository(OrdinalCollections);
+
+  const collection = await collectionsRepository.findOne({
+    where: { id },
+    relations: {
+      ordinals: true,
+    },
+  });
+
+  if (!collection)
+    return res
+      .status(400)
+      .send(
+        message(false, "The collection with the given id could not be found.")
+      );
+
+  if (!collection?.isActive)
+    return res
+      .status(400)
+      .send(message(false, "The collection with the given id is inactive."));
+  const ordinalsInCollection = collection?.ordinals;
+
+  if (!ordinalsInCollection || ordinalsInCollection?.length < 1)
+    return res
+      .status(400)
+      .send(
+        message(false, "The collection with the given id has no ordinals.")
+      );
+
+  const usersRepository = dataSource.getRepository(Users);
+  const ordinalsRepository = dataSource.getRepository(Ordinals);
+
+  let isError = false;
+
+  for (let i = 0; i < ordinalsInCollection?.length; i++) {
+    // Get ordinal details from ordinal id
+    const ordinalId = ordinalsInCollection?.[i].ordinalId;
+    console.log("ordinalId", ordinalId);
+    const response = await hiroSoBaseApi.get<
+      SpecificInscriptionResponse,
+      InscriptionErrorResponse
+    >(`/inscriptions/${removeHashAndComma(ordinalId)}`);
+    // console.log("response ", response?.data);
+
+    if (response?.ok && response?.data) {
+      const walletAddress = response?.data?.address;
+
+      const user = await usersRepository.findOne({
+        relations: { ordinalWallet: true },
+        where: { ordinalWallet: { address: walletAddress } },
+      });
+
+      // console.log("User with ordinal wallet address", user);
+      const ordinal = await ordinalsRepository?.findOne({
+        relations: { user: true },
+        where: { ordinalId },
+      });
+      // console.log("Ordinal with ordinal ID", ordinal);
+      if (ordinal) {
+        if (user) {
+          if (user?.id !== ordinal?.user?.id) {
+            ordinal.user = user;
+          }
+        } else {
+          if (ordinal?.user) {
+            console.log("Unclaimed");
+            ordinal.user = null;
+          }
+        }
+
+        await ordinalsRepository.save(ordinal);
+      }
+    } else {
+      isError = true;
+      sendExternalMessage(`Could not recan ordinal with id ${ordinalId}`);
+    }
+  }
+
+  const errorMessage = isError
+    ? "Some ordinals in the collection was scanned successfully. Check discord or email for details of fail scan."
+    : "Ordinals in ordinal collection scanned successfully.";
+
+  return res.status(200).send(message(true, errorMessage));
 };
 
 export const getTotalOrdinalsInACollection = async (

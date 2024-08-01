@@ -45,9 +45,9 @@ const OrdinalCard = ({ ordinal, collectionId }: Props): JSX.Element => {
 
   const handleDelete = () => {
     setActiveModal({
-      modalType: "Type one",
+      modalType: "EMPTY_MODAL",
       shouldBackgroundClose: true,
-      modalOneComponent: (
+      emptyModalComponent: (
         <DeleteOrdinalCard
           ordinalCollectionId={collectionId}
           ordinal={ordinal}
@@ -66,20 +66,20 @@ const OrdinalCard = ({ ordinal, collectionId }: Props): JSX.Element => {
       {!!isQuickActionEdit && (
         <div
           onClick={() => setIsQuickActionEdit(false)}
-          className="absolute inset-0 flex items-center justify-center rounded-xl border border-appLight500 bg-appRed500 "
+          className="border-appLight500 bg-appRed500 absolute inset-0 flex items-center justify-center rounded-xl border "
         >
           <button
             onClick={handleDelete}
             type="button"
-            className="flex items-center  gap-2 rounded-full bg-white px-3 py-2 text-base font-semibold text-appRed600 transition-all hover:scale-105 active:scale-90 disabled:cursor-not-allowed"
+            className="text-appRed600 flex  items-center gap-2 rounded-full bg-white px-3 py-2 text-base font-semibold transition-all hover:scale-105 active:scale-90 disabled:cursor-not-allowed"
           >
             <span>{translatedValues.Remove}</span>
             <FluentDelete32Regular className="text-2xl" />
           </button>
         </div>
       )}
-      <div className="flex h-full flex-col overflow-hidden rounded-xl bg-appDarkBlue600 text-sm  text-white">
-        <div className="custom-break-words flex   min-h-32 flex-1 items-center justify-center overflow-auto rounded-b-xl bg-appBlue160   text-center">
+      <div className="bg-appDarkBlue600 flex h-full flex-col overflow-hidden rounded-xl text-sm  text-white">
+        <div className="custom-break-words bg-appBlue160   flex min-h-32 flex-1 items-center justify-center overflow-auto rounded-b-xl   text-center">
           {contentType === "HTML" ? (
             <div className="max-h-56">
               <AppIframe src={generateOrdinalContentLink(ordinal.ordinalId)} />
@@ -111,7 +111,7 @@ const OrdinalCard = ({ ordinal, collectionId }: Props): JSX.Element => {
           <button
             type="button"
             onClick={() => copyTextToClipboard("https://" + text)}
-            className="transition-all duration-300 hover:scale-110 hover:text-appYellow100 active:scale-95"
+            className="hover:text-appYellow100 transition-all duration-300 hover:scale-110 active:scale-95"
           >
             <SolarCopyLineDuotone className="text-xl" />
           </button>
@@ -119,7 +119,7 @@ const OrdinalCard = ({ ordinal, collectionId }: Props): JSX.Element => {
         {/* {!!isFiltered && ( */}
         {!!ordinal?.user?.lightningAddress && (
           <div className="pb-2 ">
-            <hr className="block  border-appBlue120/50" />
+            <hr className="border-appBlue120/50  block" />
 
             <div className="flex items-center  px-2 pt-2">
               <p className="truncate text-xs">
@@ -134,7 +134,7 @@ const OrdinalCard = ({ ordinal, collectionId }: Props): JSX.Element => {
                     "Lightning address successfully copied to clipboard",
                   )
                 }
-                className="ml-auto transition-all duration-300 hover:scale-110 hover:text-appYellow100 active:scale-95"
+                className="hover:text-appYellow100 ml-auto transition-all duration-300 hover:scale-110 active:scale-95"
               >
                 <SolarCopyLineDuotone className="text-xl" />
               </button>

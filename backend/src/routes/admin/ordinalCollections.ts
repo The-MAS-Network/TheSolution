@@ -6,6 +6,7 @@ import {
   getAllCollections,
   getOrdinalsInCollectionByLightningAddress,
   getTotalOrdinalsInACollection,
+  rescanOrdinalsInCollection,
   toggleOrdinalCollectionStatus,
 } from "../../controllers/admin/ordinalCollections";
 import { adminAuth } from "../../middlewares/auth";
@@ -26,6 +27,15 @@ router.get(
   asyncMiddleware(getOrdinalsInCollectionByLightningAddress)
 );
 router.delete("/:id", adminAuth, asyncMiddleware(deleteCollection));
-router.patch("/:id", adminAuth, asyncMiddleware(toggleOrdinalCollectionStatus));
+router.patch(
+  "/status/:id",
+  adminAuth,
+  asyncMiddleware(toggleOrdinalCollectionStatus)
+);
+router.patch(
+  "/rescan/:id",
+  adminAuth,
+  asyncMiddleware(rescanOrdinalsInCollection)
+);
 
 export { router as adminOrdinalCollectionsRouter };

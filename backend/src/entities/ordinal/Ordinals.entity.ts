@@ -52,7 +52,7 @@ export class Ordinals {
     onDelete: "SET NULL",
     nullable: true,
   })
-  user: Users;
+  user: Users | null;
 
   @ManyToMany(() => OrdinalCollections, (value) => value.ordinals)
   ordinalCollections: OrdinalCollections[];

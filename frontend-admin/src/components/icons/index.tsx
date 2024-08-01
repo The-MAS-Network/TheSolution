@@ -1,4 +1,92 @@
+import { cn } from "@/lib/utils";
 import type { SVGProps } from "react";
+
+export function RiQuestionFill(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="1em"
+      height="1em"
+      viewBox="0 0 24 24"
+      {...props}
+    >
+      <path
+        fill="currentColor"
+        d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10s-4.477 10-10 10m-1-7v2h2v-2zm2-1.645A3.502 3.502 0 0 0 12 6.5a3.5 3.5 0 0 0-3.433 2.813l1.962.393A1.5 1.5 0 1 1 12 11.5a1 1 0 0 0-1 1V14h2z"
+      ></path>
+    </svg>
+  );
+}
+
+export function RiCheckboxCircleFill(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="1em"
+      height="1em"
+      viewBox="0 0 24 24"
+      {...props}
+    >
+      <path
+        fill="currentColor"
+        d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10s-4.477 10-10 10m-.997-6l7.07-7.071l-1.413-1.414l-5.657 5.657l-2.829-2.829l-1.414 1.414z"
+      ></path>
+    </svg>
+  );
+}
+
+export function RiDeleteBinFill(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="1em"
+      height="1em"
+      viewBox="0 0 24 24"
+      {...props}
+    >
+      <path
+        fill="currentColor"
+        d="M17 6h5v2h-2v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V8H2V6h5V3a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1zm-8 5v6h2v-6zm4 0v6h2v-6zM9 4v2h6V4z"
+      ></path>
+    </svg>
+  );
+}
+
+export function CustomSpinerIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="1em"
+      height="1em"
+      fill="none"
+      viewBox="0 0 38 38"
+      {...props}
+      className={cn("text-appBlue200 animate-spin text-xl", props?.className)}
+    >
+      <path
+        fill="currentColor"
+        d="M32.258 5.742l-2.946 2.946A14.537 14.537 0 0019 4.417C10.946 4.417 4.417 10.946 4.417 19S10.946 33.583 19 33.583 33.583 27.054 33.583 19h4.167c0 10.355-8.395 18.75-18.75 18.75S.25 29.355.25 19 8.645.25 19 .25c5.178 0 9.865 2.099 13.258 5.492z"
+      ></path>
+    </svg>
+  );
+}
+
+export function RiCloseCircleFill(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="1em"
+      height="1em"
+      viewBox="0 0 24 24"
+      {...props}
+    >
+      <path
+        fill="currentColor"
+        d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10s-4.477 10-10 10m0-11.414L9.172 7.757L7.757 9.172L10.586 12l-2.829 2.828l1.415 1.415L12 13.414l2.828 2.829l1.415-1.415L13.414 12l2.829-2.828l-1.415-1.415z"
+      ></path>
+    </svg>
+  );
+}
 
 export function MdiDeleteEmptyOutline(props: SVGProps<SVGSVGElement>) {
   return (

@@ -1,15 +1,20 @@
-import { appStateStore } from "@/stores/appState.store";
+import { useAppStateStore } from "@/stores/appState.store";
 import { useEffect } from "react";
-import { useStore } from "zustand";
+import AppPromptModal from "./AppPromptModal";
 
 const AppModal1 = (): JSX.Element => {
-  const { activeModal, closeActiveModal } = useStore(appStateStore);
+  const { activeModal, closeActiveModal, isAppModalLoading } =
+    useAppStateStore();
 
-  const modalOpen = activeModal?.modalType === "Type one";
-
+  const modalOpen = !!activeModal?.modalType;
   useEffect(() => {
     const keyHandler = ({ keyCode }: KeyboardEvent) => {
-      if (!modalOpen || keyCode !== 27 || !!activeModal?.shouldBackgroundClose)
+      if (
+        !modalOpen ||
+        keyCode !== 27 ||
+        !activeModal?.shouldBackgroundClose ||
+        !isAppModalLoading
+      )
         return;
       closeActiveModal();
     };
@@ -29,7 +34,13 @@ const AppModal1 = (): JSX.Element => {
       } `}
     >
       <div onClick={(e) => e?.stopPropagation()} className="p-5">
-        {activeModal?.modalOneComponent}
+        {activeModal?.modalType === "EMPTY_MODAL" &&
+          activeModal?.emptyModalComponent}
+
+        {activeModal?.modalType === "PROMPT_MODAL" &&
+          !!activeModal?.promptModal && (
+            <AppPromptModal {...activeModal?.promptModal} />
+          )}
       </div>
     </aside>
   );

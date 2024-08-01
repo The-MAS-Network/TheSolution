@@ -1,3 +1,5 @@
+import { AppPromptModalProps } from "@/components/modals/AppPromptModal";
+
 export interface CurrentLanguageDetails {
   countryName: string;
   languageCode: string;
@@ -14,13 +16,10 @@ export interface ILocationParams<Data> {
 }
 
 export interface AppModalProps {
-  modalType: "Type one";
-  title?: string;
-  description?: string;
-  onAcceptClick?: () => void;
-  acceptTitle?: string;
-  modalOneComponent?: JSX.Element;
+  modalType: "EMPTY_MODAL" | "PROMPT_MODAL" | "REASON_MODAL";
   shouldBackgroundClose?: boolean;
+  emptyModalComponent?: JSX.Element;
+  promptModal?: AppPromptModalProps;
 }
 
 type ChangePasswordPurpose = "Change Password" | "Set New Password";

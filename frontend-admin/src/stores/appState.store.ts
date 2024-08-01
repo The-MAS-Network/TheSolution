@@ -1,4 +1,5 @@
 import { AppModalProps, QuickActionTypes } from "@/types";
+import { useStore } from "zustand";
 import { shallow } from "zustand/shallow";
 import { createWithEqualityFn } from "zustand/traditional";
 
@@ -8,6 +9,7 @@ interface AppStateStore {
   isQuickActionEdit: boolean;
   isDashboardSidebarVisible: boolean;
   ordinalIdsInCollection: string[];
+  isAppModalLoading: boolean;
 
   closeActiveModal: () => void;
   toggleDashboardSidebarVisibility: (value: boolean) => void;
@@ -16,6 +18,7 @@ interface AppStateStore {
   setIsQuickActionEdit: (value: boolean) => void;
   addordinalIdInCollection: (value: string) => void;
   clearOrdinalIdsInCollection: () => void;
+  setIsAppModalLoading: (value: boolean) => void;
 }
 
 export const appStateStore = createWithEqualityFn<AppStateStore>(
@@ -25,8 +28,12 @@ export const appStateStore = createWithEqualityFn<AppStateStore>(
     activeQuickAction: null,
     isQuickActionEdit: false,
     ordinalIdsInCollection: [],
+    isAppModalLoading: false,
 
     closeActiveModal: () => set(() => ({ activeModal: null })),
+
+    setIsAppModalLoading: (isAppModalLoading) => set({ isAppModalLoading }),
+
     toggleDashboardSidebarVisibility: (value) =>
       set({ isDashboardSidebarVisible: value }),
     setActiveModal: (activeModal) => set(() => ({ activeModal })),
@@ -52,3 +59,7 @@ export const appStateStore = createWithEqualityFn<AppStateStore>(
   }),
   shallow,
 );
+
+export const useAppStateStore = () => {
+  return useStore(appStateStore);
+};
