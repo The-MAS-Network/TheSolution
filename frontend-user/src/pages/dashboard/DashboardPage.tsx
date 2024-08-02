@@ -53,7 +53,7 @@ const DashboardPage = (): JSX.Element => {
   const navs: Nav[] = [
     {
       title: translatedValues?.Leaderboard,
-      icon: <LeaderBoardIcon className="text-4xl sm:text-5xl" />,
+      icon: <LeaderBoardIcon className="text-4xl text-white sm:text-5xl" />,
       onClick: () => navigate(routes.LEADERBOARD_PAGE),
     },
 

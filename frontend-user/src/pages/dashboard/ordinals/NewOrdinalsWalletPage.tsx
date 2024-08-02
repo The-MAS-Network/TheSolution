@@ -95,6 +95,18 @@ const NewOrdinalsWalletPage = (): JSX.Element => {
       return appToast.Warning(
         "Accept the terms and conditions by checking the box below.",
       );
+
+    if (!data) return appToast.Warning("No ordinal data found");
+    const regex = /@/;
+
+    if (regex.test(debouncedValue))
+      return appToast.Info("This is not a valid Ordinal wallet address.");
+
+    if (data?.results?.length < 1)
+      return appToast.Info(
+        "You need to have at least 1 Ordinal in your on-chain address before claiming.",
+      );
+
     if (debouncedValue.length < 3 || !data)
       return appToast.Warning("Invalid address");
 
@@ -181,10 +193,10 @@ const NewOrdinalsWalletPage = (): JSX.Element => {
                 <CheckIcon isChecked={isChecked} />
               </button>
 
-              <p className="text-left text-sm font-normal text-black sm:text-base">
+              <p className="text-left text-sm font-semibold text-black sm:text-base">
                 {
                   translatedValues?.[
-                    "By clicking this box, you agree to paying a one-time fee from your Ordinal Wallet to help verify ownership and support the platform. You acknowledge that the wallet verification may be required again if another user claims ownership of the same wallet address using this method."
+                  "By clicking this box, you agree to paying a one-time fee from your Ordinal Wallet to help verify ownership and support the platform. You acknowledge that the wallet verification may be required again if another user claims ownership of the same wallet address using this method."
                   ]
                 }
               </p>
