@@ -1,6 +1,11 @@
+import { calculateTimeDifference } from "./dateTimeHelpers";
+import sendExternalMessage from "./sendExternalMessage";
+
 interface IError {
   [x: string]: string[];
 }
+
+let lastSentErrorTime: Date | null = null;
 
 export const handleApiErrors = (props: any, falbackMessage?: string) => {
   const message =
@@ -11,6 +16,18 @@ export const handleApiErrors = (props: any, falbackMessage?: string) => {
     falbackMessage ??
     props.problem ??
     "FATAL: Invalid error received.";
+
+  const apiMessage = `${props?.config?.baseURL ?? ""}${
+    props?.config?.url ?? ""
+  } - ${props?.originalError ? props?.originalError : props?.proble}`;
+
+  if (
+    !lastSentErrorTime ||
+    calculateTimeDifference(lastSentErrorTime).minutes > 5
+  ) {
+    sendExternalMessage(apiMessage);
+    lastSentErrorTime = new Date();
+  }
 
   return message;
 };

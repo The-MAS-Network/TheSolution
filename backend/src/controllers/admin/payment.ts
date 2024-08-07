@@ -204,7 +204,7 @@ export const tipUser = async (req: Request, res: Response) => {
     transactionId: responseData?.id as string,
     lightningAddress,
     status: mapStatus(response?.message),
-    imageURL: user?.imageURL ?? "",
+    // imageURL: user?.imageURL ?? "",
     amount: !!currentBTCPrice ? amountInSat : amount,
   });
 
@@ -247,6 +247,9 @@ export const tipCommunity = async (req: Request, res: Response) => {
     expiryTimeInMinutes: 3,
   });
   if (otpError) return res.status(400).send(message(false, otpError));
+
+  firstOTP.isUsed = true;
+  await adminOTPRepository.save(firstOTP);
 
   // CHECK IF ORDINAL COLLECTION EXISTS AND ITS ACTIVE
   const ordinalCollectionsRepository =
@@ -346,7 +349,7 @@ export const tipCommunity = async (req: Request, res: Response) => {
     ordinalGroup
   );
 
-  // AWAIT THE FIRST 5 ITEMS AND DON'T AWAIT THE REST IN THE CASE THERE ARE 100 OF ITEMS .. USER SHOULD NOT WAIT TOO LONG
+  // AWAIT THE FIRST 50 ITEMS AND DON'T AWAIT THE REST IN THE CASE THERE ARE 100 OF ITEMS .. USER SHOULD NOT WAIT TOO LONG
 
   const awaitOrdinals: Ordinals[] = [];
   const nonAwaitOrdinals: Ordinals[] = [];
@@ -378,7 +381,7 @@ export const tipCommunity = async (req: Request, res: Response) => {
       transactionId: (responseData?.id ?? "") as string,
       lightningAddress: ordinal?.user?.lightningAddress,
       status: mapStatus(response?.message ?? PaymentStatus.FAILED),
-      imageURL: ordinal?.user?.imageURL ?? "",
+      // imageURL: ordinal?.user?.imageURL ?? "",
       ...(!response?.status
         ? { error: `${response?.message} --- ${response?.data}`.slice(0, 250) }
         : {}),
@@ -409,6 +412,13 @@ export const tipCommunity = async (req: Request, res: Response) => {
         await ordinalTipsGroupsRepository.save(savedOrdinalGroup);
       }
     } else {
+      // IN CASE THE PAYMENT FAILED WE SHOULD REDUCE THE TOTAL AMOUNT FROM THE ORDINAL GROU
+      savedOrdinalGroup.totalSent = Math.max(
+        0,
+        savedOrdinalGroup.totalSent - individualAmount
+      );
+      await ordinalTipsGroupsRepository.save(ordinalGroup);
+
       if (!isAwait) {
         sendAppErrorMail({
           message: `
@@ -430,7 +440,6 @@ export const tipCommunity = async (req: Request, res: Response) => {
   };
 
   let awaitPossibleErrors: string[] = [];
-  let awaitTotalSent = 0;
 
   for (let i = 0; i < awaitOrdinals?.length; i++) {
     const response = await handlePayments({
@@ -441,13 +450,8 @@ export const tipCommunity = async (req: Request, res: Response) => {
       awaitPossibleErrors.push(
         `${response?.message} --- ${response?.data}`.slice(0, 250)
       );
-    } else {
-      awaitTotalSent = awaitTotalSent + individualAmount;
     }
   }
-
-  savedOrdinalGroup.totalSent = awaitTotalSent;
-  await ordinalTipsGroupsRepository.save(savedOrdinalGroup);
 
   if (awaitPossibleErrors?.length > 0) {
     sendAppErrorMail({
@@ -473,8 +477,8 @@ export const tipCommunity = async (req: Request, res: Response) => {
   currentBTCPrice = "";
   currentSource = "";
 
-  firstOTP.isUsed = true;
-  await adminOTPRepository.save(firstOTP);
+  // firstOTP.isUsed = true;
+  // await adminOTPRepository.save(firstOTP);
 
   return res
     .status(201)

@@ -1,5 +1,6 @@
 import { Repository } from "typeorm";
 import {
+  bitcoinExplorerBaseAPI,
   btcDotComBaseApi,
   getOrdinalsFromWallet,
   ordiscanBaseApi,
@@ -13,9 +14,11 @@ import {
   BTC_COM_SINGLE_TRANSACTION,
   BTC_com_WalletDataResponse,
   SpecificInscriptionResponse,
+  // BTC_com_WalletDataResponse,
 } from "../../types/external.api.types";
 import {
   ConfirmBothWalletsProps,
+  GetBlockExplorerWalletDataRes,
   SaveOrdinalByUserInDb,
   SaveOrdinalInDbProps,
 } from "../../types/ordinals.types";
@@ -70,19 +73,21 @@ export async function confirmWalletsPayment(
     });
     return message;
   } else {
+    // WE ARE USING 2 APIS TO VERIFY ON CHAIN DATA IN CASE ONE IS DOWN
+
     const walletDetailsResponse =
-      await btcDotComBaseApi.get<BTC_com_WalletDataResponse>(
-        `/address/${wallet.onChainWallet}/unspent`
+      await bitcoinExplorerBaseAPI.get<GetBlockExplorerWalletDataRes>(
+        `/address/${wallet.onChainWallet}`
       );
 
     if (walletDetailsResponse.ok) {
-      const transactionIDS = walletDetailsResponse?.data?.data.list;
+      const transactionIDS = walletDetailsResponse?.data?.txHistory?.txids;
 
       if (!!transactionIDS && transactionIDS.length > 0) {
         const message = await confirmBothWallets({
           ordinalWalletsRepository,
           wallet,
-          transactionID: transactionIDS?.[0]?.tx_hash,
+          transactionID: transactionIDS[0],
         });
         return message;
       } else {
@@ -92,12 +97,34 @@ export async function confirmWalletsPayment(
         };
       }
     } else {
-      return {
-        status: false,
-        message: `Error in getting wallet details : ${handleApiErrors(
-          walletDetailsResponse
-        )}`,
-      };
+      const secondWalletDetailsResponse =
+        await btcDotComBaseApi.get<BTC_com_WalletDataResponse>(
+          `/address/${wallet.onChainWallet}/unspent`
+        );
+      if (secondWalletDetailsResponse?.ok) {
+        const transactionIDS = secondWalletDetailsResponse?.data?.data.list;
+
+        if (!!transactionIDS && transactionIDS.length > 0) {
+          const message = await confirmBothWallets({
+            ordinalWalletsRepository,
+            wallet,
+            transactionID: transactionIDS?.[0]?.tx_hash,
+          });
+          return message;
+        } else {
+          return {
+            status: false,
+            message: `No transaction ID found yet for the given onchain wallet.`,
+          };
+        }
+      } else {
+        return {
+          status: false,
+          message: `Error in getting wallet details : ${handleApiErrors(
+            walletDetailsResponse
+          )}`,
+        };
+      }
     }
   }
 }
@@ -117,6 +144,8 @@ async function confirmBothWallets({
       transactionDetailRes?.data?.data?.outputs?.[0]?.addresses?.[0];
     const secondAddress =
       transactionDetailRes?.data?.data?.outputs?.[1]?.addresses?.[0];
+    // const inputAddress =
+    //   transactionDetailRes?.data?.data?.inputs?.[1]?.prev_addresses?.[0];
 
     const bothWalletAdrressisValid =
       (firstAddress == wallet?.onChainWallet &&

@@ -53,13 +53,6 @@ export class OrdinalTips {
   status: PaymentStatus;
 
   @Column({
-    nullable: true,
-    default: null,
-    type: "mediumtext",
-  })
-  imageURL: string;
-
-  @Column({
     length: 255,
     nullable: true,
     default: null,
