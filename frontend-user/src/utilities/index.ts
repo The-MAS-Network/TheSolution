@@ -64,7 +64,7 @@ export const parseString = (value: unknown) => {
     if (isJsonString(value)) return JSON.parse(value);
     else return value;
   } else {
-    JSON.stringify(value);
+    return JSON.stringify(value);
   }
 };
 
