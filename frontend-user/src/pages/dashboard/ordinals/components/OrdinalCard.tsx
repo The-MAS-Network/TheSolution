@@ -8,6 +8,8 @@ import {
   copyTextToClipboard,
   generateOrdinalContentLink,
   generateOrdinalShareLink,
+  parseString,
+  truncateText,
 } from "@/utilities";
 import { handleApiErrors } from "@/utilities/handleErrors";
 import { useQuery } from "@tanstack/react-query";
@@ -49,11 +51,6 @@ const OrdinalCard = ({
       contentType === "Unknown",
   });
 
-  const formatUnkonwnContent = (value: unknown) => {
-    if (typeof value === "string") return value;
-    return JSON.stringify(value);
-  };
-
   return (
     <div className="relative ">
       <div className="flex h-full flex-col overflow-hidden rounded-xl bg-appDarkBlue600 text-sm  text-white">
@@ -72,14 +69,14 @@ const OrdinalCard = ({
             </div>
           ) : contentType === "Text" ? (
             <div className="max-h-56">
-              <p className="whitespace-pre-wrap px-2 py-6">
-                {content as string}
+              <p className="!line-clamp-[8] whitespace-pre-wrap px-2 py-6">
+                {parseString(content) as string}
               </p>
             </div>
           ) : (
             <div className="max-h-56">
               <p className="custom-break-words !line-clamp-[8] whitespace-pre-wrap px-2 py-6">
-                {formatUnkonwnContent(content)}
+                {truncateText(JSON.stringify(content))}
               </p>
             </div>
           )}

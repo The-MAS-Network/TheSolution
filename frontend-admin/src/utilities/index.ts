@@ -83,6 +83,9 @@ interface CheckOrdinalContentTypeProps {
   content_type: string;
 }
 
+export const checkTextOrdinalType = (value: any) =>
+  typeof value === "string" ? true : false;
+
 export function CheckOrdinalContentType({
   content_type: contentType,
   mime_type: mimeType,
@@ -91,7 +94,7 @@ export function CheckOrdinalContentType({
 
   const jsonDataTypes = ["application/json", "application/json;charset=utf-8"];
 
-  // const textDataTypes = ["text/plain", "text/plain;charset=utf-8"];
+  const textDataTypes = ["text/plain", "text/plain;charset=utf-8"];
 
   const imageDataTypes = [
     "image/png",
@@ -116,10 +119,13 @@ export function CheckOrdinalContentType({
   ) {
     return "Image";
   }
-
-  if (contentType === "text/plain") {
+  if (
+    (textDataTypes.includes(mimeType) || textDataTypes.includes(contentType),
+    contentType.includes("text") || mimeType.includes("text"))
+  ) {
     return "Text";
   }
+
   if (
     (jsonDataTypes.includes(mimeType) || jsonDataTypes.includes(contentType),
     contentType.includes("application/json") ||

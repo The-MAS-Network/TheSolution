@@ -9,6 +9,7 @@ import { appStateStore } from "@/stores/appState.store";
 import { SpecificInscriptionResponse } from "@/types/api/ordinals.types";
 import {
   CheckOrdinalContentType,
+  checkTextOrdinalType,
   generateOrdinalContentLink,
   truncateText,
 } from "@/utilities";
@@ -118,13 +119,15 @@ const NewOrdinalCard = ({ data, collectionId }: Props): JSX.Element => {
               icon="line-md:loading-twotone-loop"
             />
           </div>
-        ) : contentType === "Text" ? (
+        ) : contentType === "Text" && checkTextOrdinalType(content) ? (
           <div className="max-h-56">
-            <p className="whitespace-pre-wrap px-2 py-6">{content as string}</p>
+            <p className="!line-clamp-[8] whitespace-pre-wrap px-2 py-6">
+              {content as string}
+            </p>
           </div>
         ) : (
           <div className="max-h-56">
-            <p className="custom-break-words !line-clamp-[8] ">
+            <p className="custom-break-words !line-clamp-[8] whitespace-pre-wrap px-2 py-6">
               {truncateText(JSON.stringify(content))}
             </p>
           </div>

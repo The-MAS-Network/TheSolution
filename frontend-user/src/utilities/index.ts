@@ -32,7 +32,8 @@ export const joiLightningSchema = Joi.string()
     minDomainSegments: 2,
     tlds: false,
   })
-  .required().label("Lightning Address")
+  .required()
+  .label("Lightning Address")
   .min(3)
   .max(250)
   .messages({
@@ -49,6 +50,31 @@ type OrdinalContentTypes = "Image" | "HTML" | "Text" | "Unknown" | "JSON";
 interface CheckOrdinalContentTypeProps {
   mime_type: string;
   content_type: string;
+}
+
+// export const checkTextOrdinalType = (value: any) => {
+//   // const res = typeof value === "string" ? true : false;
+
+//   if (!!value && typeof value === "string") return true;
+//   return false;
+// };
+
+export const parseString = (value: unknown) => {
+  if (typeof value === "string") {
+    if (isJsonString(value)) return JSON.parse(value);
+    else return value;
+  } else {
+    JSON.stringify(value);
+  }
+};
+
+function isJsonString(str: string) {
+  try {
+    JSON.parse(str);
+  } catch (e) {
+    return false;
+  }
+  return true;
 }
 
 export function CheckOrdinalContentType({
@@ -97,6 +123,13 @@ export function CheckOrdinalContentType({
   }
 
   return "Unknown";
+}
+export function truncateText(text: string, maxLength = 200) {
+  if (text.length > maxLength) {
+    return text.substring(0, maxLength - 3) + "...";
+  } else {
+    return text;
+  }
 }
 
 interface CopyTextToClipboardProps {

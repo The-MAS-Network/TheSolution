@@ -23,5 +23,5 @@ export function calculateTimeDifference(value: string | Date) {
     .toString()
     .padStart(2, "0")} seconds`;
 
-  return { formattedDifference, milliseconds, hours, newHours };
+  return { formattedDifference, milliseconds, hours, newHours, minutes };
 }

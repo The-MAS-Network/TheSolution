@@ -379,6 +379,32 @@ export const getAllTimeLeaderboard = async (req: Request, res: Response) => {
 
   const alias = "leaderboardTips";
 
+  // if (isWeekly) {
+  //   const queryBuilder = dataSource
+  //     .getRepository(OrdinalTips)
+  //     .createQueryBuilder(alias)
+  //     .select(`${alias}.lightningAddress`, "lightningAddress")
+  //     .addSelect(`SUM(${alias}.amount)`, "totalAmount")
+  //     .where(`${alias}.createdAt >= :startDate`, {
+  //       startDate: new Date(new Date().setDate(new Date().getDate() - 1000)),
+  //     })
+  //     .groupBy(`${alias}.lightningAddress`);
+  //   // .orderBy("totalAmount", "DESC");
+
+  //   const paginator = buildPaginator({
+  //     entity: OrdinalTips,
+  //     alias,
+  //     paginationKeys: ["updatedAt"],
+  //     query: {
+  //       limit: getMinAndMax(size ?? ""),
+  //       ...(!!afterCursor ? { afterCursor } : {}),
+  //     },
+  //   });
+
+  //   const { cursor, data } = await paginator.paginate(queryBuilder);
+  //   console.log(data, cursor);
+  // }
+
   let queryBuilder = dataSource
     .getRepository(LeaderboardTips)
     .createQueryBuilder(alias)
