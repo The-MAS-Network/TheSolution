@@ -69,9 +69,7 @@ const OrdinalCard = ({
             </div>
           ) : contentType === "Text" ? (
             <div className="max-h-56">
-              <p className="!line-clamp-[8] whitespace-pre-wrap px-2 py-6">
-                {parseString(content) as string}
-              </p>
+              <p className=" px-2 py-6">{parseString(content)} ass</p>
             </div>
           ) : (
             <div className="max-h-56">
