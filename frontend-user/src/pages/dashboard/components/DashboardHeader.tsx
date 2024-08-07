@@ -14,13 +14,18 @@ const DashboardHeader = ({ title, onClick }: Props): JSX.Element => {
   };
 
   return (
-    <header className="relative flex w-full items-center ">
+    <header className="relative flex w-full flex-wrap items-center gap-5 ">
       {/* <Icon
         onClick={handleNavigate}
-        className="absolute cursor-pointer text-xl md:text-2xl lg:text-3xl"
+        className="cursor-pointer text-xl md:text-2xl lg:text-3xl"
         icon="ion:arrow-back-outline"
-      /> */}
-      <div className="absolute flex items-center cursor-pointer" onClick={handleNavigate}>
+      />
+      <span className="ml-2 text-base md:text-lg lg:text-xl">Back</span> */}
+
+      <div
+        className="flex shrink-0 cursor-pointer items-center"
+        onClick={handleNavigate}
+      >
         <Icon
           className="text-xl md:text-2xl lg:text-3xl"
           icon="ion:arrow-back-outline"
