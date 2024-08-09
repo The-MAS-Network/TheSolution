@@ -69,7 +69,7 @@ const OrdinalCard = ({
             </div>
           ) : contentType === "Text" ? (
             <div className="max-h-56">
-              <p className=" px-2 py-6">{parseString(content)} ass</p>
+              <p className=" px-2 py-6">{parseString(content)} </p>
             </div>
           ) : (
             <div className="max-h-56">
