@@ -3,7 +3,7 @@ import { Icon } from "@iconify/react";
 import { useEffect, useState } from "react";
 
 const pageValues = [
-  "left to verify your account  before it get’s deleted",
+  "left to verify your account before it gets deleted",
   "hours",
   "minutes",
   "seconds",
@@ -72,7 +72,7 @@ const VerificationCountDown = ({ date }: Props): JSX.Element => {
         : {seconds} {translatedValues.seconds}{" "}
         {
           translatedValues[
-            "left to verify your account  before it get’s deleted"
+            "left to verify your account before it gets deleted"
           ]
         }
       </p>

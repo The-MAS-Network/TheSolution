@@ -37,7 +37,7 @@ export const joiLightningSchema = Joi.string()
   .min(3)
   .max(250)
   .messages({
-    "string.email": "Lightning Address is invalid.",
+    "string.email": "Lightning Address is invalid",
   });
 
 export const generateOrdinalContentLink = (id: string) =>
@@ -64,7 +64,7 @@ export const parseString = (value: unknown) => {
     if (isJsonString(value)) return JSON.parse(value);
     else return value;
   } else {
-    JSON.stringify(value);
+    return JSON.stringify(value);
   }
 };
 

@@ -166,9 +166,13 @@ export function validateLightningAddress(param: ValidateLightningAddressProps) {
   return schema.validate(param);
 }
 
-export const parseString = (value: string) => {
-  if (isJsonString(value)) return JSON.parse(value);
-  return value;
+export const parseString = (value: unknown) => {
+  if (typeof value === "string") {
+    if (isJsonString(value)) return JSON.parse(value);
+    else return value;
+  } else {
+    return JSON.stringify(value);
+  }
 };
 
 function isJsonString(str: string) {

@@ -206,7 +206,7 @@ const NewOrdinalsWalletPage = (): JSX.Element => {
               type="button"
               disabled={isCreateWalletLoading}
               onClick={handleClaim}
-              className="app-button-primary-200 mt-7 flex items-center justify-center gap-x-2"
+              className="bg-yellow-500 text-black mt-7 flex items-center justify-center gap-x-2"
             >
               <span>{translatedValues["CLAIM WALLET"]}</span>
               {isCreateWalletLoading && (

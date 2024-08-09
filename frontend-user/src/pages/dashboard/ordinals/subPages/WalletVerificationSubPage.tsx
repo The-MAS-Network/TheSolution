@@ -10,7 +10,7 @@ import QRCode from "react-qr-code";
 import { useStore } from "zustand";
 import DisconnectWalletModal from "../components/DisconnectWalletModal";
 
-const paymentAmount = "Any amount";
+const paymentAmount = "Any amount from your Ordinal Wallet Address";
 const paymentDollarAmount = "";
 
 const pageValues = [
@@ -24,6 +24,8 @@ const pageValues = [
   "Expires in",
   "Only pay one-time verification fee from this Wallet Address:",
   "DISCONNECT WALLET",
+  "Step 1.",
+  "Step 2.",
   paymentAmount,
 ] as const;
 
@@ -71,7 +73,7 @@ const WalletVerificationSubPage = (): JSX.Element => {
         </button>
       </header>
 
-      <div className="mb-7 w-full rounded-2xl bg-appBlue160 p-4">
+      {/* <div className="mb-7 w-full rounded-2xl bg-appBlue160 p-4">
         <p className="text-base font-bold sm:text-lg">
           {translatedValues?.["Only pay one-time verification fee from this Wallet Address:"]}
         </p>
@@ -79,21 +81,17 @@ const WalletVerificationSubPage = (): JSX.Element => {
         <p className="custom-break-words flex-1   text-base font-semibold text-appYellow300">
           {getUserData()?.ordinalWallet?.address ?? ""}
         </p>
-      </div>
+      </div> */}
 
       <div className="w-full rounded-2xl bg-appBlue160 p-4">
         <h1 className="text-base font-bold sm:text-lg">
           {translatedValues["Copy Unique Payment Address:"]}
         </h1>
-        {/* <h2 className="mb-1 mt-4 text-sm font-normal">
-          {translatedValues?.["Payment Unique Address:"]}
-        </h2> */}
 
         <ul className="flex items-center justify-between gap-10">
           <p className="custom-break-words flex-1  text-base font-semibold text-appYellow300">
             {onChainAddress}
           </p>
-
           <button
             onClick={() =>
               copyTextToClipboard({
@@ -118,9 +116,10 @@ const WalletVerificationSubPage = (): JSX.Element => {
             {translatedValues?.["Amount to Pay:"]} {"  "} {paymentDollarAmount}
           </h2>
 
+            {/* amount to Pay Text */}
           <div className="w-full">
             <p className="truncate text-base font-semibold text-appYellow300 md:text-lg lg:text-xl">
-              {translatedValues?.["Any amount"]}
+              {translatedValues?.["Any amount from your Ordinal Wallet Address"]}
             </p>
           </div>
         </div>

@@ -25,15 +25,17 @@ interface ITranslate {
   password: string;
   confirmPassword: string;
   continue: string;
+  notice: string;
 }
 
 const values: ITranslate = {
   getStartedByEnteringYourLightningAddress:
     "Get started by entering your Lightning Address",
   enterYourLightningAddress: "Enter your Lightning Address",
-  password: "Password",
+  password: "Create a Password",
   confirmPassword: "Confirm Password",
   continue: "CONTINUE",
+  notice: "Must be at least 8 characters with an uppercase, lowercase and number",
 };
 
 interface RegisterSchema {
@@ -183,6 +185,10 @@ const RegisterPage = (): JSX.Element => {
                 </button>
               }
             />
+            <p className="mb-24 mt-1  text-sm font-semibold">
+              <span className="text-appRed200">*</span>{" "}
+              {translatedValues.notice}
+            </p>
           </div>
 
           <div className="py-7">

@@ -15,7 +15,7 @@ interface Props {
 
 const pageValues = [
   "To reset your password, we need to verify ownership of your Lightning Address.",
-  "To verify your account we need to verify ownership of your Lightning Address.",
+  "To verify your account, we need to verify ownership of your Lightning Address.",
   "Scan Invoice",
   "Or",
   "Copy",
@@ -49,7 +49,7 @@ const VerifyOwnership = ({
               "To reset your password, we need to verify ownership of your Lightning Address."
             ]
           : translatedValues[
-              "To verify your account we need to verify ownership of your Lightning Address."
+              "To verify your account, we need to verify ownership of your Lightning Address."
             ]}
       </h1>
 

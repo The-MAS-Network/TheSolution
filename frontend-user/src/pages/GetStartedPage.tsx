@@ -5,6 +5,7 @@ import { useAppTranslator } from "@/hooks/useAppTranslator";
 import routes from "@/navigation/routes";
 import GetStartedChip from "@/assets/images/get-started-chip.svg";
 import GetStartedMedia from "@/assets/images/get-started-media.svg";
+// import teikoLabs from "@/assets/images/teikoLabs.svg";
 
 const pageValues = ["The Solution", "LOG IN", "SIGN UP"] as const;
 
@@ -40,6 +41,10 @@ const GetStartedPage = (): JSX.Element => {
         </h1>
 
         <ChangeLanguageButton />
+        {/* <div className="flex items-center justify-center">
+          <img src={teikoLabs} />
+        </div> */}
+
         <div className="flex flex-col gap-y-4 pb-6 pt-48">
           <Link
             to={routes.LOGIN_PAGE}

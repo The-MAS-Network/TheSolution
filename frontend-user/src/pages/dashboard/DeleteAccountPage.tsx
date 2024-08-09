@@ -20,7 +20,7 @@ const pageValues = [
   "NO, KEEP ACCOUNT",
   "Password",
   "YES, DELETE ACCOUNT",
-  "Enter your password"
+  "Enter your Password"
 ] as const;
 
 type PageValuesType = {
@@ -95,7 +95,7 @@ const DeleteAccountPage = (): JSX.Element => {
           <div className="mt-8 w-full">
             <AppInput
               id="password"
-              placeholder={translatedValues?.["Enter your password"]}
+              placeholder={translatedValues?.["Enter your Password"]}
               errorMessage={errors?.password?.message ?? null}
               disabled={isLoading}
               hookFormProps={{ ...register("password") }}

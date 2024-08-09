@@ -19,7 +19,7 @@ const pageValues = [
   "VERIFY ACCOUNT NOW",
   "Language",
   "DELETE ACCOUNT",
-  "left to verify your account  before it get’s deleted",
+  "left to verify your account before it gets deleted",
   "hours",
   "minutes",
 ] as const;
