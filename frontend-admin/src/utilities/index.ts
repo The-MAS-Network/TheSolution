@@ -174,7 +174,6 @@ export const parseString = (value: unknown) => {
     return JSON.stringify(value);
   }
 };
-
 function isJsonString(str: string) {
   try {
     JSON.parse(str);
