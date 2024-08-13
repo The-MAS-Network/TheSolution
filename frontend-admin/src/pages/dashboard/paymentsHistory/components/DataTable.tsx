@@ -30,6 +30,10 @@ const pageValuesObject = pageValues.reduce((acc, value) => {
 
 const DataTable = ({ data }: Props): JSX.Element => {
   const paymentTime = data?.pages[0]?.data?.ordinalTipsGroup?.createdAt;
+  const individualAmount = Math.max(
+    data?.pages[0]?.data?.ordinalTipsGroup?.individualAmount ?? 1,
+    1,
+  );
 
   const { translatedValues } = useAppTranslator<PageValuesType>({
     ...pageValuesObject,
@@ -82,8 +86,11 @@ const DataTable = ({ data }: Props): JSX.Element => {
                       />
                     </span>
                     <dl>
-                      <dt className="group-hover:texta">
-                        {truncateWalletAddress(lightningAddress)}
+                      <dt className="flex items-center gap-1">
+                        <span>{truncateWalletAddress(lightningAddress)}</span>
+                        {!!individualAmount && individualAmount > 1 && (
+                          <span> x {amount / individualAmount}</span>
+                        )}
                       </dt>
                       <dd className="text-xs">{amount?.toLocaleString()}</dd>
                     </dl>

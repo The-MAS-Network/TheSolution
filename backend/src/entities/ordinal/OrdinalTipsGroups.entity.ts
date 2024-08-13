@@ -34,6 +34,9 @@ export class OrdinalTipsGroups {
   @Column({ type: "int" })
   totalSent: number;
 
+  @Column({ type: "int", default: 0 })
+  individualAmount: number;
+
   @Column({
     length: 20,
   })

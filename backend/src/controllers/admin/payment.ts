@@ -180,6 +180,7 @@ export const tipUser = async (req: Request, res: Response) => {
     totalTip,
     totalSent: totalTip,
     ordinalCollection,
+    individualAmount: totalTip,
     type: GroupType.SINGLE_TIP,
     ...(!!currentBTCPrice ? { dollarPrice: currentBTCPrice } : {}),
     ...(!!currentSource ? { dollarSource: currentSource } : {}),
@@ -336,6 +337,7 @@ export const tipCommunity = async (req: Request, res: Response) => {
     totalTip: mainAmount,
     totalSent: mainAmount,
     ordinalCollection,
+    individualAmount,
     type: GroupType.GROUP_TIP,
     currency,
     ...(!!currentBTCPrice ? { dollarPrice: currentBTCPrice } : {}),
@@ -401,7 +403,7 @@ export const tipCommunity = async (req: Request, res: Response) => {
     const ordinalTip = ordinalTipsRepository.create({
       currency,
       ordinalTipGroup: savedOrdinalGroup,
-      amount: individualAmount,
+      amount,
       transactionId: (responseData?.id ?? "") as string,
       lightningAddress: ordinal?.user?.lightningAddress,
       status: mapStatus(response?.message ?? PaymentStatus.FAILED),
@@ -418,28 +420,27 @@ export const tipCommunity = async (req: Request, res: Response) => {
       });
 
       if (!!userLeaderboard) {
-        userLeaderboard.totalTip = userLeaderboard.totalTip + individualAmount;
+        userLeaderboard.totalTip = userLeaderboard.totalTip + amount;
         await leaderboardRepository.save(userLeaderboard);
       } else {
         if (ordinal?.user) {
           const newLeaderboardUser = leaderboardRepository.create({
             user: ordinal?.user,
-            totalTip: individualAmount,
+            totalTip: amount,
           });
           await leaderboardRepository.save(newLeaderboardUser);
         }
       }
 
       if (!isAwait) {
-        savedOrdinalGroup.totalSent =
-          savedOrdinalGroup.totalSent + individualAmount;
+        savedOrdinalGroup.totalSent = savedOrdinalGroup.totalSent + amount;
         await ordinalTipsGroupsRepository.save(savedOrdinalGroup);
       }
     } else {
       // IN CASE THE PAYMENT FAILED WE SHOULD REDUCE THE TOTAL AMOUNT FROM THE ORDINAL GROU
       savedOrdinalGroup.totalSent = Math.max(
         0,
-        savedOrdinalGroup.totalSent - individualAmount
+        savedOrdinalGroup.totalSent - amount
       );
       await ordinalTipsGroupsRepository.save(ordinalGroup);
 
