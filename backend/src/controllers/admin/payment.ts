@@ -36,6 +36,7 @@ import { validateSingleDataByIdReq } from "../../utilities/schemaValidators";
 import { Currencies } from "../../utilities/enums";
 import { getBTCPrice } from "../../api/btcPrice.api";
 import { LeaderboardTips } from "../../entities/ordinal/LeaderboardTips.entity";
+import { OrdinalWithCount } from "../../types/ordinals.types";
 
 export const tipUser = async (req: Request, res: Response) => {
   // VALIDATE REQUEST
@@ -248,9 +249,6 @@ export const tipCommunity = async (req: Request, res: Response) => {
   });
   if (otpError) return res.status(400).send(message(false, otpError));
 
-  firstOTP.isUsed = true;
-  await adminOTPRepository.save(firstOTP);
-
   // CHECK IF ORDINAL COLLECTION EXISTS AND ITS ACTIVE
   const ordinalCollectionsRepository =
     dataSource.getRepository(OrdinalCollections);
@@ -351,27 +349,53 @@ export const tipCommunity = async (req: Request, res: Response) => {
 
   // AWAIT THE FIRST 50 ITEMS AND DON'T AWAIT THE REST IN THE CASE THERE ARE 100 OF ITEMS .. USER SHOULD NOT WAIT TOO LONG
 
-  const awaitOrdinals: Ordinals[] = [];
-  const nonAwaitOrdinals: Ordinals[] = [];
+  const ordinalsWithCount: OrdinalWithCount[] = [];
 
   for (let i = 0; i < filteredOrdinals.length; i++) {
+    const ordinal = filteredOrdinals?.[i];
+    const lightningAddress = ordinal?.user?.lightningAddress;
+    let found = false;
+
+    for (let j = 0; j < ordinalsWithCount.length; j++) {
+      if (
+        ordinalsWithCount[j]?.ordinal?.user?.lightningAddress ===
+        lightningAddress
+      ) {
+        ordinalsWithCount[j].count += 1;
+        found = true;
+        break;
+      }
+    }
+
+    if (!found) {
+      ordinalsWithCount.push({ ordinal, count: 1 });
+    }
+  }
+
+  const awaitOrdinals: OrdinalWithCount[] = [];
+  const nonAwaitOrdinals: OrdinalWithCount[] = [];
+
+  for (let i = 0; i < ordinalsWithCount.length; i++) {
     if (i < 50) {
-      awaitOrdinals.push(filteredOrdinals[i]);
+      awaitOrdinals.push(ordinalsWithCount[i]);
     } else {
-      nonAwaitOrdinals.push(filteredOrdinals[i]);
+      nonAwaitOrdinals.push(ordinalsWithCount[i]);
     }
   }
 
   const handlePayments = async ({
-    ordinal,
+    ordinalWithCount,
     isAwait,
   }: {
-    ordinal: Ordinals;
+    ordinalWithCount: OrdinalWithCount;
     isAwait: boolean;
   }) => {
+    const ordinal = ordinalWithCount?.ordinal;
+    const amount = ordinalWithCount?.count * individualAmount;
+
     const response = await handleLNURLPayment({
       address: ordinal?.user?.lightningAddress ?? "",
-      amountInSat: individualAmount,
+      amountInSat: amount,
     });
     const responseData = response?.data as PayResult;
     const ordinalTip = ordinalTipsRepository.create({
@@ -443,7 +467,7 @@ export const tipCommunity = async (req: Request, res: Response) => {
 
   for (let i = 0; i < awaitOrdinals?.length; i++) {
     const response = await handlePayments({
-      ordinal: awaitOrdinals?.[i],
+      ordinalWithCount: awaitOrdinals?.[i],
       isAwait: true,
     });
     if (!response?.status) {
@@ -468,17 +492,17 @@ export const tipCommunity = async (req: Request, res: Response) => {
     });
   }
 
-  nonAwaitOrdinals?.forEach(async (ordinal) => {
-    if (ordinal) {
-      handlePayments({ isAwait: false, ordinal });
+  nonAwaitOrdinals?.forEach(async (ordinalWithCount) => {
+    if (ordinalWithCount) {
+      handlePayments({ isAwait: false, ordinalWithCount });
     }
   });
 
   currentBTCPrice = "";
   currentSource = "";
 
-  // firstOTP.isUsed = true;
-  // await adminOTPRepository.save(firstOTP);
+  firstOTP.isUsed = true;
+  await adminOTPRepository.save(firstOTP);
 
   return res
     .status(201)

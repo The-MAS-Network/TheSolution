@@ -1,6 +1,7 @@
 import { Repository } from "typeorm";
 import { OrdinalWallets } from "../entities/ordinal/OrdinalWallets.entity";
 import { CreateOrdinalReq } from "./ordinals";
+import { Ordinals } from "../entities/ordinal/Ordinals.entity";
 
 export interface InscriptionData {
   id: string;
@@ -152,4 +153,9 @@ export interface SaveOrdinalByUserInDb {
   mimeType: string;
   ordinalId: string;
   possibleOrdinalContent?: string;
+}
+
+export interface OrdinalWithCount {
+  ordinal: Ordinals;
+  count: number;
 }
