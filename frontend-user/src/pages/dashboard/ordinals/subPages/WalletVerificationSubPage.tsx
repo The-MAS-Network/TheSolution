@@ -24,8 +24,8 @@ const pageValues = [
   "Expires in",
   "Only pay one-time verification fee from this Wallet Address:",
   "DISCONNECT WALLET",
-  "Step 1.",
-  "Step 2.",
+  "STEP 1.",
+  "STEP 2.",
   paymentAmount,
 ] as const;
 
@@ -84,9 +84,12 @@ const WalletVerificationSubPage = (): JSX.Element => {
       </div> */}
 
       <div className="w-full rounded-2xl bg-appBlue160 p-4">
-        <h1 className="text-base font-bold sm:text-lg">
-          {translatedValues["Copy Unique Payment Address:"]}
+      <h1 className="text-base font-bold sm:text-lg">
+          {translatedValues["STEP 1."]}
         </h1>
+        <h2 className="text-base font-bold sm:text-lg">
+          {translatedValues["Copy Unique Payment Address:"]}
+        </h2>
 
         <ul className="flex items-center justify-between gap-10">
           <p className="custom-break-words flex-1  text-base font-semibold text-appYellow300">
@@ -111,7 +114,11 @@ const WalletVerificationSubPage = (): JSX.Element => {
           </button>
         </ul>
 
+
         <div className="flex flex-wrap items-center justify-between gap-0 pb-5 pt-10">
+        <h1 className="text-base font-bold sm:text-lg">
+          {translatedValues["STEP 2."]}
+        </h1>
           <h2 className="text-base font-bold sm:text-lg">
             {translatedValues?.["Amount to Pay:"]} {"  "} {paymentDollarAmount}
           </h2>
@@ -124,43 +131,6 @@ const WalletVerificationSubPage = (): JSX.Element => {
           </div>
         </div>
 
-        {/* <ul className="mt-4 flex items-center justify-between gap-3">
-          <p className="flex-1 truncate  text-base font-semibold text-appYellow300 md:text-lg lg:text-xl">
-            {paymentAmount}
-          </p>
-
-          <button
-            type="button"
-            onClick={() =>
-              copyTextToClipboard({
-                errorText: "An error occured while copying payment amount. ",
-                successText: "Payment amount copied succesfully.",
-                text: paymentAmount,
-              })
-            }
-            className="flex items-center gap-1 rounded-full bg-appBlue150 px-3 py-2 text-sm font-normal transition-all duration-300 hover:scale-110 active:scale-95"
-          >
-            <span>{translatedValues.Copy}</span>
-            <Icon
-              icon="solar:copy-bold"
-              className="text-lg md:text-xl lg:text-2xl"
-            />
-          </button>
-        </ul> */}
-
-        {/* <ul className="mt-7 flex items-center justify-between gap-3">
-          <p className="flex-1 truncate text-base font-semibold text-appYellow300 md:text-lg lg:text-xl">
-            {translatedValues["Expires in"]}
-          </p>
-
-          <dl className="flex items-center gap-1 rounded-full bg-appBlue150 px-3 py-2 text-sm font-normal transition-all duration-300 hover:scale-110 active:scale-95">
-            <dd>15:00</dd>
-            <Icon
-              icon="icon-park-twotone:time"
-              className="text-lg md:text-xl lg:text-2xl"
-            />
-          </dl>
-        </ul> */}
       </div>
 
       <div className="flex flex-col items-center justify-center">
