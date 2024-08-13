@@ -118,6 +118,7 @@ export interface TipGroup {
   singleTip: OrdinalTip;
   ordinalCollection: OrdinalCollection;
   totalSent: number;
+  individualAmount: number
 }
 
 export interface OrdinalTip {
